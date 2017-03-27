@@ -27,8 +27,11 @@
     "metal"
   ],
   "dependencies": {
+    "metal": "^2.0.0",
+    "metal-component": "^2.0.0",
+    "metal-dom": "^2.0.0",
+    "metal-events": "^2.0.0",
     "metal-quartz-icon": "^0.0.0",
-    "metal-dropdown": "^2.0.0",
     "metal-soy": "^2.0.0"
   },
   "devDependencies": {

@@ -1,0 +1,116 @@
+{namespace MetalQuartzDropdown}
+
+/**
+ * This renders a Metal Quartz Dropdown component.
+ */
+{template .render}
+	{@param dropdownContainerElement: string}
+	{@param dropdownState: string}
+	{@param renderDropdownMenu: bool}
+	{@param? body: html}
+	{@param? header: html}
+	{@param? dropdownItems: ?}
+	{@param? dropdownToggle: ?}
+
+	{call .containerTag data="all"}
+		{param classes: 'dropdown' + $dropdownState /}
+		{param containerElement: $dropdownContainerElement /}
+		{param content kind="html"}
+			{call .dropdownToggle data="all" /}
+
+			{if $renderDropdownMenu}
+				{call .dropdownItems data="all" /}
+			{/if}
+		{/param}
+	{/call}
+{/template}
+
+/**
+ * This renders a container's html tag.
+ */
+{template .containerTag}
+	{@param classes: string}
+	{@param containerElement: string}
+	{@param content: html}
+
+	{switch $containerElement}
+		{case 'li'}
+			<li class="{$classes}">
+				{$content}
+			</li>
+		{default}
+			<div class="{$classes}">
+				{$content}
+			</div>
+	{/switch}
+{/template}
+
+/**
+ * This renders the dropdown toggle.
+ */
+{template .dropdownToggle}
+	{@param dropdownToggle: ?}
+	{@param? header: html}
+
+	{if $header}
+		{$header}
+	{elseif $dropdownToggle}
+		{switch $dropdownToggle.component}
+			{case 'link'}
+				<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
+					{if $dropdownToggle.icon and $dropdownToggle.icon.alignment == 'left'}
+						{call MetalQuartzIcon.render data="all"}
+							{param spritemap: $dropdownToggle.icon.spritemap /}
+							{param symbol: $dropdownToggle.icon.symbol /}
+						{/call}
+						{$dropdownToggle.label ? $dropdownToggle.label : ''}
+					{elseif $dropdownToggle.icon}
+						{$dropdownToggle.label ? $dropdownToggle.label : ''}
+						{call MetalQuartzIcon.render data="all"}
+							{param spritemap: $dropdownToggle.icon.spritemap /}
+							{param symbol: $dropdownToggle.icon.symbol /}
+						{/call}
+					{else}
+						{$dropdownToggle.label ? $dropdownToggle.label : ''}
+					{/if}
+				</a>
+			{default}
+				<button class="{$dropdownToggle.elementClasses}" data-onclick="toggle">
+					{$dropdownToggle.label ? $dropdownToggle.label : ''}
+				</button>
+		{/switch}
+	{/if}
+{/template}
+
+/**
+ * This renders the dropdown menu items.
+ */
+{template .dropdownItems}
+	{@param dropdownItems: ?}
+	{@param? body: html}
+
+	{if $body}
+		{$body}
+	{elseif $dropdownItems}
+		<ul class="dropdown-menu">
+			{foreach $item in $dropdownItems}
+				{let $elementClasses: $item.elementClasses ? ' ' + $item.elementClasses : '' /}
+
+				{switch $item.component}
+					{case 'header'}
+						<li class="dropdown-header{$elementClasses}">
+							{$item.label ? $item.label : ''}
+						</li>
+					{case 'divider'}
+						<li class="divider{$elementClasses}"></li>
+					{default}
+						<li class="{$item.elementClasses}">
+							<a href="{$item.href}">
+								{$item.label ? $item.label : ''}
+							</a>
+						</li>
+				{/switch}
+			{/foreach}
+		</ul>
+	{/if}
+{/template}
