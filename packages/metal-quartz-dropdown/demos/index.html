@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Demo: Metal Quartz Dropdown</title>
+
+		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/metal-quartz-dropdown.js"></script>
+	</head>
+	<body>
+		<h1>Metal Quartz Dropdown</h1>
+
+		<script type="text/javascript">
+			new metal.MetalQuartzDropdown({
+				dropdownItems: [{
+					component: 'header',
+					label: 'Dropdown Header'
+				}, {
+					component: 'link',
+					elementClasses: 'active',
+					href: '#1',
+					label: 'Item 1'
+				}, {
+					component: 'divider',
+				}, {
+					component: 'link',
+					elementClasses: 'disabled',
+					href: '#1',
+					label: 'Item 2'
+				}],
+				dropdownToggle: {
+					component: 'link',
+					elementClasses: 'btn btn-link',
+					href: '#1',
+					icon: {
+						spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+						symbol: 'caret-bottom'
+					},
+					label: 'Link'
+				}
+			});
+
+			new metal.MetalQuartzDropdown({
+				dropdownItems: [{
+					href: '#1',
+					label: 'Item 1',
+				}, {
+					href: '#1',
+					label: 'Item 2'
+				}, {
+					href: '#1',
+					label: 'Item 3'
+				}],
+				dropdownToggle: {
+					component: 'link',
+					elementClasses: 'btn btn-link',
+					icon: {
+						alignment: 'left',
+						spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+						symbol: 'caret-bottom'
+					},
+					label: 'Link 2'
+				},
+				elementClasses: 'dropdown-wide'
+			});
+
+			new metal.MetalQuartzDropdown({
+				body: '<ul class="dropdown-menu"><li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li><a href="#">Separated link</a></li></ul>',
+				header: '<button data-onclick="toggle" class="btn btn-primary">Dropdown</button>'
+			});
+		</script>
+	</body>
+</html>
