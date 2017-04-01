@@ -9,7 +9,45 @@
 </head>
 <body>
 	<h1>Metal Quartz Checkbox</h1>
+
 	<script type="text/javascript">
+		new metal.MetalQuartzCheckbox({
+		});
+
+		new metal.MetalQuartzCheckbox({
+			elementClasses: 'checkbox-default',
+			label: 'Checkbox 1 Label',
+			name: 'myUniqueCheckboxName_!!11!'
+		});
+
+		new metal.MetalQuartzCheckbox({
+			checked: true,
+			label: 'Checkbox 2 Label'
+		});
+
+		new metal.MetalQuartzCheckbox({
+			disabled: true,
+			label: 'Checkbox 3 Label'
+		});
+
+		new metal.MetalQuartzCheckbox({
+			checkboxInline: [{
+				checked: true,
+				label: 'Inline 1'
+			}, {
+				label: 'Inline 2'
+			}, {
+				checked: true,
+				disabled: true,
+				label: 'Inline 3'
+			}, {
+				label: 'Inline 4'
+			}, {
+				label: 'Inline 5'
+			}, {
+				label: 'Inline 6'
+			}]
+		});
 	</script>
 </body>
 </html>
