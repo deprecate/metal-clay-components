@@ -4,5 +4,79 @@
  * This renders a checkbox element based on the Quartz Checkbox.
  */
 {template .render}
+	{@param? checkboxInline: ?}
+	{@param? checked: bool}
+	{@param? disabled: bool}
+	{@param? elementClasses: string}
+	{@param? label: html}
+	{@param? name: string}
 
+	{let $attrs kind="attributes"}
+		class="checkbox{$elementClasses ? ' ' + $elementClasses : ''}"
+	{/let}
+
+	<div {$attrs}>
+		{if $checkboxInline}
+			{call .checkboxInline data="all"}
+				{param checkboxInline: $checkboxInline /}
+			{/call}
+		{else}
+			{call .labelAndCheckbox data="all"}
+				{param checked: $checked /}
+				{param disabled: $disabled /}
+				{param label: $label /}
+				{param labelElementClasses: $disabled ? 'disabled' : '' /}
+				{param name: $name /}
+			{/call}
+		{/if}
+	</div>
+{/template}
+
+{template .labelAndCheckbox}
+	{@param? checked: bool}
+	{@param? disabled: bool}
+	{@param? label: html}
+	{@param? labelElementClasses: string}
+	{@param? name: string}
+
+	{let $inputAttrs kind="attributes"}
+		{if $checked}
+			checked
+		{/if}
+
+		{if $disabled}
+			disabled
+		{/if}
+
+		name="{$name}"
+		type="checkbox"
+	{/let}
+
+	{let $labelAttrs kind="attributes"}
+		class="{$labelElementClasses}"
+	{/let}
+
+	<label {$labelAttrs}>
+		<input {$inputAttrs}></input>
+
+		{$label}
+	</label>
+{/template}
+
+{template .checkboxInline}
+	{@param checkboxInline: ?}
+
+	{foreach $checkbox in $checkboxInline}
+		{let $labelElementClasses kind="text"}
+			{$checkbox.disabled ? 'checkbox-inline disabled' : 'checkbox-inline'}
+		{/let}
+
+		{call .labelAndCheckbox data="all"}
+			{param checked: $checkbox.checked /}
+			{param disabled: $checkbox.disabled /}
+			{param label: $checkbox.label /}
+			{param labelElementClasses: $labelElementClasses /}
+			{param name: $checkbox.name /}
+		{/call}
+	{/foreach}
 {/template}
