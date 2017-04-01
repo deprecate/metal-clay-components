@@ -2,6 +2,35 @@
 
 A Metal Quartz component for rendering a checkbox element.
 
+Rendering a Checkbox
+```javascript
+new metal.MetalQuartzCheckbox({});
+
+```
+
+Rendering a Checkbox with Label and Attributes
+```javascript
+new metal.MetalQuartzCheckbox({
+	checked: true,
+	disabled: true,
+	label: 'My Checkbox',
+	name: 'myCheckboxName'
+});
+```
+
+Rendering an Inline Checkbox
+```javascript
+new metal.MetalQuartzCheckbox({
+	checkboxInline: [{
+		label: 'Checkbox 1'
+	}, {
+		label: 'Checkbox 2'
+	}, {
+		checked: true,
+		disabled: true,
+		label: 'Checkbox 3'
+	}]
+});
 ```
 
 ## Setup
