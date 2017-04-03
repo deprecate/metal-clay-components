@@ -33,14 +33,15 @@ MetalQuartzButton.STATE = {
 	},
 
 	/**
-	 * The icon name required for the icons library.
+	 * Render MetalQuartzButton in the link, available options are
+	 * `elementClasses`, `spritemap`, `symbol`.
 	 * @instance
-	 * @memberof MetalQuartzIcon
-	 * @type {?string}
+	 * @memberof MetalQuartzButton
+	 * @type {?Object}
 	 * @default undefined
 	 */
 	icon: {
-		validator: validators.string
+		validator: validators.object
 	},
 
 	/**
@@ -52,17 +53,6 @@ MetalQuartzButton.STATE = {
 	 * @default undefined
 	 */
 	size: {
-		validator: validators.string
-	},
-
-	/**
-	 * The svg spritemap that will be used for loading svg icons.
-	 * @instance
-	 * @memberof MetalQuartzButton
-	 * @type {?string}
-	 * @default undefined
-	 */
-	spritemap: {
 		validator: validators.string
 	},
 

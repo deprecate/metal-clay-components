@@ -196,8 +196,10 @@
 		new metal.MetalQuartzButton(
 			{
 				label: 'Add Button',
-				spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
-				icon: 'plus'
+				icon: {
+					spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+					symbol: 'plus'
+				}
 			},
 			'#icons-block'
 		);
