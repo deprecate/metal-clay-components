@@ -1,0 +1,67 @@
+{namespace MetalQuartzLink}
+
+/**
+ * This renders an anchor element.
+ */
+{template .render}
+	{@param? dataOnclick: string}
+	{@param? download: string}
+	{@param? elementClasses: string}
+	{@param? href: string}
+	{@param? html: html}
+	{@param? icon: ?}
+	{@param? id: string}
+	{@param? label: html}
+	{@param? target: string}
+
+	{if $html}
+		{$html}
+	{else}
+		{let $attrs kind="attributes"}
+			{if $elementClasses}
+				class="{$elementClasses}"
+			{/if}
+
+			{if $download}
+				download="{$download}"
+			{/if}
+
+			{if $href}
+				href="{$href}"
+			{/if}
+
+			{if $id}
+				id="{$id}"
+			{/if}
+
+			{if $target}
+				target="{$target}"
+			{/if}
+		{/let}
+
+		<a {$attrs}>
+			{if $icon and $icon.alignment == 'left'}
+				{call .metalQuartzIcon data="all" /}
+			{/if}
+
+			{$label}
+
+			{if $icon and not $icon.alignment or $icon and $icon.alignment == 'right'}
+				{call .metalQuartzIcon data="all" /}
+			{/if}
+		</a>
+	{/if}
+{/template}
+
+/**
+ * This renders a Metal Quartz Icon.
+ */
+{template .metalQuartzIcon}
+	{@param icon: ?}
+
+	{call MetalQuartzIcon.render data="all"}
+		{param elementClasses: $icon.elementClasses /}
+		{param spritemap: $icon.spritemap /}
+		{param symbol: $icon.symbol /}
+	{/call}
+{/template}
