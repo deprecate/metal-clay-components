@@ -42,17 +42,6 @@ MetalClayLink.STATE = {
 	},
 
 	/**
-	 * Render custom HTML instead of using the template.
-	 * @instance
-	 * @memberof MetalClayLink
-	 * @type {?string}
-	 * @default undefined
-	 */
-	html: {
-		isHtml: true
-	},
-
-	/**
 	 * Render MetalClayIcon in the link, available options are `alignment`,
 	 * `elementClasses`, `spritemap`, `symbol`.
 	 * @instance

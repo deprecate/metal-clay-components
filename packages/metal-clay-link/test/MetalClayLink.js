@@ -52,14 +52,6 @@ describe('MetalClayLink', function() {
 		assert.strictEqual(component.element.getAttribute('target'), 'http://www.example.com');
 	});
 
-	it('should should be able to render straight html', () => {
-		component = new MetalClayLink({
-			html: '<a aria-label="my-aria-label" href="#1" target="_blank">Html</a>'
-		});
-
-		assert.strictEqual(component.element.outerHTML, __html__['test/fixture/testDefaultMetalClayLink.html'].trim());
-	});
-
 	it('should render the correct markup with icon on the right', () => {
 		component = new MetalClayLink({
 			href: '#1',
