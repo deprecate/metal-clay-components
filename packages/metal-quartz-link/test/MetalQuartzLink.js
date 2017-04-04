@@ -52,14 +52,6 @@ describe('MetalQuartzLink', function() {
 		assert.strictEqual(component.element.getAttribute('target'), 'http://www.example.com');
 	});
 
-	it('should should be able to render straight html', () => {
-		component = new MetalQuartzLink({
-			html: '<a aria-label="my-aria-label" href="#1" target="_blank">Html</a>'
-		});
-
-		assert.strictEqual(component.element.outerHTML, __html__['test/fixture/testDefaultMetalQuartzLink.html'].trim());
-	});
-
 	it('should render the correct markup with icon on the right', () => {
 		component = new MetalQuartzLink({
 			href: '#1',

@@ -42,17 +42,6 @@ MetalQuartzLink.STATE = {
 	},
 
 	/**
-	 * Render custom HTML instead of using the template.
-	 * @instance
-	 * @memberof MetalQuartzLink
-	 * @type {?string}
-	 * @default undefined
-	 */
-	html: {
-		isHtml: true
-	},
-
-	/**
 	 * Render MetalQuartzIcon in the link, available options are `alignment`,
 	 * `elementClasses`, `spritemap`, `symbol`.
 	 * @instance
