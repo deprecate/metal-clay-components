@@ -196,8 +196,25 @@
 		new metal.MetalClayButton(
 			{
 				label: 'Add Button',
-				spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
-				icon: 'plus'
+				icon: {
+					spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+					symbol: 'plus'
+				}
+			},
+			'#icons-block'
+		);
+
+		/*
+		 * Extending button style.
+		 */
+		new metal.MetalQuartzButton(
+			{
+				label: 'Add Button',
+				icon: {
+					spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+					symbol: 'plus',
+					alignment: 'right'
+				}
 			},
 			'#icons-block'
 		);

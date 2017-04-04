@@ -7,36 +7,46 @@
 	{@param? block: bool}
 	{@param? disabled: bool}
 	{@param? href: string}
-	{@param? icon: string}
+	{@param? icon: ?}
 	{@param? label: html}
 	{@param? name: string}
 	{@param? size: string}
-	{@param? spritemap: string}
 	{@param? style: string}
 	{@param? type: string}
 	{@param? value: string}
 
+	{let $iconalign: $icon and $icon.alignment ? $icon.alignment : 'left' /}
+
 	{if $href}
 		<a href="{$href}" {call .attributes data="all" /}>
-			{call .icon data="all" /}
+			{if $icon and $iconalign == 'left'}
+				{call .icon data="all" /}
+			{/if}
 			{$label or ''}
+			{if $icon and $iconalign == 'right'}
+				{call .icon data="all" /}
+			{/if}
 		</a>
 	{else}
 		<button {call .attributes data="all" /}>
-			{call .icon data="all" /}
+			{if $icon and $iconalign == 'left'}
+				{call .icon data="all" /}
+			{/if}
 			{$label or ''}
+			{if $icon and $iconalign == 'right'}
+				{call .icon data="all" /}
+			{/if}
 		</button>
 	{/if}
 {/template}
 
 {template .icon}
-	{@param? icon: string}
-	{@param? spritemap: string}
+	{@param? icon: ?}
 
-	{if $icon and $spritemap}
+	{if $icon.symbol and $icon.spritemap}
 		{call MetalClayIcon.render}
-			{param spritemap: $spritemap /}
-			{param symbol: $icon /}
+			{param spritemap: $icon.spritemap /}
+			{param symbol: $icon.symbol /}
 		{/call}
 	{/if}
 {/template}
