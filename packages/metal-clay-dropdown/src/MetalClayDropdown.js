@@ -3,17 +3,18 @@
 import Component from 'metal-component';
 import core from 'metal';
 import dom from 'metal-dom';
-import MetalQuartzIcon from 'metal-quartz-icon';
 import Soy from 'metal-soy';
 import { EventHandler } from 'metal-events';
 import { validators } from 'metal-state';
 
-import templates from './MetalQuartzDropdown.soy';
+import 'metal-clay-icon';
+
+import templates from './MetalClayDropdown.soy';
 
 /**
  * Dropdown Metal Quartz component.
  */
-class MetalQuartzDropdown extends Component {
+class MetalClayDropdown extends Component {
 	/**
 	 * @inheritDoc
 	 */
@@ -30,7 +31,7 @@ class MetalQuartzDropdown extends Component {
 
 		this.renderDropdownMenu = true;
 
-		MetalQuartzDropdown.instances.push(this);
+		MetalClayDropdown.instances.push(this);
 
 		this.on('expandedChanged', this.syncDropdownState_);
 		this.syncDropdownState_();
@@ -102,11 +103,11 @@ class MetalQuartzDropdown extends Component {
  * @static
  * @type {!Object}
  */
-MetalQuartzDropdown.STATE = {
+MetalClayDropdown.STATE = {
 	/**
 	 * The dropdown's body content.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {string}
 	 * @default undefined
 	 */
@@ -117,7 +118,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * The items to add to the dropdown-menu.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {array}
 	 * @default undefined
 	 */
@@ -128,7 +129,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * The CSS class to toggle when opening and closing the dropdown.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {string}
 	 * @default `open`
 	 */
@@ -140,7 +141,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * The HTML element to use on .dropdown.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {string}
 	 * @default `div`
 	 */
@@ -152,7 +153,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * The configuration for the dropdown-toggle
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {!Object}
 	 * @default undefined
 	 */
@@ -163,7 +164,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * Flag indicating if the dropdown is expanded (open) or not.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {boolean}
 	 * @default false
 	 */
@@ -174,7 +175,7 @@ MetalQuartzDropdown.STATE = {
 	/**
 	 * The dropdown's header content.
 	 * @instance
-	 * @memberof MetalQuartzDropdown
+	 * @memberof MetalClayDropdown
 	 * @type {string}
 	 * @default undefined
 	 */
@@ -184,10 +185,10 @@ MetalQuartzDropdown.STATE = {
 };
 
 /**
- * An array of all MetalQuartzDropdown's that are created on the page.
+ * An array of all MetalClayDropdown's that are created on the page.
  */
-MetalQuartzDropdown.instances = [];
+MetalClayDropdown.instances = [];
 
-Soy.register(MetalQuartzDropdown, templates);
+Soy.register(MetalClayDropdown, templates);
 
-export default MetalQuartzDropdown;
+export default MetalClayDropdown;

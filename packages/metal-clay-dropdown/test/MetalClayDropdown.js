@@ -2,9 +2,9 @@
 
 import { async } from 'metal';
 import dom from 'metal-dom';
-import MetalQuartzDropdown from '../src/MetalQuartzDropdown';
+import MetalClayDropdown from '../src/MetalClayDropdown';
 
-describe('MetalQuartzDropdown', function() {
+describe('MetalClayDropdown', function() {
 	let dropdown;
 
 	afterEach(function() {
@@ -14,7 +14,7 @@ describe('MetalQuartzDropdown', function() {
 	});
 
 	it('should append elementClasses to the outer element.', function() {
-		dropdown = new MetalQuartzDropdown({
+		dropdown = new MetalClayDropdown({
 			elementClasses: 'dropdown-wide',
 			dropdownToggle: {
 				component: 'link',
@@ -37,7 +37,7 @@ describe('MetalQuartzDropdown', function() {
 		const elArray = ['li', 'div'];
 
 		for (const el of elArray) {
-			dropdown = new MetalQuartzDropdown({
+			dropdown = new MetalClayDropdown({
 				dropdownContainerElement: el,
 				dropdownToggle: {
 					component: 'link',
@@ -60,7 +60,7 @@ describe('MetalQuartzDropdown', function() {
 	});
 
 	it('should default to div if dropdownParentElement is not defined.', function() {
-		dropdown = new MetalQuartzDropdown({
+		dropdown = new MetalClayDropdown({
 			dropdownToggle: {
 				component: 'link',
 				elementClasses: 'btn btn-link',
@@ -78,8 +78,8 @@ describe('MetalQuartzDropdown', function() {
 		assert.ok(dom.match(dropdown.element, 'div.dropdown'));
 	});
 
-	it('should add class `open` to dropdown when clicked', function(done) {
-		dropdown = new MetalQuartzDropdown({
+	it('should add class `show` to dropdown when clicked', function(done) {
+		dropdown = new MetalClayDropdown({
 			dropdownToggle: {
 				component: 'link',
 				elementClasses: 'btn btn-link',
@@ -97,14 +97,14 @@ describe('MetalQuartzDropdown', function() {
 		dom.triggerEvent(dropdown.element.querySelector('.btn.btn-link'), 'click');
 
 		async.nextTick(function() {
-			assert(dom.hasClass(document.querySelector('.dropdown'), 'open'));
+			assert(dom.hasClass(document.querySelector('.dropdown'), 'show'));
 
 			done();
 		});
 	});
 
 	it('should add class `show` to dropdown when clicked', function(done) {
-		dropdown = new MetalQuartzDropdown({
+		dropdown = new MetalClayDropdown({
 			dropdownOpenClass: 'show',
 
 			dropdownToggle: {

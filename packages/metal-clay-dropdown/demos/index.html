@@ -2,16 +2,16 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Demo: Metal Quartz Dropdown</title>
+		<title>Demo: Metal Clay Dropdown</title>
 
-		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
-		<script src="../build/globals/metal-quartz-dropdown.js"></script>
+		<link rel="stylesheet" href="../node_modules/clay/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/metal-clay-dropdown.js"></script>
 	</head>
 	<body>
-		<h1>Metal Quartz Dropdown</h1>
+		<h1>Metal Clay Dropdown</h1>
 
 		<script type="text/javascript">
-			new metal.MetalQuartzDropdown({
+			new metal.MetalClayDropdown({
 				dropdownItems: [{
 					component: 'header',
 					label: 'Dropdown Header'
@@ -33,14 +33,14 @@
 					elementClasses: 'btn btn-link',
 					href: '#1',
 					icon: {
-						spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+						spritemap: '../node_modules/clay/build/images/icons/icons.svg',
 						symbol: 'caret-bottom'
 					},
 					label: 'Link'
 				}
 			});
 
-			new metal.MetalQuartzDropdown({
+			new metal.MetalClayDropdown({
 				dropdownItems: [{
 					href: '#1',
 					label: 'Item 1',
@@ -56,7 +56,7 @@
 					elementClasses: 'btn btn-link',
 					icon: {
 						alignment: 'left',
-						spritemap: '../node_modules/lexicon-ux/build/images/icons/icons.svg',
+						spritemap: '../node_modules/clay/build/images/icons/icons.svg',
 						symbol: 'caret-bottom'
 					},
 					label: 'Link 2'
@@ -64,7 +64,7 @@
 				elementClasses: 'dropdown-wide'
 			});
 
-			new metal.MetalQuartzDropdown({
+			new metal.MetalClayDropdown({
 				body: '<ul class="dropdown-menu"><li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li><a href="#">Separated link</a></li></ul>',
 				header: '<button data-onclick="toggle" class="btn btn-primary">Dropdown</button>'
 			});
