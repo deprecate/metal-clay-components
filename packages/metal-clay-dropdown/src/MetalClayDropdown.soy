@@ -9,8 +9,23 @@
 	{@param renderDropdownMenu: bool}
 	{@param? body: html}
 	{@param? header: html}
-	{@param? dropdownItems: ?}
-	{@param? dropdownToggle: ?}
+	{@param? dropdownItems: list<[
+		component: string,
+		elementClasses: string,
+		href: string,
+		label: string
+	]>}
+	{@param? dropdownToggle: [
+		component: string,
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
 
 	{call .containerTag data="all"}
 		{param classes: 'dropdown' + $dropdownState /}
@@ -49,7 +64,17 @@
  * This renders the dropdown toggle.
  */
 {template .dropdownToggle}
-	{@param dropdownToggle: ?}
+	{@param? dropdownToggle: [
+		component: string,
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
 	{@param? header: html}
 
 	{if $header}
@@ -86,7 +111,12 @@
  * This renders the dropdown menu items.
  */
 {template .dropdownItems}
-	{@param dropdownItems: ?}
+	{@param? dropdownItems: list<[
+		component: string,
+		elementClasses: string,
+		href: string,
+		label: string
+	]>}
 	{@param? body: html}
 
 	{if $body}
