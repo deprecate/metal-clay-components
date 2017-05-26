@@ -126,9 +126,9 @@ MetalClayDropdown.STATE = {
 	 * @instance
 	 * @memberof MetalClayDropdown
 	 * @type {string}
-	 * @default `open`
+	 * @default `show`
 	 */
-	dropdownOpenClass: Config.string().value('open'),
+	dropdownOpenClass: Config.string().value('show'),
 
 	/**
 	 * The HTML element to use on .dropdown.

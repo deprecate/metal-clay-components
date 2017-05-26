@@ -128,25 +128,33 @@
 	{if $body}
 		{$body}
 	{elseif $dropdownItems}
-		<ul class="dropdown-menu">
+		<div class="dropdown-menu">
 			{foreach $item in $dropdownItems}
-				{let $elementClasses: $item.elementClasses ? ' ' + $item.elementClasses : '' /}
+				{let $elementClasses kind="text"}
+					{if $item.elementClasses}
+						{sp}{$item.elementClasses}
+					{/if}
+				{/let}
 
 				{switch $item.component}
 					{case 'header'}
-						<li class="dropdown-header{$elementClasses}">
-							{$item.label ? $item.label : ''}
-						</li>
+						<h6 class="dropdown-header{$elementClasses}">
+							{$item.label ?: ''}
+						</h6>
 					{case 'divider'}
-						<li class="divider{$elementClasses}"></li>
+						<div class="dropdown-divider{$elementClasses}"></div>
 					{default}
-						<li class="{$item.elementClasses}">
-							<a href="{$item.href}">
-								{$item.label ? $item.label : ''}
+						{if $item.href}
+							<a class="dropdown-item{$elementClasses}" href="{$item.href}">
+								{$item.label ?: ''}
 							</a>
-						</li>
+						{else}
+							<button class="dropdown-item{$elementClasses}">
+								{$item.label ?: ''}
+							</button>
+						{/if}
 				{/switch}
 			{/foreach}
-		</ul>
+		</div>
 	{/if}
 {/template}
