@@ -4,17 +4,15 @@
  * This renders a Metal Clay Dropdown component.
  */
 {template .render}
-	{@param dropdownContainerElement: string}
-	{@param dropdownState: string}
-	{@param renderDropdownMenu: bool}
 	{@param? body: html}
-	{@param? header: html}
+	{@param? dropdownContainerElement: string}
 	{@param? dropdownItems: list<[
 		component: string,
 		elementClasses: string,
 		href: string,
 		label: string
 	]>}
+	{@param? dropdownState: string}
 	{@param? dropdownToggle: [
 		component: string,
 		elementClasses: string,
@@ -26,15 +24,23 @@
 		],
 		label: string
 	]}
+	{@param? header: html}
+	{@param? renderDropdownMenu: bool}
 
-	{call .containerTag data="all"}
+	{call .containerTag}
 		{param classes: 'dropdown' + $dropdownState /}
 		{param containerElement: $dropdownContainerElement /}
 		{param content kind="html"}
-			{call .dropdownToggle data="all" /}
+			{call .dropdownToggle}
+				{param dropdownToggle: $dropdownToggle /}
+				{param header: $header /}
+			{/call}
 
 			{if $renderDropdownMenu}
-				{call .dropdownItems data="all" /}
+				{call .dropdownItems}
+					{param body: $body /}
+					{param dropdownItems: $dropdownItems /}
+				{/call}
 			{/if}
 		{/param}
 	{/call}
@@ -44,9 +50,9 @@
  * This renders a container's html tag.
  */
 {template .containerTag}
-	{@param classes: string}
-	{@param containerElement: string}
 	{@param content: html}
+	{@param? classes: string}
+	{@param? containerElement: string}
 
 	{switch $containerElement}
 		{case 'li'}
@@ -84,14 +90,14 @@
 			{case 'link'}
 				<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
 					{if $dropdownToggle.icon and $dropdownToggle.icon.alignment == 'left'}
-						{call MetalClayIcon.render data="all"}
+						{call MetalClayIcon.render}
 							{param spritemap: $dropdownToggle.icon.spritemap /}
 							{param symbol: $dropdownToggle.icon.symbol /}
 						{/call}
 						{$dropdownToggle.label ? $dropdownToggle.label : ''}
 					{elseif $dropdownToggle.icon}
 						{$dropdownToggle.label ? $dropdownToggle.label : ''}
-						{call MetalClayIcon.render data="all"}
+						{call MetalClayIcon.render}
 							{param spritemap: $dropdownToggle.icon.spritemap /}
 							{param symbol: $dropdownToggle.icon.symbol /}
 						{/call}
@@ -111,13 +117,13 @@
  * This renders the dropdown menu items.
  */
 {template .dropdownItems}
+	{@param? body: html}
 	{@param? dropdownItems: list<[
 		component: string,
 		elementClasses: string,
 		href: string,
 		label: string
 	]>}
-	{@param? body: html}
 
 	{if $body}
 		{$body}
