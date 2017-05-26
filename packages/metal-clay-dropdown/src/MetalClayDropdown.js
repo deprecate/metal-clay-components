@@ -1,11 +1,10 @@
 'use strict';
 
 import Component from 'metal-component';
-import core from 'metal';
 import dom from 'metal-dom';
 import Soy from 'metal-soy';
 import { EventHandler } from 'metal-events';
-import { validators } from 'metal-state';
+import { Config } from 'metal-state';
 
 import 'metal-clay-icon';
 
@@ -119,12 +118,10 @@ MetalClayDropdown.STATE = {
 	 * The items to add to the dropdown-menu.
 	 * @instance
 	 * @memberof MetalClayDropdown
-	 * @type {array}
+	 * @type {array|undefined}
 	 * @default undefined
 	 */
-	dropdownItems: {
-		validator: validators.array
-	},
+	dropdownItems: Config.array(),
 
 	/**
 	 * The CSS class to toggle when opening and closing the dropdown.
@@ -133,10 +130,7 @@ MetalClayDropdown.STATE = {
 	 * @type {string}
 	 * @default `open`
 	 */
-	dropdownOpenClass: {
-		validator: validators.string,
-		value: 'open'
-	},
+	dropdownOpenClass: Config.string().value('open'),
 
 	/**
 	 * The HTML element to use on .dropdown.
@@ -145,21 +139,16 @@ MetalClayDropdown.STATE = {
 	 * @type {string}
 	 * @default `div`
 	 */
-	dropdownContainerElement: {
-		validator: validators.string,
-		value: 'div'
-	},
+	dropdownContainerElement: Config.string().value('div'),
 
 	/**
 	 * The configuration for the dropdown-toggle
 	 * @instance
 	 * @memberof MetalClayDropdown
-	 * @type {!Object}
+	 * @type {!Object|undefined}
 	 * @default undefined
 	 */
-	dropdownToggle: {
-		validator: validators.object
-	},
+	dropdownToggle: Config.object(),
 
 	/**
 	 * Flag indicating if the dropdown is expanded (open) or not.
@@ -168,15 +157,13 @@ MetalClayDropdown.STATE = {
 	 * @type {boolean}
 	 * @default false
 	 */
-	expanded: {
-		value: false
-	},
+	expanded: Config.bool().value(false),
 
 	/**
 	 * The dropdown's header content.
 	 * @instance
 	 * @memberof MetalClayDropdown
-	 * @type {string}
+	 * @type {string|undefined}
 	 * @default undefined
 	 */
 	header: {
