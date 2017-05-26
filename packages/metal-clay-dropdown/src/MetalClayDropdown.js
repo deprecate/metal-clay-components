@@ -28,8 +28,6 @@ class MetalClayDropdown extends Component {
 	created() {
 		this.eventHandler_ = new EventHandler();
 
-		this.renderDropdownMenu = true;
-
 		MetalClayDropdown.instances.push(this);
 
 		this.on('expandedChanged', this.syncDropdownState_);
@@ -168,7 +166,16 @@ MetalClayDropdown.STATE = {
 	 */
 	header: {
 		isHtml: true
-	}
+	},
+
+	/**
+	 * Says if the Dropdown Menu will be rendered or not.
+	 * @instance
+	 * @memberof MetalClayDropdown
+	 * @type {boolean}
+	 * @default false
+	 */
+	renderDropdownMenu: Config.bool().value(true)
 };
 
 /**
