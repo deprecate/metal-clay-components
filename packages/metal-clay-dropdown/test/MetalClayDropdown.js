@@ -17,14 +17,12 @@ describe('MetalClayDropdown', function() {
 		dropdown = new MetalClayDropdown({
 			elementClasses: 'dropdown-wide',
 			dropdownToggle: {
-				component: 'link',
 				elementClasses: 'btn btn-link',
 				href: '#1',
 				label: 'Dropdown Toggle'
 			},
 
 			dropdownItems: [{
-				component: 'link',
 				href: '#1',
 				label: 'Dropdown Item 1'
 			}]
@@ -40,14 +38,12 @@ describe('MetalClayDropdown', function() {
 			dropdown = new MetalClayDropdown({
 				dropdownContainerElement: el,
 				dropdownToggle: {
-					component: 'link',
 					elementClasses: 'btn btn-link',
 					href: '#1',
 					label: 'Dropdown Toggle'
 				},
 
 				dropdownItems: [{
-					component: 'link',
 					href: '#1',
 					label: 'Dropdown Item 1'
 				}]
@@ -62,14 +58,12 @@ describe('MetalClayDropdown', function() {
 	it('should default to div if dropdownParentElement is not defined.', function() {
 		dropdown = new MetalClayDropdown({
 			dropdownToggle: {
-				component: 'link',
 				elementClasses: 'btn btn-link',
 				href: '#1',
 				label: 'Dropdown Toggle'
 			},
 
 			dropdownItems: [{
-				component: 'link',
 				href: '#1',
 				label: 'Dropdown Item 1'
 			}]
@@ -81,14 +75,12 @@ describe('MetalClayDropdown', function() {
 	it('should add class `show` to dropdown when clicked', function(done) {
 		dropdown = new MetalClayDropdown({
 			dropdownToggle: {
-				component: 'link',
 				elementClasses: 'btn btn-link',
 				href: '#1',
 				label: 'Dropdown Toggle'
 			},
 
 			dropdownItems: [{
-				component: 'link',
 				href: '#1',
 				label: 'Dropdown Item 1'
 			}]
@@ -108,14 +100,12 @@ describe('MetalClayDropdown', function() {
 			dropdownOpenClass: 'show',
 
 			dropdownToggle: {
-				component: 'link',
 				elementClasses: 'btn btn-link',
 				href: '#1',
 				label: 'Dropdown Toggle'
 			},
 
 			dropdownItems: [{
-				component: 'link',
 				href: '#1',
 				label: 'Dropdown Item 1'
 			}]

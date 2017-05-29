@@ -14,7 +14,6 @@
 	]>}
 	{@param? dropdownState: string}
 	{@param? dropdownToggle: [
-		component: string,
 		elementClasses: string,
 		href: string,
 		icon: [
@@ -71,7 +70,6 @@
  */
 {template .dropdownToggle}
 	{@param? dropdownToggle: [
-		component: string,
 		elementClasses: string,
 		href: string,
 		icon: [
@@ -86,20 +84,19 @@
 	{if $header}
 		{$header}
 	{elseif $dropdownToggle}
-		{switch $dropdownToggle.component}
-			{case 'link'}
-				<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
-					{call .dropdownToggleContent}
-						{param dropdownToggle: $dropdownToggle /}
-					{/call}
-				</a>
-			{default}
-				<button class="{$dropdownToggle.elementClasses}" data-onclick="toggle">
-					{call .dropdownToggleContent}
-						{param dropdownToggle: $dropdownToggle /}
-					{/call}
-				</button>
-		{/switch}
+		{if $dropdownToggle.href}
+			<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
+				{call .dropdownToggleContent}
+					{param dropdownToggle: $dropdownToggle /}
+				{/call}
+			</a>
+		{else}
+			<button class="{$dropdownToggle.elementClasses}" data-onclick="toggle">
+				{call .dropdownToggleContent}
+					{param dropdownToggle: $dropdownToggle /}
+				{/call}
+			</button>
+		{/if}
 	{/if}
 {/template}
 
@@ -154,7 +151,6 @@
  */
 {template .dropdownToggleContent}
 	{@param? dropdownToggle: [
-		component: string,
 		elementClasses: string,
 		href: string,
 		icon: [
