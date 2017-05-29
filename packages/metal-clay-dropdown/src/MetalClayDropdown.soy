@@ -89,25 +89,15 @@
 		{switch $dropdownToggle.component}
 			{case 'link'}
 				<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
-					{if $dropdownToggle.icon and $dropdownToggle.icon.alignment == 'left'}
-						{call MetalClayIcon.render}
-							{param spritemap: $dropdownToggle.icon.spritemap /}
-							{param symbol: $dropdownToggle.icon.symbol /}
-						{/call}
-						{$dropdownToggle.label ? $dropdownToggle.label : ''}
-					{elseif $dropdownToggle.icon}
-						{$dropdownToggle.label ? $dropdownToggle.label : ''}
-						{call MetalClayIcon.render}
-							{param spritemap: $dropdownToggle.icon.spritemap /}
-							{param symbol: $dropdownToggle.icon.symbol /}
-						{/call}
-					{else}
-						{$dropdownToggle.label ? $dropdownToggle.label : ''}
-					{/if}
+					{call .dropdownToggleContent}
+						{param dropdownToggle: $dropdownToggle /}
+					{/call}
 				</a>
 			{default}
 				<button class="{$dropdownToggle.elementClasses}" data-onclick="toggle">
-					{$dropdownToggle.label ? $dropdownToggle.label : ''}
+					{call .dropdownToggleContent}
+						{param dropdownToggle: $dropdownToggle /}
+					{/call}
 				</button>
 		{/switch}
 	{/if}
@@ -156,5 +146,38 @@
 				{/switch}
 			{/foreach}
 		</div>
+	{/if}
+{/template}
+
+/**
+ * This renders the dropdown menu items.
+ */
+{template .dropdownToggleContent}
+	{@param? dropdownToggle: [
+		component: string,
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
+
+	{if $dropdownToggle.icon and $dropdownToggle.icon.alignment == 'left'}
+		{call MetalClayIcon.render}
+			{param spritemap: $dropdownToggle.icon.spritemap /}
+			{param symbol: $dropdownToggle.icon.symbol /}
+		{/call}
+		{$dropdownToggle.label ?: ''}
+	{elseif $dropdownToggle.icon}
+		{$dropdownToggle.label ?: ''}
+		{call MetalClayIcon.render}
+			{param spritemap: $dropdownToggle.icon.spritemap /}
+			{param symbol: $dropdownToggle.icon.symbol /}
+		{/call}
+	{else}
+		{$dropdownToggle.label ?: ''}
 	{/if}
 {/template}
