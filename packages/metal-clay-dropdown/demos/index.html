@@ -61,7 +61,13 @@
 			});
 
 			new metal.MetalClayDropdown({
-				body: '<ul class="dropdown-menu"><li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li><a href="#">Separated link</a></li></ul>',
+				body: `
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><a href="#">Action</a></li>
+						<li class="dropdown-item"><a href="#">Another action</a></li>
+						<li class="dropdown-item"><a href="#">Something else here</a></li>
+						<li class="dropdown-item"><a href="#">Separated link</a></li>
+					</ul>`,
 				header: '<button data-onclick="toggle" class="btn btn-primary">Dropdown</button>'
 			});
 		</script>
