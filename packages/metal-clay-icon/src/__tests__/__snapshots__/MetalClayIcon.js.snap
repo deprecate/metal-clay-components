@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MetalClayIcon should generate markup for icon \`add-cell\` 1`] = `"<div><svg aria-hidden=\\"true\\" class=\\"lexicon-icon lexicon-icon-add-cell\\" key=\\"undefined\\"><use xlink:href=\\"../node_modules/lexicon-ux/build/images/icons/icons.svg#add-cell\\" key=\\"undefined\\"></use></svg></div>"`;
