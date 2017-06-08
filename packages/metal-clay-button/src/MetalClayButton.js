@@ -12,6 +12,19 @@ import templates from './MetalClayButton.soy.js';
  * Metal Clay Button component.
  */
 class MetalClayButton extends MetalClayButtonBase {
+
+	attached() {
+		if (!this.disabled) {
+			this._clickHandler = this._onClick.bind(this);
+			this.on('click', this._clickHandler);
+		}
+	}
+
+	_onClick() {
+		const pressed = this.element.getAttribute('aria-pressed');
+		const newVal = pressed === 'false' ? 'true' : 'false';
+		this.element.setAttribute('aria-pressed', newVal);
+	}
 }
 
 /**
@@ -20,6 +33,17 @@ class MetalClayButton extends MetalClayButtonBase {
  * @type {!Object}
  */
 MetalClayButton.STATE = {
+	/**
+	 * Adds an aria description for the link.
+	 * @instance
+	 * @memberof MetalClayButton
+	 * @type {string}
+	 * @default ''
+	 */
+	aria_description: {
+		validator: validators.string
+	},
+
 	/**
 	 * Renders the button as a block element.
 	 * @instance

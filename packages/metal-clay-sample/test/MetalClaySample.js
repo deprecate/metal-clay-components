@@ -31,4 +31,17 @@ describe('MetalClaySample', function() {
 
 		assert.strictEqual(sample.element.outerHTML, __html__['test/fixture/testElementClassesMetalClaySample.html'].trim());
 	});
+
+	it('should have an role attribute if specified', function() {
+		sample = new MetalClaySample(
+			{
+				content: 'main content',
+				elementClasses: 'css-class',
+        role: 'main'
+			}
+		);
+
+		assert.strictEqual(sample.element.outerHTML, __html__['test/fixture/testRoleAttributeMetalClaySample.html'].trim());
+	});
+
 });
