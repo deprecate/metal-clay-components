@@ -5,14 +5,16 @@
  */
 {template .render}
 	{@param? elementClasses: string}
+	{@param? label: string}
 	{@param? spritemap: string}
 	{@param? symbol: string}
 
 	{if isNonnull($symbol) and isNonnull($spritemap)}
-		<svg aria-hidden="true" class="lexicon-icon lexicon-icon-{$symbol}{$elementClasses ? '  ' + $elementClasses : ''}">
+		<svg aria-hidden="true" aria-label="{$label}" class="lexicon-icon lexicon-icon-{$symbol}{$elementClasses ? '  ' + $elementClasses : ''}">
 			<use xlink:href="{$spritemap}#{$symbol}" />
 		</svg>
 	{elseif $elementClasses}
-		<span aria-hidden="true" class="{$elementClasses}"></span>
+		<span aria-hidden="true" aria-label="{$label}" class="{$elementClasses}"></span>
 	{/if}
+
 {/template}
