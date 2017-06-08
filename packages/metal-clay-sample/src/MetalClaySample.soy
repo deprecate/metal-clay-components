@@ -4,7 +4,8 @@
  * This renders a sample Metal Clay component.
  *
  * @param content
+ * @param? role
  */
 {template .render}
-	<section>{$content}</section>
+  <section{if $role}{sp}role="{$role}"{/if}>{$content}</section>
 {/template}
