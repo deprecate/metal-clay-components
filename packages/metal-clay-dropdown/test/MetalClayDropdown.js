@@ -89,15 +89,15 @@ describe('MetalClayDropdown', function() {
 		dom.triggerEvent(dropdown.element.querySelector('.btn.btn-link'), 'click');
 
 		async.nextTick(function() {
-			assert(dom.hasClass(document.querySelector('.dropdown'), 'show'));
+			assert.ok(dom.hasClass(document.querySelector('.dropdown'), 'show'));
 
 			done();
 		});
 	});
 
-	it('should add class `show` to dropdown when clicked', function(done) {
+	it('should add a custom CSS class to dropdown when clicked', function(done) {
 		dropdown = new MetalClayDropdown({
-			dropdownOpenClass: 'show',
+			dropdownOpenClass: 'opened',
 
 			dropdownToggle: {
 				elementClasses: 'btn btn-link',
@@ -114,7 +114,7 @@ describe('MetalClayDropdown', function() {
 		dom.triggerEvent(dropdown.element.querySelector('.btn.btn-link'), 'click');
 
 		async.nextTick(() => {
-			assert(dom.hasClass(document.querySelector('.dropdown'), 'show'));
+			assert.ok(dom.hasClass(document.querySelector('.dropdown'), 'opened'));
 
 			done();
 		});
