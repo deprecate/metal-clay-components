@@ -119,4 +119,71 @@ describe('MetalClayDropdown', function() {
 			done();
 		});
 	});
+
+	it('should isOpen inform if the dropdown is open', function() {
+		dropdown = new MetalClayDropdown({
+			dropdownOpenClass: 'opened',
+
+			dropdownToggle: {
+				elementClasses: 'btn btn-link',
+				href: '#1',
+				label: 'Dropdown Toggle'
+			},
+
+			dropdownItems: [{
+				href: '#1',
+				label: 'Dropdown Item 1'
+			}]
+		});
+
+		assert.strictEqual(dropdown.isOpen(), false, 'Should be closed.');
+		dropdown.open();
+		assert.strictEqual(dropdown.isOpen(), true, 'Should be opened.');
+	});
+
+	it('should close the dropdown by the public method close()', function() {
+		dropdown = new MetalClayDropdown({
+			dropdownOpenClass: 'opened',
+
+			dropdownToggle: {
+				elementClasses: 'btn btn-link',
+				href: '#1',
+				label: 'Dropdown Toggle'
+			},
+
+			dropdownItems: [{
+				href: '#1',
+				label: 'Dropdown Item 1'
+			}]
+		});
+
+		assert.strictEqual(dropdown.isOpen(), false, 'Should be closed.');
+		dropdown.open();
+		assert.strictEqual(dropdown.isOpen(), true, 'Should be opened.');
+		dropdown.close();
+		assert.strictEqual(dropdown.isOpen(), false, 'Should be closed.');
+	});
+
+	it('should close the dropdown by clicking outside', function() {
+		dropdown = new MetalClayDropdown({
+			dropdownOpenClass: 'opened',
+
+			dropdownToggle: {
+				elementClasses: 'btn btn-link',
+				href: '#1',
+				label: 'Dropdown Toggle'
+			},
+
+			dropdownItems: [{
+				href: '#1',
+				label: 'Dropdown Item 1'
+			}]
+		});
+
+		assert.strictEqual(dropdown.isOpen(), false, 'Should be closed.');
+		dropdown.open();
+		assert.strictEqual(dropdown.isOpen(), true, 'Should be opened.');
+		dom.triggerEvent(document, 'click');
+		assert.strictEqual(dropdown.isOpen(), false, 'Should be closed.');
+	});
 });
