@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Demo: Metal Clay Dropdown</title>
+
+		<link rel="stylesheet" href="../node_modules/clay/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/metal-clay-dropdown.js"></script>
+	</head>
+	<body>
+		<h1>Metal Clay Dropdown</h1>
+
+		<script type="text/javascript">
+			new metal.MetalClayDropdown({
+				dropdownItems: [{
+					component: 'header',
+					label: 'Dropdown Header'
+				}, {
+					elementClasses: 'active',
+					href: '#1',
+					label: 'Item 1'
+				}, {
+					component: 'divider',
+				}, {
+					elementClasses: 'disabled',
+					href: '#1',
+					label: 'Item 2'
+				}],
+				dropdownToggle: {
+					elementClasses: 'btn btn-link',
+					href: '#1',
+					icon: {
+						spritemap: '../node_modules/clay/build/images/icons/icons.svg',
+						symbol: 'caret-bottom'
+					},
+					label: 'Link'
+				}
+			});
+
+			new metal.MetalClayDropdown({
+				dropdownItems: [{
+					href: '#1',
+					label: 'Item 1',
+				}, {
+					href: '#1',
+					label: 'Item 2'
+				}, {
+					href: '#1',
+					label: 'Item 3'
+				}],
+				dropdownToggle: {
+					elementClasses: 'btn btn-link',
+					icon: {
+						alignment: 'left',
+						spritemap: '../node_modules/clay/build/images/icons/icons.svg',
+						symbol: 'caret-bottom'
+					},
+					label: 'Link 2'
+				},
+				elementClasses: 'dropdown-wide'
+			});
+
+			new metal.MetalClayDropdown({
+				body: `
+					<ul class="dropdown-menu">
+						<li class="dropdown-item"><a href="#">Action</a></li>
+						<li class="dropdown-item"><a href="#">Another action</a></li>
+						<li class="dropdown-item"><a href="#">Something else here</a></li>
+						<li class="dropdown-item"><a href="#">Separated link</a></li>
+					</ul>`,
+				header: '<button data-onclick="toggle" class="btn btn-primary">Dropdown</button>'
+			});
+		</script>
+	</body>
+</html>

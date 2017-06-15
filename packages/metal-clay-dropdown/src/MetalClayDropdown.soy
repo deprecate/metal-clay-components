@@ -1,0 +1,179 @@
+{namespace MetalClayDropdown}
+
+/**
+ * This renders a Metal Clay Dropdown component.
+ */
+{template .render}
+	{@param? body: html}
+	{@param? dropdownContainerElement: string}
+	{@param? dropdownItems: list<[
+		component: string,
+		elementClasses: string,
+		href: string,
+		label: string
+	]>}
+	{@param? dropdownState: string}
+	{@param? dropdownToggle: [
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
+	{@param? header: html}
+	{@param? renderDropdownMenu: bool}
+
+	{call .containerTag}
+		{param classes: 'dropdown' + $dropdownState /}
+		{param containerElement: $dropdownContainerElement /}
+		{param content kind="html"}
+			{call .dropdownToggle}
+				{param dropdownToggle: $dropdownToggle /}
+				{param header: $header /}
+			{/call}
+
+			{if $renderDropdownMenu}
+				{call .dropdownItems}
+					{param body: $body /}
+					{param dropdownItems: $dropdownItems /}
+				{/call}
+			{/if}
+		{/param}
+	{/call}
+{/template}
+
+/**
+ * This renders a container's html tag.
+ */
+{template .containerTag}
+	{@param content: html}
+	{@param? classes: string}
+	{@param? containerElement: string}
+
+	{switch $containerElement}
+		{case 'li'}
+			<li class="{$classes}">
+				{$content}
+			</li>
+		{default}
+			<div class="{$classes}">
+				{$content}
+			</div>
+	{/switch}
+{/template}
+
+/**
+ * This renders the dropdown toggle.
+ */
+{template .dropdownToggle}
+	{@param? dropdownToggle: [
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
+	{@param? header: html}
+
+	{if $header}
+		{$header}
+	{elseif $dropdownToggle}
+		{if $dropdownToggle.href}
+			<a class="{$dropdownToggle.elementClasses}" data-onclick="toggle" href="{$dropdownToggle.href}">
+				{call .dropdownToggleContent}
+					{param dropdownToggle: $dropdownToggle /}
+				{/call}
+			</a>
+		{else}
+			<button class="{$dropdownToggle.elementClasses}" data-onclick="toggle">
+				{call .dropdownToggleContent}
+					{param dropdownToggle: $dropdownToggle /}
+				{/call}
+			</button>
+		{/if}
+	{/if}
+{/template}
+
+/**
+ * This renders the dropdown menu items.
+ */
+{template .dropdownItems}
+	{@param? body: html}
+	{@param? dropdownItems: list<[
+		component: string,
+		elementClasses: string,
+		href: string,
+		label: string
+	]>}
+
+	{if $body}
+		{$body}
+	{elseif $dropdownItems}
+		<div class="dropdown-menu">
+			{foreach $item in $dropdownItems}
+				{let $elementClasses kind="text"}
+					{if $item.elementClasses}
+						{sp}{$item.elementClasses}
+					{/if}
+				{/let}
+
+				{switch $item.component}
+					{case 'header'}
+						<h6 class="dropdown-header{$elementClasses}">
+							{$item.label ?: ''}
+						</h6>
+					{case 'divider'}
+						<div class="dropdown-divider{$elementClasses}"></div>
+					{default}
+						{if $item.href}
+							<a class="dropdown-item{$elementClasses}" href="{$item.href}">
+								{$item.label ?: ''}
+							</a>
+						{else}
+							<button class="dropdown-item{$elementClasses}">
+								{$item.label ?: ''}
+							</button>
+						{/if}
+				{/switch}
+			{/foreach}
+		</div>
+	{/if}
+{/template}
+
+/**
+ * This renders the dropdown menu items.
+ */
+{template .dropdownToggleContent}
+	{@param? dropdownToggle: [
+		elementClasses: string,
+		href: string,
+		icon: [
+			alignment: string,
+			spritemap: string,
+			symbol: string
+		],
+		label: string
+	]}
+
+	{if $dropdownToggle.icon and $dropdownToggle.icon.alignment == 'left'}
+		{call MetalClayIcon.render}
+			{param spritemap: $dropdownToggle.icon.spritemap /}
+			{param symbol: $dropdownToggle.icon.symbol /}
+		{/call}
+		{$dropdownToggle.label ?: ''}
+	{elseif $dropdownToggle.icon}
+		{$dropdownToggle.label ?: ''}
+		{call MetalClayIcon.render}
+			{param spritemap: $dropdownToggle.icon.spritemap /}
+			{param symbol: $dropdownToggle.icon.symbol /}
+		{/call}
+	{else}
+		{$dropdownToggle.label ?: ''}
+	{/if}
+{/template}
