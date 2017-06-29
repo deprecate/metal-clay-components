@@ -26,7 +26,17 @@ MetalClaySample.STATE = {
 	 */
 	content: {
 		validator: core.isString
-	}
+	},
+
+  /**
+   * Role description.
+   * @instance
+   * @memnerof MetalClaySample
+   * @type {string}
+   */
+  role: {
+    validator: core.isString
+  }
 };
 
 Soy.register(MetalClaySample, templates);
