@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "build": "metalsoy && webpack",
+    "dev": "node watch.js",
     "compile": "babel --presets metal -d lib/ src/",
     "prepublish": "metalsoy && npm run compile"
   },
@@ -35,9 +36,11 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-node-env-inline": "^0.1.1",
     "babel-preset-es2015": "^6.14.0",
+    "chokidar": "^1.7.0",
     "clay": "liferay/clay#develop",
     "karma-html2js-preprocessor": "^1.0.0",
     "metal-karma-config": "^2.1.1",
+    "npm-run-script": "0.0.4",
     "webpack": "^3.0.0"
   }
 }
