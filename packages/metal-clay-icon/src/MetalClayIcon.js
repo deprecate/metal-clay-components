@@ -11,6 +11,11 @@ import templates from './MetalClayIcon.soy.js';
  * Implementation of the Metal Clay Icon.
  */
 class MetalClayIcon extends Component {
+
+	syncSymbol(value) {
+		this.label = value;
+
+	}
 }
 
 /**
@@ -19,6 +24,17 @@ class MetalClayIcon extends Component {
  * @type {!Object}
  */
 MetalClayIcon.STATE = {
+	/**
+	 * The description for the aria-label attribute
+	 * @instance
+ 	 * @memberof MetalClayIcon
+	 * @type {?string}
+	 * @default undefined
+	 */
+	label: {
+		setter: val => val ? val.replace(/-/g, ' ') : ''
+	},
+
 	/**
 	 * The path to the SVG spritemap file containing the icons.
 	 * @instance

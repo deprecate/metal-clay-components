@@ -76,4 +76,15 @@ describe('MetalClayIcon', function() {
 
 		assert.strictEqual(clayIcon.element.outerHTML, __html__['test/fixture/testClayFaMetalClayIcon.html'].trim());
 	});
+
+	it('should output arial-label for accessibility', function() {
+		clayIcon = new MetalClayIcon(
+			{
+				elementClasses: 'clay-fa icon-plus',
+				symbol: 'add-cell'
+			}
+		);
+
+		assert.strictEqual(clayIcon.element.outerHTML, __html__['test/fixture/testClayAriaLabelFaIcon.html'].trim());
+	});
 });
