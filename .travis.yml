@@ -1,14 +1,11 @@
 before_install:
-  - npm install -g lerna@2.0.0-beta.30
-
-cache:
-  directories:
-    - "node_modules"
+  - nvm install 8
+  - npm install -g lerna@2.0.0-rc.5
 
 install:
   - npm run lerna
 
-language: node_js
+jdk:
+  - oraclejdk8
 
-node_js:
-  - "8"
+language: java
