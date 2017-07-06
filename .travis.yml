@@ -10,5 +10,4 @@ jdk:
 
 language: java
 
-test: 
-  - npm test
+script: npm test
