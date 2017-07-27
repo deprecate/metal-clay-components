@@ -4,22 +4,30 @@
  * This renders an anchor element.
  */
 {template .render}
+	{@param? ariaLabel: string}
+	{@param? buttonStyle: string}
 	{@param? download: string}
-	{@param? elementClasses: string}
 	{@param? href: string}
 	{@param? icon: [
 		alignment: string,
-		elementClasses: string,
+		monospaced: bool,
 		spritemap: string,
 		symbol: string
 	]}
 	{@param? id: string}
-	{@param? label: html}
+	{@param? label: html|string}
+	{@param? style: string}
 	{@param? target: string}
 
 	{let $attributes kind="attributes"}
-		{if $elementClasses}
-			class="{$elementClasses}"
+		{if $ariaLabel}
+			aria-label="{$ariaLabel}"
+		{/if}
+
+		{if $buttonStyle}
+			class="btn btn-{$buttonStyle}"
+		{elseif $style}
+			class="link-{$style}"
 		{/if}
 
 		{if $download}
@@ -40,31 +48,37 @@
 	{/let}
 
 	<a {$attributes}>
-		{if $icon and $icon.alignment == 'left'}
-			{call .icon data="all" /}
+		{let $iconAlignment: $icon and $icon.alignment ? $icon.alignment : 'left' /}
+
+		{if $icon and $iconAlignment == 'left'}
+			{call .icon }
+				{param icon: $icon /}
+			{/call}
 		{/if}
 
 		{$label}
 
-		{if $icon and not $icon.alignment or $icon and $icon.alignment == 'right'}
-			{call .icon data="all" /}
+		{if $icon and $iconAlignment == 'right'}
+			{call .icon }
+				{param icon: $icon /}
+			{/call}
 		{/if}
 	</a>
 {/template}
 
 /**
- * This renders a Metal Clay Icon.
+ * This renders a Clay Icon.
  */
 {template .icon}
 	{@param? icon: [
 		alignment: string,
-		elementClasses: string,
+		monospaced: bool,
 		spritemap: string,
 		symbol: string
 	]}
 
-	{call ClayIcon.render data="all"}
-		{param elementClasses: $icon.elementClasses /}
+	{call ClayIcon.render}
+		{param monospaced: $icon.monospaced /}
 		{param spritemap: $icon.spritemap /}
 		{param symbol: $icon.symbol /}
 	{/call}

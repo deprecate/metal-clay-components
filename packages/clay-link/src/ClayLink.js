@@ -1,7 +1,7 @@
 'use strict';
 
-import Component from 'metal-component';
 import 'clay-icon';
+import Component from 'metal-component';
 import Soy from 'metal-soy';
 import { Config } from 'metal-state';
 
@@ -18,6 +18,25 @@ class ClayLink extends Component {}
  * @type {!Object}
  */
 ClayLink.STATE = {
+	/**
+	 * Aria label attribute for the anchor element.
+	 * @instance
+	 * @memberof ClayLink
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	ariaLabel: Config.string(),
+
+	/**
+	 * The css class to act as a button. If this is defined `style` param is
+	 * ignored.
+	 * @instance
+	 * @memberof ClayButton
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	buttonStyle: Config.oneOf(['borderless', 'link', 'primary', 'secondary']),
+
 	/**
 	 * Sets the download attribute on the anchor tag.
 	 * @instance
@@ -37,14 +56,18 @@ ClayLink.STATE = {
 	href: Config.string(),
 
 	/**
-	 * Render MetalClayIcon in the link, available options are `alignment`,
-	 * `elementClasses`, `spritemap`, `symbol`.
+	 * Render ClayIcon in the ClayLink element.
 	 * @instance
 	 * @memberof ClayLink
 	 * @type {?Object|undefined}
 	 * @default undefined
 	 */
-	icon: Config.object(),
+	icon: Config.shapeOf({
+		alignment: Config.oneOf(['left', 'right']),
+		monospaced: Config.bool(),
+		spritemap: Config.string().required(),
+		symbol: Config.string().required(),
+	}),
 
 	/**
 	 * Id to be applied to the anchor tag.
@@ -59,12 +82,19 @@ ClayLink.STATE = {
 	 * Sets the text or HTML to be rendered inside the anchor tag.
 	 * @instance
 	 * @memberof ClayLink
+	 * @type {?html|string|undefined}
+	 * @default undefined
+	 */
+	label: Config.any(),
+
+	/**
+	 * The css class that colors the button.
+	 * @instance
+	 * @memberof ClayButton
 	 * @type {?string|undefined}
 	 * @default undefined
 	 */
-	label: {
-		isHtml: true,
-	},
+	style: Config.oneOf(['secondary']),
 
 	/**
 	 * Sets the HTML attribute target on the anchor tag.
