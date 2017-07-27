@@ -7,36 +7,40 @@
 	{@param? ariaLabel: string}
 	{@param? block: bool}
 	{@param? disabled: bool}
-	{@param? href: string}
 	{@param? icon: [
 		alignment: string,
-		elementClasses: string,
+		monospaced: bool,
 		spritemap: string,
 		symbol: string
 	]}
-	{@param? label: html}
+	{@param? id: string}
+	{@param? label: html|string}
 	{@param? name: string}
 	{@param? size: string}
 	{@param? style: string}
 	{@param? type: string}
 	{@param? value: string}
 
+	{let $attributes kind="attributes"}
+		{call .attributes}
+			{param ariaLabel: $ariaLabel /}
+			{param block: $block /}
+			{param disabled: $disabled /}
+			{param id: $id /}
+			{param name: $name /}
+			{param size: $size /}
+			{param style: $style /}
+			{param type: $type /}
+			{param value: $value /}
+		{/call}
+	{/let}
 
-	{if $href}
-		<a href="{$href}" {call .attributes data="all" /}>
-			{call .content}
-				{param icon: $icon /}
-				{param label: $label /}
-			{/call}
-		</a>
-	{else}
-		<button {call .attributes data="all" /}>
-			{call .content}
-				{param icon: $icon /}
-				{param label: $label /}
-			{/call}
-		</button>
-	{/if}
+	<button {$attributes}>
+		{call .content}
+			{param icon: $icon /}
+			{param label: $label /}
+		{/call}
+	</button>
 {/template}
 
 /**
@@ -45,11 +49,11 @@
 {template .content}
 	{@param? icon: [
 		alignment: string,
-		elementClasses: string,
+		monospaced: bool,
 		spritemap: string,
 		symbol: string
 	]}
-	{@param? label: html}
+	{@param? label: html|string}
 
 	{let $iconAlignment: $icon and $icon.alignment ? $icon.alignment : 'left' /}
 
@@ -74,13 +78,13 @@
 {template .icon}
 	{@param? icon: [
 		alignment: string,
-		elementClasses: string,
+		monospaced: bool,
 		spritemap: string,
 		symbol: string
 	]}
 
 	{call ClayIcon.render}
-		{param elementClasses: $icon.elementClasses /}
+		{param monospaced: $icon.monospaced /}
 		{param spritemap: $icon.spritemap /}
 		{param symbol: $icon.symbol /}
 	{/call}
@@ -93,6 +97,7 @@
 	{@param? ariaLabel: string}
 	{@param? block: bool}
 	{@param? disabled: bool}
+	{@param? id: string}
 	{@param? name: string}
 	{@param? size: string}
 	{@param? style: string}
@@ -109,7 +114,7 @@
 		{/if}
 		{if $style}
 			{sp}btn-{$style}
-			{else}
+		{else}
 			{sp}btn-primary
 		{/if}
 	{/let}
@@ -122,6 +127,10 @@
 
 	{if $disabled}
 		disabled
+	{/if}
+
+	{if $id}
+		id="{$id}"
 	{/if}
 
 	{if $name}
