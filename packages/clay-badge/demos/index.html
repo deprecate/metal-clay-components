@@ -48,33 +48,9 @@
 
 	<div class="clay-site-row-spacer row">
 		<div class="col-md-12">
-			<h3 id="badge-with-links"><a class="heading-anchor" href="#badge-with-links"></a>Badges with Links</h3>
+			<h3 id="badge-with-event-click"><a class="heading-anchor" href="#badge-with-event-click"></a>Badge with event click</h3>
 			
-			<div id="links-block"></div>
-		</div>
-	</div>
-
-	<div class="clay-site-row-spacer row">
-		<div class="col-md-12">
-			<h3 id="badge-with-icon-event"><a class="heading-anchor" href="#badge-with-icon-event"></a>Badges with event click in icon</h3>
-			
-			<div id="icon-block"></div>
-		</div>
-	</div>
-
-	<div class="clay-site-row-spacer row">
-		<div class="col-md-12">
-			<h3 id="badge-with-href-event"><a class="heading-anchor" href="#badge-with-href-event"></a>Badge with event click</h3>
-			
-			<div id="href-event-block"></div>
-		</div>
-	</div>
-
-	<div class="clay-site-row-spacer row">
-		<div class="col-md-12">
-			<h3 id="badge-with-href-event"><a class="heading-anchor" href="#badge-with-href-event"></a>Badge with event click and icon</h3>
-			
-			<div id="link-icon-event-block"></div>
+			<div id="event-block"></div>
 		</div>
 	</div>
 	
@@ -147,7 +123,8 @@
 			{
 				label: 'Primary',
 				style: 'primary',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -156,7 +133,8 @@
 			{
 				label: 'Secondary',
 				style: 'secondary',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -165,7 +143,8 @@
 			{
 				label: 'Success',
 				style: 'success',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -174,7 +153,8 @@
 			{
 				label: 'Info',
 				style: 'info',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -183,7 +163,8 @@
 			{
 				label: 'Warning',
 				style: 'warning',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -192,7 +173,8 @@
 			{
 				label: 'Danger',
 				style: 'danger',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -201,7 +183,8 @@
 			{
 				label: 'Light',
 				style: 'light',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -210,7 +193,8 @@
 			{
 				label: 'Dark',
 				style: 'dark',
-				href: '#1'
+				href: '#1',
+				linkWrapper: true
 			},
 			'#anchor-block'
 		);
@@ -315,95 +299,64 @@
 
 		new metal.ClayBadge(
 			{
-				label: 'Small Badge',
-				href: '#smallLink',
-				style: 'primary',
-				size: 'sm'
-			},
-			'#links-block'
-		);
-
-		new metal.ClayBadge(
-			{
-				label: 'Normal Badge',
-				href: '#normalLink',
-				style: 'secondary'
-			},
-			'#links-block'
-		);
-
-		new metal.ClayBadge(
-			{
-				label: 'Large Badge',
-				href: '#largeLink',
-				style: 'success',
-				size: 'lg'
-			},
-			'#links-block'
-		);
-
-		new metal.ClayBadge(
-			{
 				label: 'Primary',
-				onClickIcon: handleClick,
 				icon: {
-					alignment: 'right',
 					monospaced: false,
 					spritemap: '../node_modules/clay/build/images/icons/icons.svg',
 					symbol: 'times'
 				},
-				style: 'primary',
-				size: 'lg'
+				size: 'sm',
+				href: "#primary",
+				events: {
+					click: {
+						selector: '.close',
+						fn: handleClickIcon
+					}
+				}
 			},
-			'#icon-block'
+			'#event-block'
+		);
+
+		new metal.ClayBadge(
+			{
+				label: 'Secondary',
+				icon: {
+					monospaced: false,
+					spritemap: '../node_modules/clay/build/images/icons/icons.svg',
+					symbol: 'times'
+				},
+				style: 'secondary',
+				href: "#secondary",
+				events: {
+					click: {
+						selector: '.close',
+						fn: handleClickIcon
+					}
+				}
+			},
+			'#event-block'
 		);
 
 		new metal.ClayBadge(
 			{
 				label: 'Success',
-				onClickIcon: handleClick,
-				icon: {
-					alignment: 'left',
-					monospaced: false,
-					spritemap: '../node_modules/clay/build/images/icons/icons.svg',
-					symbol: 'times'
-				},
 				style: 'success',
-				size: 'lg'
-			},
-			'#icon-block'
-		);
-
-		new metal.ClayBadge(
-			{
-				label: 'Primary',
-				style: 'primary',
 				size: 'lg',
-				linkWrapper: true,
-				onClickLink: handleClick
+				events: {
+					click: handleClick
+				}
 			},
-			'#href-event-block'
-		);
-
-		new metal.ClayBadge(
-			{
-				label: 'Primary',
-				icon: {
-					alignment: 'right',
-					monospaced: false,
-					spritemap: '../node_modules/clay/build/images/icons/icons.svg',
-					symbol: 'times'
-				},
-				style: 'primary',
-				size: 'lg',
-				onClickIcon: handleClick,
-				onClickLink: handleClick
-			},
-			'#link-icon-event-block'
+			'#event-block'
 		);
 
 		function handleClick(event) {
 			console.log(event);
+		}
+
+		function handleClickIcon(event) {
+			event.stopPropagation();
+
+			this.visible = false;
 		}
 	</script>
 </body>
