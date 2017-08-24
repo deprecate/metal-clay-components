@@ -16,9 +16,6 @@
 	{@param? shape: string}
 	{@param? size: string}
 	{@param? style: string}
-	{@param? linkWrapper: bool}
-	{@param? onClickIcon: any}
-	{@param? onClickLink: any}
 
 	{let $attributes kind="attributes"}
 		class="badge
@@ -42,18 +39,18 @@
 		{/if}
 	{/let}
 
-	{if $href and $linkWrapper}
-		<a {$attributes} onClick="{$onClickLink}">{$label}</a>
-	{elseif $onClickLink and $linkWrapper}
-		<a href="javascript:void(0)" {$attributes} onClick="{$onClickLink}">{$label}</a>
+	{if $href}
+		<a {$attributes}>
+			{call .content}
+				{param icon: $icon /}
+				{param label: $label /}
+			{/call}
+		</a>
 	{else}
 		<span {$attributes}>
 			{call .content}
 				{param icon: $icon /}
 				{param label: $label /}
-				{param href: $href /}
-				{param onClickIcon: $onClickIcon /}
-				{param onClickLink: $onClickLink /}
 			{/call}
 		</span>
 	{/if}
@@ -71,30 +68,21 @@
 		symbol: string
 	]}
 	{@param? label: html|string}
-	{@param? href: string}
-	{@param? onClickIcon: any}
-	{@param? onClickLink: any}
 
 	{let $iconAlignment: $icon and $icon.alignment ? $icon.alignment : 'right' /}
 
 	{if $icon and $iconAlignment == 'left'}
-		<button aria-label="close" class="close" type="button" onClick="{$onClickIcon}">
+		<button aria-label="close" class="close" type="button">
 			{call .icon}
 				{param icon: $icon /}
 			{/call}
 		</button>
 	{/if}
 
-	{if $href}
-		<a href="{$href}" onClick="{$onClickLink}">{$label}</a>
-	{elseif $onClickLink}
-		<a href="javascript:void(0)" onClick="{$onClickLink}">{$label}</a>
-	{else}
-		{$label ? $label : ''}
-	{/if}
+	{$label ? $label : ''}
 
 	{if $icon and $iconAlignment == 'right'}
-		<button aria-label="close" class="close" type="button" onClick="{$onClickIcon}">
+		<button aria-label="close" class="close" type="button">
 			{call .icon}
 				{param icon: $icon /}
 			{/call}

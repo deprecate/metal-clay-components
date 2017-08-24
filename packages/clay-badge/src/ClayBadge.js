@@ -77,33 +77,6 @@ ClayBadge.STATE = {
 	href: Config.string(),
 
 	/**
-	 * onClick in Icon of the Badge.
-	 * @instance
-	 * @memberof ClayBadge
-	 * @type {?func|undefined}
-	 * default undefined
-	 */
-	onClickIcon: Config.func(),
-
-	/**
-	 * onClick in Label of the Badge or in all Badge.
-	 * @instance
-	 * @memberof ClayBadge
-	 * @type {?func|undefined}
-	 * default undefined
-	 */
-	onClickLink: Config.func(),
-
-	/**
-	 * Option to enable href on every badge.
-	 * @instance
-	 * @memberof ClayBadge
-	 * @type {?func|undefined}
-	 * default undefined
-	 */
-	linkWrapper: Config.bool(),
-
-	/**
 	 * Badge style color.
 	 * @instance
 	 * @memberof ClayBadge
