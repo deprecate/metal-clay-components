@@ -36,7 +36,6 @@ describe('ClayBadge', function() {
 	it('should render a badge with href', () => {
 		badge = new ClayBadge({
 			href: '#1',
-			linkWrapper: true,
 		});
 
 		expect(badge).toMatchSnapshot();
