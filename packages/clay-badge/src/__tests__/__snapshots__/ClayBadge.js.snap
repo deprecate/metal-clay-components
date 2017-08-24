@@ -20,20 +20,13 @@ exports[`ClayBadge should render a \`warning color\` badge 1`] = `<span class="b
 
 exports[`ClayBadge should render a badge with href 1`] = `<a class="badge badge-primary" href="#1"></a>`;
 
-exports[`ClayBadge should render a badge with href in label 1`] = `
-<span class="badge badge-primary" href="#1">
-  <a href="#1"></a>
-</span>
-`;
-
 exports[`ClayBadge should render a badge with icon left 1`] = `
 <span class="badge badge-primary">
   <button aria-label="close" class="close" type="button">
     <svg aria-hidden="true" class="lexicon-icon lexicon-icon-times">
       <use xlink:href="icons.svg#times"></use>
     </svg>
-  </button>
-</span>
+  </button>Badge</span>
 `;
 
 exports[`ClayBadge should render a badge with icon left 2`] = `
@@ -47,7 +40,7 @@ exports[`ClayBadge should render a badge with icon left 2`] = `
 `;
 
 exports[`ClayBadge should render a badge with icon right 1`] = `
-<span class="badge badge-primary">
+<span class="badge badge-primary">Badge
   <button aria-label="close" class="close" type="button">
     <svg aria-hidden="true" class="lexicon-icon lexicon-icon-times">
       <use xlink:href="icons.svg#times"></use>

@@ -33,14 +33,6 @@ describe('ClayBadge', function() {
 		expect(badge).toMatchSnapshot();
 	});
 
-	it('should render a badge with href in label', () => {
-		badge = new ClayBadge({
-			href: '#1',
-		});
-
-		expect(badge).toMatchSnapshot();
-	});
-
 	it('should render a badge with href', () => {
 		badge = new ClayBadge({
 			href: '#1',
@@ -76,6 +68,7 @@ describe('ClayBadge', function() {
 
 	it('should render a badge with icon right', () => {
 		badge = new ClayBadge({
+			label: 'Badge',
 			icon: {
 				alignment: 'right',
 				monospaced: false,
@@ -89,6 +82,7 @@ describe('ClayBadge', function() {
 
 	it('should render a badge with icon left', () => {
 		badge = new ClayBadge({
+			label: 'Badge',
 			icon: {
 				alignment: 'left',
 				monospaced: false,
