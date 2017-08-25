@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClayBadge should generate the default markup 1`] = `<span class="badge badge-primary"></span>`;
+
+exports[`ClayBadge should render a \`danger color\` badge 1`] = `<span class="badge badge-danger"></span>`;
+
+exports[`ClayBadge should render a \`dark color\` badge 1`] = `<span class="badge badge-dark"></span>`;
+
+exports[`ClayBadge should render a \`info color\` badge 1`] = `<span class="badge badge-info"></span>`;
+
+exports[`ClayBadge should render a \`light color\` badge 1`] = `<span class="badge badge-light"></span>`;
+
+exports[`ClayBadge should render a \`primary color\` badge 1`] = `<span class="badge badge-primary"></span>`;
+
+exports[`ClayBadge should render a \`secondary color\` badge 1`] = `<span class="badge badge-secondary"></span>`;
+
+exports[`ClayBadge should render a \`success color\` badge 1`] = `<span class="badge badge-success"></span>`;
+
+exports[`ClayBadge should render a \`warning color\` badge 1`] = `<span class="badge badge-warning"></span>`;
+
+exports[`ClayBadge should render a badge with href 1`] = `<a class="badge badge-primary" href="#1"></a>`;
+
+exports[`ClayBadge should render a badge with icon left 1`] = `
+<span class="badge badge-primary">
+  <button aria-label="close" class="close" type="button">
+    <svg aria-hidden="true" class="lexicon-icon lexicon-icon-times">
+      <use xlink:href="icons.svg#times"></use>
+    </svg>
+  </button>Badge</span>
+`;
+
+exports[`ClayBadge should render a badge with icon left 2`] = `
+<span class="badge badge-primary">
+  <button aria-label="close" class="close" type="button">
+    <svg aria-hidden="true" class="lexicon-icon lexicon-icon-times">
+      <use xlink:href="icons.svg#times"></use>
+    </svg>
+  </button>
+</span>
+`;
+
+exports[`ClayBadge should render a badge with icon right 1`] = `
+<span class="badge badge-primary">Badge
+  <button aria-label="close" class="close" type="button">
+    <svg aria-hidden="true" class="lexicon-icon lexicon-icon-times">
+      <use xlink:href="icons.svg#times"></use>
+    </svg>
+  </button>
+</span>
+`;
+
+exports[`ClayBadge should render a badge with id 1`] = `<span class="badge badge-primary" id="myBadge"></span>`;
+
+exports[`ClayBadge should render a badge with label 1`] = `<span class="badge badge-primary">Primary</span>`;
+
+exports[`ClayBadge should render a large badge 1`] = `<span class="badge badge-primary badge-lg"></span>`;
+
+exports[`ClayBadge should render a pill badge 1`] = `<span class="badge badge-primary badge-pill"></span>`;
+
+exports[`ClayBadge should render a small badge 1`] = `<span class="badge badge-primary badge-sm"></span>`;
