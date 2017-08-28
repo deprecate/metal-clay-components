@@ -8,7 +8,7 @@
     "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
-  "main": "lib/ClayButton.js",
+  "main": "src/ClayButton.js",
   "jsnext:main": "src/ClayButton.js",
   "files": [
     "lib",
