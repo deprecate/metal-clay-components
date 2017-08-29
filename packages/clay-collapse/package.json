@@ -8,7 +8,7 @@
     "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
-  "main": "lib/ClayCollapse.js",
+  "main": "src/ClayCollapse.js",
   "jsnext:main": "src/ClayCollapse.js",
   "files": [
     "lib",
