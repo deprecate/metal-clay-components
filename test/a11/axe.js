@@ -61,14 +61,14 @@ async function exec({ indexHtml, serverPath }) {
 		SERVER_PORT,
 		serverPath || resolvePath(SERVER_PATH),
 	);
-	const page = await Driver.connect(
-		`http://localhost:${serverConfig.port}/${indexHtml}`,
-	);
-	const riport = await executeAxe(page);
 
 	let exitCode = 0;
 
 	try {
+		const page = await Driver.connect(
+			`http://localhost:${serverConfig.port}/${indexHtml}`,
+		);
+		const riport = await executeAxe(page);
 		processAxeReport(riport);
 	} catch (e) {
 		exitCode = 1;
