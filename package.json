@@ -37,7 +37,7 @@
     "puppeteer": "^0.10.2"
   },
   "jest": {
-    "resolver": "clay-lerna-jest-resolver",
+    "resolver": "./jest-clay-lerna-resolver",
     "snapshotSerializers": [
       "metal-jest-serializer"
     ],

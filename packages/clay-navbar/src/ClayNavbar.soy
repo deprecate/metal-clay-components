@@ -1,0 +1,83 @@
+{namespace ClayNavbar}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+	{@param items: list<[
+		active: bool,
+		title: string,
+		url: string
+	]>}
+	{@param? inverted: bool}
+
+	{let $classes kind="text"}
+		navbar navbar-expand-md
+		{if $inverted}
+			{sp}navbar-dark navbar-dark-bg
+		{/if}
+	{/let}
+
+	<nav class="{$classes}">
+		<div aria-expanded="false" class="collapse navbar-collapse">
+			{if $items}
+				{call .navmenu}
+					{param items: $items /}
+				{/call}
+			{/if}
+		</div>
+	</nav>
+{/template}
+
+/**
+ * This renders a navbar item.
+ */
+{template .navitem}
+	{@param title: string}
+	{@param url: string}
+	{@param? active: bool}
+
+	<li class="nav-item">
+		{call ClayLink.render}
+			{param ariaLabel kind="text"}
+				{if $active}
+					Current
+				{/if}
+			{/param}
+
+			{param elementClasses kind="text"}
+				nav-link
+				{if $active}
+					{sp}active
+				{/if}
+			{/param}
+
+			{param href: $url /}
+			{param label kind="html"}
+				<span class="navbar-text-truncate">{$title}</span>
+			{/param}
+
+		{/call}
+	</li>
+{/template}
+
+/**
+ * This renders list of items.
+ */
+{template .navmenu}
+	{@param items: list<[
+		active: bool,
+		title: string,
+		url: string
+	]>}
+
+	<ul class="navbar-nav">
+		{foreach $page in $items}
+			{call .navitem}
+				{param active: $page.active /}
+				{param title: $page.title /}
+				{param url: $page.url /}
+			{/call}
+		{/foreach}
+	</ul>
+{/template}

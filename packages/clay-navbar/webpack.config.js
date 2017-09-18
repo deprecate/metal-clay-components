@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './src/ClayProgressBar.js',
+	entry: './src/ClayNavbar.js',
 	module: {
 		rules: [
 			{
@@ -22,7 +22,7 @@ module.exports = {
 	output: {
 		library: 'metal',
 		libraryTarget: 'this',
-		filename: './build/globals/clay-progress-bar.js',
+		filename: './build/globals/clay-navbar.js',
 	},
 	plugins: [new webpack.optimize.ModuleConcatenationPlugin()],
 	resolve: {
