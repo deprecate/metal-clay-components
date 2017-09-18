@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { exec } from '../../../test/a11/axe';
+import { exec } from './axe-driver';
 
 const appDirectory = fs.realpathSync(process.cwd());
 

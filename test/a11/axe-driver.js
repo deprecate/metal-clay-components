@@ -71,7 +71,6 @@ async function exec({ indexHtml, serverPath }) {
 		const riport = await executeAxe(page);
 		processAxeReport(riport);
 	} catch (e) {
-		console.error(e);
 		exitCode = 1;
 	} finally {
 		Driver.exit(exitCode);
