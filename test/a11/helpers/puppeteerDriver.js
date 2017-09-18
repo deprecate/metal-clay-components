@@ -13,7 +13,7 @@ const Driver = {
      */
 	async connect(address) {
 		browser = await puppeteer.launch();
-		console.log('Chromium driver is launched...');
+		console.log('Puppeteer web driver is launched...');
 		const page = await browser.newPage();
 		await page.goto(address, { waitUntil: 'networkidle' });
 		console.log(`Connected to ${address}`);

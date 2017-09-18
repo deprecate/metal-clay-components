@@ -53,7 +53,7 @@ function sadPath(axeReport) {
 	throw axeReport;
 }
 
-// close our stand-alone server when phantom JS terminates
+// close our stand-alone server when the web driver terminates
 Driver.on('exit', Server.stop);
 
 async function exec({ indexHtml, serverPath }) {
