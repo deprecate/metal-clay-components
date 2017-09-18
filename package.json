@@ -3,7 +3,7 @@
     "build": "lerna run build",
     "ci": "prettier packages/clay-*/src/*.js --list-different && npm run lint && npm run test",
     "format": "prettier --write packages/clay-*/src/*.js",
-    "lerna": "lerna bootstrap -- --no-optional --no-package-lock && npm install --no-optional --no-package-lock",
+    "lerna": "lerna bootstrap -- --no-optional && npm install --no-optional",
     "lint": "eslint packages/clay-*/src/*.js packages/clay-*/src/**/*.js && npm run mcritic",
     "mcritic": "mcritic packages/",
     "precommit": "lint-staged",
@@ -11,9 +11,21 @@
     "test": "lerna run soy && jest"
   },
   "devDependencies": {
+    "axe-core": "^2.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-metal": "^4.1.0",
+    "chalk": "^2.1.0",
+    "clay-lerna-jest-resolver": "^1.0.1",
+    "es6-promise": "^4.1.1",
     "eslint": "^4.1.1",
     "eslint-config-liferay": "^1.0.2",
+    "events": "^1.1.1",
+    "express": "^4.15.4",
+    "fs": "0.0.1-security",
     "http-server": "^0.9.0",
     "husky": "^0.14.2",
     "jest": "^20.0.4",
@@ -21,7 +33,9 @@
     "lint-staged": "^4.0.0",
     "metal-jest-serializer": "^1.0.1",
     "metal-soy-critic": "^2.3.0",
-    "prettier": "^1.6.0"
+    "path": "^0.12.7",
+    "prettier": "^1.6.0",
+    "puppeteer": "^0.10.2"
   },
   "jest": {
     "resolver": "./jest-clay-lerna-resolver",
