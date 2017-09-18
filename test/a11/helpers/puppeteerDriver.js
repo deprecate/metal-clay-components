@@ -28,7 +28,7 @@ const Driver = {
      */
 	exit(code) {
 		emitter.emit('exit');
-		browser.close();
+		if (browser) browser.close();
 		process.exit(code);
 	},
 

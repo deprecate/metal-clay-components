@@ -25,7 +25,7 @@ const Server = {
 
 	stop: function() {
 		if (!singleton) return;
-		return Promise.resolve().then(singleton.close.bind(singleton));
+		return Promise.resolve().then(() => singleton.close());
 	},
 };
 
