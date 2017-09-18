@@ -57,20 +57,21 @@ function sadPath(axeReport) {
 Driver.on('exit', Server.stop);
 
 async function exec({ indexHtml, serverPath }) {
-	const serverConfig = await Server.start(
-		SERVER_PORT,
-		serverPath || resolvePath(SERVER_PATH),
-	);
-
 	let exitCode = 0;
 
 	try {
+		const serverConfig = await Server.start(
+			SERVER_PORT,
+			serverPath || resolvePath(SERVER_PATH),
+		);
+
 		const page = await Driver.connect(
 			`http://localhost:${serverConfig.port}/${indexHtml}`,
 		);
 		const riport = await executeAxe(page);
 		processAxeReport(riport);
 	} catch (e) {
+		console.error(e);
 		exitCode = 1;
 	} finally {
 		Driver.exit(exitCode);
