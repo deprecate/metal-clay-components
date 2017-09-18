@@ -1,4 +1,4 @@
 {
-    "presets": ["metal", "es2015"],
+    "presets": ["metal", "env"],
     "plugins": ["syntax-async-functions", "transform-regenerator"]
 }
