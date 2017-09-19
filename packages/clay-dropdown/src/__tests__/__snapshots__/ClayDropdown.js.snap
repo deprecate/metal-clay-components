@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClayDropdown should generate the default markup 1`] = `
+<div class="dropdown">
+  <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle btn btn-unstyled" id="id">Trigger</button>
+  <ul aria-labelledby="id" class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="Item1url">Item 1</a>
+    </li>
+  </ul>
+</div>
+`;
