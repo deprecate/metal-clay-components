@@ -1,4 +1,3 @@
 {
-    "presets": ["metal", "env"],
-    "plugins": ["syntax-async-functions", "transform-regenerator"]
+    "presets": ["metal"]
 }

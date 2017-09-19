@@ -6,7 +6,7 @@ import Driver from './helpers/puppeteerDriver';
 
 const SERVER_PORT = 8899;
 const SERVER_PATH = './';
-const PATH_TO_AXE = '../../node_modules/axe-core/axe.min.js';
+const PATH_TO_AXE = '../node_modules/axe-core/axe.min.js';
 const appDirectory = fs.realpathSync(process.cwd());
 const log = console.log;
 

@@ -15,9 +15,7 @@ const Server = {
 		return new Promise(function(resolve, reject) {
 			singleton = app.listen(port, function(err) {
 				if (err) reject(err);
-				console.log(
-					`Express application is listening on port ${port} hosting: ${dir}`,
-				);
+				console.log(`Express application is listening on port ${port} hosting: ${dir}`);
 				resolve({ port, dir });
 			});
 		});

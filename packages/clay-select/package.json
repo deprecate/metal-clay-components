@@ -17,6 +17,7 @@
     "test"
   ],
   "scripts": {
+    "a11": "npm run build && babel-node ../../test/a11/axe-test-runner.js",
     "build": "npm run soy && webpack",
     "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy"
   },

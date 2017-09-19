@@ -17,6 +17,7 @@
     "test"
   ],
   "scripts": {
+    "a11": "npm run build && clay-a11y -c demos/index.html",
     "build": "npm run soy && webpack",
     "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy"
   },
