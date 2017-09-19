@@ -33,11 +33,11 @@ const Driver = {
 	},
 
 	/**
-     * Registers listener to the given event
-     * @param {string} event - event ID
-     * @param {listener} function - listener function to be registered
-     * @return {this}
-     */
+   * Registers listener to the given event
+   * @param {string} event - event ID
+   * @param {function} listener - listener function to be registered
+   * @return {this}
+   */
 	on(event, listener) {
 		emitter.on(event, listener);
 		return this;

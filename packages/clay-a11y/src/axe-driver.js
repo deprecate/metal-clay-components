@@ -1,3 +1,4 @@
+/* globals axe */
 import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
@@ -10,10 +11,22 @@ const PATH_TO_AXE = '../node_modules/axe-core/axe.min.js';
 const appDirectory = fs.realpathSync(process.cwd());
 const log = console.log;
 
+/**
+ * Resolves the given relative path into absolute path
+ * @param {string} relativePath
+ * @return {string} absolute path 
+ */
 function resolvePath(relativePath) {
 	return path.resolve(appDirectory, relativePath);
 }
 
+/**
+ * Returns a promise that is resolved when the evaluation of 
+ * axe has been terminated successfully
+ * @async
+ * @param {string} page
+ * @return {Promise}
+ */
 async function executeAxe(page) {
 	await page.injectFile(path.resolve(__dirname, PATH_TO_AXE));
 	return await page.evaluate(() => {
@@ -21,8 +34,15 @@ async function executeAxe(page) {
 	});
 }
 
+/**
+ * Processes the output of axe and renders the result 
+ * @param {object} axeReport
+ * @throw {object}
+ */
 function processAxeReport(axeReport) {
-	if (!axeReport || !axeReport.violations) throw 'Invalid Axe Report!';
+	if (!axeReport || !axeReport.violations) {
+		throw new Error('Invalid Axe Report!');
+	}
 	if (0 === axeReport.violations.length) {
 		happyPath();
 	} else {
@@ -30,10 +50,21 @@ function processAxeReport(axeReport) {
 	}
 }
 
+/**
+ * Renders the happy path which occurs when no accessibility 
+ * violations are detected
+ * @return {void}
+ */
 function happyPath() {
 	log(chalk.green('No accessibility violation found'));
 }
 
+/**
+ * Renders the sad path which occurs when at least one 
+ * accessibility violation is detected
+ * @param {object} axeReport - report collected by axe
+ * @throw {object} report collected by axe
+ */
 function sadPath(axeReport) {
 	const noOfViolations = axeReport.violations.length;
 	log(chalk.red(`${noOfViolations} accessibility violations detected`));
@@ -56,6 +87,13 @@ function sadPath(axeReport) {
 // close our stand-alone server when the web driver terminates
 Driver.on('exit', Server.stop);
 
+/**
+ * Executes the test against the given url that is hosted at the 
+ * specified document root. 
+ * @async
+ * @param {string} indexHtml - used to specifiy the demo page of the component
+ * @param {string} serverPath - document root 
+ */
 async function exec({ indexHtml, serverPath }) {
 	let exitCode = 0;
 
