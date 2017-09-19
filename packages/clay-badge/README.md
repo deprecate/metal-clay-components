@@ -9,27 +9,19 @@ can find it [here](https://nodejs.org).
 
 2. Install local dependencies:
 
-```
-npm install
-```
 
-3. Usage
-The tool has been added as a `lerna` package. To activate it in a specific clay component it needs to be provided as a dependency in `package.json`. 
+  ```
+  npm install
+  ```
 
-Add to the package
-```
-"devDependency": { 
-  ...
-  "clay-a11y": "^1.0.0",
-  ...
-}
-```
+3. Build the code:
 
-Execute 
-```
-"script": {
-  ...
-  "a11y": "npm run build && clay-a11y -c demos/index.html"
-  ...
-}
-```
+  ```
+  npm run build
+  ```
+
+4. Open the demo at demos/index.html on your browser.
+
+## Contribute
+
+We'd love to get contributions from you! Please, check our [Contributing Guidelines](CONTRIBUTING.md) to see how you can help us improve.
