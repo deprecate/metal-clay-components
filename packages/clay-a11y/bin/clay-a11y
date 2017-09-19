@@ -10,4 +10,4 @@ cd "`dirname "${SCRIPT_PATH}"`" > /dev/null
 SCRIPT_PATH="`pwd`";
 popd  > /dev/null
 
-${SCRIPT_PATH}/../node_modules/.bin/babel-node ${SCRIPT_PATH}/../src/axe-runner.js
+${SCRIPT_PATH}/../node_modules/.bin/babel-node ${SCRIPT_PATH}/../src/axe-runner.js "$@"
