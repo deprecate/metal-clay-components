@@ -1,16 +1,16 @@
 {
-  "name": "clay-icon",
+  "name": "clay-dropdown",
   "version": "0.0.0",
-  "description": "Clay Icon Component",
+  "description": "Clay Dropdown Component",
   "license": "BSD",
   "repository": "metal/metal-clay-components",
   "engines": {
     "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
-  "main": "lib/ClayIcon.js",
-  "esnext:main": "src/ClayIcon.js",
-  "jsnext:main": "src/ClayIcon.js",
+  "main": "lib/ClayDropdown.js",
+  "esnext:main": "src/ClayDropdown.js",
+  "jsnext:main": "src/ClayDropdown.js",
   "files": [
     "lib",
     "src",
@@ -18,14 +18,18 @@
   ],
   "scripts": {
     "build": "npm run soy && webpack",
-    "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy"
+    "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy '../../node_modules/clay-+(button|icon)/src/**/*.soy'"
   },
   "keywords": [
     "clay",
     "metal"
   ],
   "dependencies": {
-    "metal-component": "^2.13.2",
+    "clay-button": "0.0.0",
+    "clay-icon": "0.0.0",
+    "metal": "^2.13.2",
+    "metal-debounce": "^2.0.0",
+    "metal-dropdown": "^3.0.0",
     "metal-soy": "^2.13.2",
     "metal-state": "^2.13.2"
   },
