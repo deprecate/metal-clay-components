@@ -4,7 +4,7 @@
   "description": "Accessibility test module for clay components",
   "main": "index.js",
   "bin": {
-    "a11y": "./bin/clay-a11y"
+    "clay-a11y": "./bin/clay-a11y"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
