@@ -27,6 +27,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "chalk": "^2.1.0",
+    "detect-port": "^1.2.1",
     "es6-promise": "^4.1.1",
     "events": "^1.1.1",
     "express": "^4.15.4",

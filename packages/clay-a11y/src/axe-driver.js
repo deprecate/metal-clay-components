@@ -2,6 +2,7 @@
 import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
+import detect from 'detect-port';
 import Server from './helpers/server';
 import Driver from './helpers/puppeteerDriver';
 
@@ -88,6 +89,18 @@ function sadPath(axeReport) {
 Driver.on('exit', Server.stop);
 
 /**
+ * Returns the first available port starting from the given number
+ * @async
+ * @param {number} port
+ * @return {number} available port
+ */
+async function getAvailablePort(port) {
+	const availablePort = await detect(port);
+	if (availablePort === port) return port;
+	return getAvailablePort(availablePort);
+}
+
+/**
  * Executes the test against the given url that is hosted at the 
  * specified document root. 
  * @async
@@ -98,15 +111,14 @@ async function exec({ indexHtml, serverPath }) {
 	let exitCode = 0;
 
 	try {
-		const serverConfig = await Server.start(
-			SERVER_PORT,
-			serverPath || resolvePath(SERVER_PATH),
-		);
+		const port = await getAvailablePort(SERVER_PORT);
+		const path = serverPath || resolvePath(SERVER_PATH);
+		const serverConfig = await Server.start(port, path);
 
-		const page = await Driver.connect(
-			`http://localhost:${serverConfig.port}/${indexHtml}`,
-		);
+		const url = `http://localhost:${serverConfig.port}/${indexHtml}`;
+		const page = await Driver.connect(url);
 		const riport = await executeAxe(page);
+
 		processAxeReport(riport);
 	} catch (e) {
 		exitCode = 1;
