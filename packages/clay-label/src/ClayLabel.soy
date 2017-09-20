@@ -1,0 +1,65 @@
+{namespace ClayLabel}
+
+/**
+ * This renders a label.
+ */
+{template .render}
+	{@param? _close: any}
+	{@param? closeable: bool}
+	{@param? href: string}
+	{@param? id: string}
+	{@param? label: string}
+	{@param? size: string}
+	{@param? spritemap: string}
+	{@param? style: string}
+
+	{let $classes kind="text"}
+		label
+		{sp}label-{$style ?: 'secondary'}
+
+		{if $size}
+			{sp}label-{$size}
+		{/if}
+	{/let}
+
+	<span class="{$classes}" id="{$id}">
+		{call .content}
+			{param _close: $_close /}
+			{param closeable: $closeable /}
+			{param href: $href /}
+			{param label: $label /}
+			{param spritemap: $spritemap /}
+		{/call}
+	</span>
+{/template}
+
+/**
+ * Render icon and label content.
+ */
+{template .content}
+	{@param? _close: any}
+	{@param? closeable: bool}
+	{@param? href: string}
+	{@param? label: string}
+	{@param? spritemap: string}
+
+	{if $href}
+		{call ClayLink.render}
+			{param href: $href /}
+			{param label: $label /}
+		{/call}
+	{else}
+		{$label}
+	{/if}
+
+	{if $closeable and $spritemap}
+		{call ClayButton.render}
+			{param ariaLabel: 'Close' /}
+			{param elementClasses: 'close' /}
+			{param events: ['click': ['selector': 'button', 'fn': $_close]] /}
+			{param icon: ['alignment': 'right', 'monospaced': false, 'spritemap': $spritemap, 'symbol': 'times'] /}
+			{param style: 'unstyled' /}
+			{param type: 'button' /}
+		{/call}
+	{/if}
+{/template}
