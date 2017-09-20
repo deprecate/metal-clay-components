@@ -1,0 +1,44 @@
+{
+  "name": "clay-a11y",
+  "version": "1.0.0",
+  "description": "Accessibility test module for clay components",
+  "main": "index.js",
+  "bin": {
+    "clay-a11y": "./bin/clay-a11y"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metal/metal-clay-components.git"
+  },
+  "keywords": [
+    "accessibility",
+    "a11",
+    "axe",
+    "axe-core"
+  ],
+  "author": "Bence Varga <vbence86@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metal/metal-clay-components/issues"
+  },
+  "homepage": "https://github.com/metal/metal-clay-components#readme",
+  "dependencies": {
+    "axe-core": "^2.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "chalk": "^2.1.0",
+    "detect-port": "^1.2.1",
+    "es6-promise": "^4.1.1",
+    "events": "^1.1.1",
+    "express": "^4.15.4",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "puppeteer": "^0.10.2",
+    "yargs": "^9.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  }
+}

@@ -17,6 +17,7 @@
     "test"
   ],
   "scripts": {
+    "a11y": "npm run build && clay-a11y -c demos/index.html",
     "build": "npm run soy && webpack",
     "soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy"
   },
@@ -38,6 +39,7 @@
     "babel-plugin-transform-node-env-inline": "^0.1.1",
     "babel-preset-es2015": "^6.14.0",
     "clay": "liferay/clay#develop",
+    "clay-a11y": "^1.0.0",
     "metal-tools-soy": "^4.2.1",
     "webpack": "^3.0.0"
   }

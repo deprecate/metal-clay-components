@@ -1,6 +1,6 @@
-# clay-badge
+# clay-a11y
 
-Clay Badge
+Clay Accessibility test module
 
 ## Setup
 
@@ -8,6 +8,7 @@ Clay Badge
 can find it [here](https://nodejs.org).
 
 2. Install local dependencies:
+
 
   ```
   npm install
