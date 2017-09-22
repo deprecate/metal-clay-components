@@ -1,10 +1,11 @@
 {
+  "private": true,
   "scripts": {
     "a11y": "clay-a11y --lerna-packages -c demos/index.html",
     "build": "lerna run build",
     "ci": "prettier packages/clay-*/src/*.js --list-different && npm run lint && npm run test",
     "format": "prettier --write packages/clay-*/src/*.js",
-    "lerna": "lerna bootstrap -- --no-optional --no-package-lock && npm install --no-optional --no-package-lock",
+    "lerna": "lerna bootstrap -- --no-optional --no-package-lock",
     "lint": "eslint packages/clay-*/src/*.js packages/clay-*/src/**/*.js && npm run mcritic",
     "mcritic": "mcritic packages/",
     "precommit": "lint-staged",
@@ -43,5 +44,8 @@
       "npm run mcritic",
       "git add"
     ]
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
