@@ -9,7 +9,6 @@ can find it [here](https://nodejs.org).
 
 2. Install local dependencies:
 
-
   ```
   npm install
   ```
