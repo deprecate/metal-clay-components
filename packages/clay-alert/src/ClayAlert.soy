@@ -1,0 +1,80 @@
+{namespace ClayAlert}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+	{@param message: html}
+	{@param spritemap: string}
+	{@param title: string}
+	{@param? _handleCloseClick: any}
+	{@param? _visible: bool}
+	{@param? autoClose: bool}
+	{@param? closeable: bool}
+	{@param? style: string}
+	{@param? type: string}
+
+	{let $attributes kind="attributes"}
+		class="alert alert-{$style} fade
+			{if $closeable}
+				{sp}alert-dismissible
+			{/if}
+
+			{if $type}
+				{sp}alert-{$type}
+			{/if}
+
+			{if $_visible != false}
+				{sp}show
+			{/if}
+		"
+		{if $autoClose and ($type == 'fluid' or $type == 'notification') and $_visible}
+			data-onmouseover="_handleMouseOver"
+			data-onmouseout="_handleMouseOut"
+		{/if}
+
+		role="alert"
+	{/let}
+
+	<div {$attributes}>
+		{if $closeable}
+			{call ClayButton.render}
+				{param ariaLabel: 'Close' /}
+				{param elementClasses: 'close' /}
+				{param events: [ 'click': $_handleCloseClick ] /}
+				{param icon: [
+					'alignment': 'right',
+					'monospaced': false,
+					'spritemap': $spritemap,
+					'symbol': 'times'
+					] /}
+				{param style: 'unstyled' /}
+				{param type: 'button' /}
+			{/call}
+		{/if}
+
+		{let $icon kind="text"}
+			{switch $style}
+				{case 'danger'}
+					exclamation-full
+				{case 'success'}
+					check-circle
+				{case 'warning'}
+					question-circle-full
+				{default}
+					info-circle
+			{/switch}
+		{/let}
+
+		{call ClayIcon.render}
+			{param spritemap: $spritemap /}
+			{param symbol: $icon /}
+		{/call}
+
+		<strong class="lead">
+			{$title}
+		</strong>
+
+		{$message}
+	</div>
+{/template}
