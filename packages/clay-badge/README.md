@@ -1,6 +1,6 @@
 # clay-badge
 
-Clay Badge test module
+Clay Badge
 
 ## Setup
 
