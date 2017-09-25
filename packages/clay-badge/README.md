@@ -1,6 +1,6 @@
-# clay-a11y
+# clay-badge
 
-Clay Accessibility test module
+Clay Badge test module
 
 ## Setup
 
