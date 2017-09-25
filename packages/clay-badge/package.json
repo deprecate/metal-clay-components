@@ -24,7 +24,7 @@
     "clay",
     "metal"
   ],
-  "dependencies": {    
+  "dependencies": {
     "metal": "^2.13.2",
     "metal-component": "^2.13.2",
     "metal-soy": "^2.13.2",
