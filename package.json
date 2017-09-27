@@ -29,6 +29,9 @@
     "snapshotSerializers": [
       "metal-jest-serializer"
     ],
+    "testPathIgnorePatterns": [
+      "generator-clay"
+    ],
     "transformIgnorePatterns": [
       "<rootDir>.*(node_modules)(?!.*clay.*).*$"
     ]
