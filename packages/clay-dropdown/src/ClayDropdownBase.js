@@ -150,6 +150,15 @@ ClayDropdownBase.STATE = {
   triggerLabel: Config.any().required(),
 
   /**
+   * Custom style of the trigger button.
+   * @instance
+   * @memberof ClayDropdownBase
+   * @type {?string}
+   * @default undefined
+   */
+  triggerElementClasses: Config.string(),
+
+  /**
    * Style of the trigger button.
    * @instance
    * @memberof ClayDropdownBase

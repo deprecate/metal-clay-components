@@ -13,6 +13,7 @@
 	{@param? indicatorsPosition: string}
 	{@param? searchable: bool}
 	{@param? spritemap: string}
+	{@param? triggerElementClasses: string}
 	{@param? triggerStyle: string}
 	{@param? type: string}
 
@@ -27,6 +28,7 @@
 		{call .trigger}
 			{param expanded: $expanded /}
 			{param triggerLabel: $triggerLabel /}
+			{param triggerElementClasses: $triggerElementClasses /}
 			{param triggerStyle: $triggerStyle /}
 		{/call}
 
@@ -83,7 +85,7 @@
 			<div class="input-group-input">
 				<input aria-label="Search for..." class="form-control" data-oninput="_handleSearch" placeholder="Search for..." type="text" ref="searchInput">
 			</div>
-			
+
 			<span class="input-group-inset-item">
 				{call ClayButton.render}
 					{param icon: [
@@ -190,6 +192,7 @@
 {template .trigger}
 	{@param triggerLabel: any}
 	{@param? expanded: bool}
+	{@param? triggerElementClasses: string}
 	{@param? triggerStyle: string}
 
 	{let $buttonAttributes kind="attributes"}
@@ -202,6 +205,10 @@
 		aria-haspopup="true"
 		aria-label="toggle"
 		class="dropdown-toggle btn
+			{if $triggerElementClasses}
+				{sp}{$triggerElementClasses}
+			{/if}
+
 			{if $triggerStyle}
 				{sp}btn-{$triggerStyle}
 			{else}
@@ -246,7 +253,7 @@
 					{sp}disabled
 				{/if}
 			"
-			
+
 			{if $disabled}
 				href="javascript:;"
 			{else}

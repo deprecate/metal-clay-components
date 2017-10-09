@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClayPagination should render a pagination markup 1`] = `
+<ul class="pagination">
+  <li class="page-item disabled">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item disabled">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with 4 pages visible and 3 pages in dropdown 1`] = `
+<ul class="pagination">
+  <li class="page-item disabled">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#3">3</a>
+  </li>
+  <li class="page-item">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn page-link btn-link">...</button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class="dropdown-item" href="#4">4</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#5">5</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#6">6</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#7">7</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with 4 pages visible and 3 pages in dropdown with page active in dropdown 1`] = `
+<ul class="pagination">
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#3">3</a>
+  </li>
+  <li class="page-item">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn page-link btn-link">...</button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class="dropdown-item" href="#4">4</a>
+          </li>
+          <li>
+            <a class="dropdown-item active" href="#5">5</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#6">6</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#7">7</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with all pages visible, ellipse range for 10 and active page 7 1`] = `
+<ul class="pagination">
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#3">3</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#4">4</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#5">5</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#6">6</a>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="#7">7</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#8">8</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#9">9</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#10">10</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with dropdown and change url links 1`] = `
+<ul class="pagination">
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=3">3</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=4">4</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=5">5</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=6">6</a>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="?page=7">7</a>
+  </li>
+  <li class="page-item">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn page-link btn-link">...</button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class="dropdown-item" href="?page=8">8</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="?page=9">9</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="?page=10">10</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="?page=11">11</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="?page=12">12</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with dropdown and offset 1`] = `
+<ul class="pagination">
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#780">780</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#781">781</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#782">782</a>
+  </li>
+  <li class="page-item">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn page-link btn-link">...</button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class="dropdown-item" href="#783">783</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#784">784</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#785">785</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#786">786</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#787">787</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#788">788</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#789">789</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#790">790</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#791">791</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#792">792</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#793">793</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#794">794</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#795">795</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#796">796</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#797">797</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#798">798</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#799">799</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#800">800</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination should render a pagination with total of the pages visible 1`] = `
+<ul class="pagination">
+  <li class="page-item disabled">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#3">3</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#4">4</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ClayPagination shound render a pagination with active last page and disabled angle-right 1`] = `
+<ul class="pagination">
+  <li class="page-item">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-left">
+        <use xlink:href="icons.svg#angle-left"></use>
+      </svg>
+    </a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#1">1</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#2">2</a>
+  </li>
+  <li class="page-item">
+    <a class=" page-link" href="#3">3</a>
+  </li>
+  <li class="page-item">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn page-link btn-link">...</button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class="dropdown-item" href="#4">4</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#5">5</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#6">6</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="page-item active">
+    <a class=" page-link" href="#7">7</a>
+  </li>
+  <li class="page-item disabled">
+    <a class=" page-link">
+      <svg aria-hidden="true" class="lexicon-icon lexicon-icon-angle-right">
+        <use xlink:href="icons.svg#angle-right"></use>
+      </svg>
+    </a>
+  </li>
+</ul>
+`;

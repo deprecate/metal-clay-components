@@ -1,0 +1,144 @@
+{namespace ClayPagination}
+
+/**
+ * The renders a pagination.
+ */
+{template .render}
+	{@param spritemap: string}
+	{@param total: number}
+	{@param? _handleClickItem: any}
+	{@param? _handleClickNext: any}
+	{@param? _handleClickPrev: any}
+	{@param? _itemsEllipse: ?}
+	{@param? baseHref: string}
+	{@param? ellipseRange: number}
+	{@param? offset: number}
+	{@param? page: number}
+
+	<ul class="pagination">
+		{call .item}
+			{param disabled: $page == $offset ? true : false /}
+			{param elementClasses: 'page-link' /}
+			{param event: $_handleClickPrev /}
+			{param spritemap: $spritemap /}
+			{param symbol: 'angle-left' /}
+		{/call}
+
+		{call .range}
+			{param _handleClickItem: $_handleClickItem /}
+			{param _itemsEllipse: $_itemsEllipse /}
+			{param baseHref: $baseHref /}
+			{param ellipseRange: $ellipseRange /}
+			{param offset: $offset /}
+			{param page: $page /}
+			{param total: $total /}
+		{/call}
+
+		{call .item}
+			{param disabled: $page == $total ? true : false /}
+			{param elementClasses: 'page-link' /}
+			{param event: $_handleClickNext /}
+			{param spritemap: $spritemap /}
+			{param symbol: 'angle-right' /}
+		{/call}
+	</ul>
+{/template}
+
+/**
+ * Renders a list of items the pages.
+ */
+{template .range}
+	{@param total: number}
+	{@param? _handleClickItem: any}
+	{@param? _itemsEllipse: ?}
+	{@param? baseHref: string}
+	{@param? ellipseRange: number}
+	{@param? offset: number}
+	{@param? page: number}
+
+	{for $index in range($total - $offset + 1)}
+		{let $active: $page == $index + $offset ? true : false /}
+
+		{if $total > $ellipseRange and $index < ($ellipseRange - 3)}
+			{call .item}
+				{param active: $active /}
+				{param event: $_handleClickItem /}
+				{param href: $baseHref + ($index + $offset) /}
+				{param label: '' + ($index + $offset) /}
+			{/call}
+		{elseif $total <= $ellipseRange}
+			{call .item}
+				{param active: $active /}
+				{param event: $_handleClickItem /}
+				{param href: $baseHref + ($index + $offset) /}
+				{param label: '' + ($index + $offset) /}
+			{/call}
+		{/if}
+	{/for}
+
+	{if $total > $ellipseRange}
+		<li class="page-item">
+			{call ClayDropdownBase.render}
+				{param items: $_itemsEllipse /}
+				{param triggerElementClasses: 'page-link' /}
+				{param triggerLabel: '...' /}
+				{param triggerStyle: 'link' /}
+			{/call}
+		</li>
+
+		{let $active: $page == $total ? true : false /}
+
+		{call .item}
+			{param active: $active /}
+			{param event: $_handleClickItem /}
+			{param href: $baseHref + $total /}
+			{param label: '' + $total /}
+		{/call}
+	{/if}
+{/template}
+
+/**
+ * Renders a item in page.
+ */
+{template .item}
+	{@param? active: bool}
+	{@param? disabled: bool}
+	{@param? event: any}
+	{@param? href: string}
+	{@param? label: string}
+	{@param? spritemap: string}
+	{@param? symbol: string}
+
+	{let $classes kind="text"}
+		page-item
+		{if $active}
+			{sp}active
+		{/if}
+
+		{if $disabled}
+			{sp}disabled
+		{/if}
+	{/let}
+
+	<li class="{$classes}">
+		{if $spritemap and $symbol}
+			{call ClayLink.render}
+				{param elementClasses: 'page-link' /}
+				{param events: ['click': $event] /}
+				{param icon: [
+					'alignment': 'left',
+					'monospaced': false,
+					'spritemap': $spritemap,
+					'symbol': $symbol
+				] /}
+			{/call}
+		{else}
+			{call ClayLink.render}
+				{param elementClasses: 'page-link' /}
+				{param events: ['click': $event] /}
+				{param href: $href /}
+				{param label: $label /}
+			{/call}
+		{/if}
+	</li>
+{/template}
