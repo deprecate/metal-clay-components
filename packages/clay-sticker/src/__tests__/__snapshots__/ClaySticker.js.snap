@@ -24,10 +24,6 @@ exports[`ClaySticker should render a bottom right positioned sticker 1`] = `<spa
 
 exports[`ClaySticker should render a circle sticker 1`] = `<span class="sticker sticker-primary rounded-circle"></span>`;
 
-exports[`ClaySticker should render a extra large sticker 1`] = `<span class="sticker sticker-primary sticker-xl"></span>`;
-
-exports[`ClaySticker should render a large sticker 1`] = `<span class="sticker sticker-primary sticker-lg"></span>`;
-
 exports[`ClaySticker should render a small sticker 1`] = `<span class="sticker sticker-primary sticker-sm"></span>`;
 
 exports[`ClaySticker should render a sticker with icon 1`] = `

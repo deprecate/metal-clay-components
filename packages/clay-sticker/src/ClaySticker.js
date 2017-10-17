@@ -73,13 +73,13 @@ ClaySticker.STATE = {
   ]),
 
   /**
-   * Sticker size. Available sizes are `sm`, `lg`, `xl`.
+   * Sticker size. Available sizes are `sm`.
    * @instance
    * @memberof ClaySticker
    * @type {?string|undefined}
    * @default undefined
    */
-  size: Config.oneOf(['lg', 'sm', 'xl']),
+  size: Config.oneOf(['sm']),
 
   /**
    * Shape of the sticker. Available shapes are `circle`, `rounded`.

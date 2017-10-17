@@ -51,22 +51,6 @@ describe('ClaySticker', function() {
     expect(sticker).toMatchSnapshot();
   });
 
-  it('should render a large sticker', () => {
-    sticker = new ClaySticker({
-      size: 'lg',
-    });
-
-    expect(sticker).toMatchSnapshot();
-  });
-
-  it('should render a extra large sticker', () => {
-    sticker = new ClaySticker({
-      size: 'xl',
-    });
-
-    expect(sticker).toMatchSnapshot();
-  });
-
   it('should render a circle sticker', () => {
     sticker = new ClaySticker({
       shape: 'circle',
