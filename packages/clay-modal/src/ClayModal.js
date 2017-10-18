@@ -42,7 +42,7 @@ class ClayModal extends Component {
 
     setTimeout(() => {
       this.visible = false;
-    }, 50);
+    }, 100);
 
     this._eventHandler.removeAllListeners();
   }
@@ -82,7 +82,7 @@ class ClayModal extends Component {
     setTimeout(() => {
       this._isTransitioning = true;
       dom.addClasses(this._overlayElement, 'show');
-    }, 10);
+    }, 5);
 
     this._eventHandler.add(
       dom.on(document, 'keyup', this._handleKeyup.bind(this))
