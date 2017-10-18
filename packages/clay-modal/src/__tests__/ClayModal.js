@@ -287,8 +287,10 @@ describe('ClayModal', function() {
       expect(clayModal._isTransitioning).toBeTruthy();
       expect(clayModal.visible).toBeTruthy();
       console.log(clayModal._isTransitioning, clayModal.visible);
-      expect(clayModal).toMatchSnapshot();
-      done();
+      setTimeout(() => {
+        expect(clayModal).toMatchSnapshot();
+        done();
+      }, 100);
     }, 10);
   });
 
