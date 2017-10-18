@@ -288,7 +288,7 @@ describe('ClayModal', function() {
       expect(clayModal.visible).toBeTruthy();
       expect(clayModal).toMatchSnapshot();
       done();
-    }, 20);
+    }, 10);
   });
 
   it('should close modal when press the escape key', done => {
@@ -309,7 +309,7 @@ describe('ClayModal', function() {
         expect(clayModal.visible).toBeFalsy();
         expect(clayModal._isTransitioning).toBeFalsy();
         done();
-      }, 60);
+      }, 100);
     }, 10);
   });
 
@@ -331,7 +331,7 @@ describe('ClayModal', function() {
         expect(clayModal.visible).toBeFalsy();
         expect(clayModal._isTransitioning).toBeFalsy();
         done();
-      }, 60);
+      }, 100);
     }, 10);
   });
 });
