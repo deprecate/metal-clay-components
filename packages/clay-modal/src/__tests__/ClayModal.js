@@ -286,6 +286,7 @@ describe('ClayModal', function() {
       expect(dom.hasClass(document.body, 'modal-open')).toBeTruthy();
       expect(clayModal._isTransitioning).toBeTruthy();
       expect(clayModal.visible).toBeTruthy();
+      console.log(clayModal._isTransitioning, clayModal.visible);
       expect(clayModal).toMatchSnapshot();
       done();
     }, 10);
