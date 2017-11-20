@@ -17,10 +17,11 @@ class ClayAlert extends Component {
 	rendered() {
 		if (
 			this.autoClose &&
-			(this.type === 'fluid' || this.type === 'notification')
+			(this.type === 'stripe' || this.type === 'toast')
 		) {
 			if (this.delayTime_ === undefined || this.delayTime_ > 0) {
-				this.delayTime_ = (this.element.querySelector('a') ? 10 : 5) * 1000;
+				this.delayTime_ =
+					(this.element.querySelector('a') ? 10 : 5) * 1000;
 			}
 
 			this.resumeTimeout_();
@@ -166,15 +167,6 @@ ClayAlert.STATE = {
 	style: Config.oneOf(['danger', 'info', 'success', 'warning']).value('info'),
 
 	/**
-	 * The type of alert
-	 * @instance
-	 * @memberof ClayAlert
-	 * @type {?string}
-	 * @default undefined
-	 */
-	type: Config.oneOf(['fluid', 'notification']),
-
-	/**
 	 * The title of alert
 	 * @instance
 	 * @memberof ClayAlert
@@ -182,6 +174,15 @@ ClayAlert.STATE = {
 	 * @default undefined
 	 */
 	title: Config.string().required(),
+
+	/**
+	 * The type of alert
+	 * @instance
+	 * @memberof ClayAlert
+	 * @type {?string}
+	 * @default embedded
+	 */
+	type: Config.oneOf(['embedded', 'stripe', 'toast']).value('embedded'),
 
 	/**
 	 * Flag to indicate the visibility of the alert

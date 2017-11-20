@@ -21,23 +21,23 @@ describe('ClayAlert', function() {
 		expect(alert).toMatchSnapshot();
 	});
 
-	it('should render a notification alert', function() {
+	it('should render a toast alert', function() {
 		alert = new ClayAlert({
 			message: 'message',
 			spritemap: spritemap,
 			title: 'info',
-			type: 'notification',
+			type: 'toast',
 		});
 
 		expect(alert).toMatchSnapshot();
 	});
 
-	it('should render a fluid alert', function() {
+	it('should render a stripe alert', function() {
 		alert = new ClayAlert({
 			message: 'message',
 			spritemap: spritemap,
 			title: 'info',
-			type: 'fluid',
+			type: 'stripe',
 		});
 
 		expect(alert).toMatchSnapshot();
@@ -111,16 +111,15 @@ describe('ClayAlert', function() {
 	});
 
 	// eslint-disable-next-line
-	it('should close automatically an alert after 5 seconds when type is "notification" and message has no links', function() {
+	it('should close automatically an alert after 5 seconds when type is "toast" and message has no links', function() {
 		jest.useFakeTimers();
 
 		alert = new ClayAlert({
 			autoClose: true,
-			closeable: true,
 			message: 'message',
 			spritemap: spritemap,
 			title: 'success',
-			type: 'notification',
+			type: 'toast',
 		});
 
 		expect(setTimeout.mock.calls.length).toBe(1);
@@ -131,16 +130,15 @@ describe('ClayAlert', function() {
 	});
 
 	// eslint-disable-next-line
-	it('should close automatically an alert after 10 seconds when type is "notification" and message has links', function() {
+	it('should close automatically an alert after 10 seconds when type is "toast" and message has links', function() {
 		jest.useFakeTimers();
 
 		alert = new ClayAlert({
 			autoClose: true,
-			closeable: true,
 			message: 'message<a href="#">Link</a>',
 			spritemap: spritemap,
 			title: 'success',
-			type: 'notification',
+			type: 'toast',
 		});
 
 		expect(setTimeout.mock.calls.length).toBe(1);
@@ -151,7 +149,7 @@ describe('ClayAlert', function() {
 	});
 
 	// eslint-disable-next-line
-	it('should close automatically an alert after 5 seconds when type is "fluid" and message has no links', function() {
+	it('should close automatically an alert after 5 seconds when type is "stripe" and message has no links', function() {
 		jest.useFakeTimers();
 
 		alert = new ClayAlert({
@@ -160,7 +158,7 @@ describe('ClayAlert', function() {
 			message: 'message',
 			spritemap: spritemap,
 			title: 'success',
-			type: 'fluid',
+			type: 'stripe',
 		});
 
 		expect(setTimeout.mock.calls.length).toBe(1);
@@ -171,7 +169,7 @@ describe('ClayAlert', function() {
 	});
 
 	// eslint-disable-next-line
-	it('should close automatically an alert after 10 seconds when type is "fluid" and message has links', function() {
+	it('should close automatically an alert after 10 seconds when type is "stripe" and message has links', function() {
 		jest.useFakeTimers();
 
 		alert = new ClayAlert({
@@ -180,7 +178,7 @@ describe('ClayAlert', function() {
 			message: 'message<a href="#">Link</a>',
 			spritemap: spritemap,
 			title: 'success',
-			type: 'fluid',
+			type: 'stripe',
 		});
 
 		expect(setTimeout.mock.calls.length).toBe(1);
