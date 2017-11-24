@@ -13,9 +13,18 @@ class ClayBadge extends Component {}
 /**
  * State definition.
  * @static
- * #type {!Object}
+ * @type {!Object}
  */
 ClayBadge.STATE = {
+	/**
+	 * CSS classes to be applied to the element.
+	 * @instance
+	 * @memberof ClayBadge
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	elementClasses: Config.string(),
+
 	/**
 	 * Id to be applied to the element.
 	 * @instance
@@ -39,7 +48,7 @@ ClayBadge.STATE = {
 	 * @instance
 	 * @memberof ClayBadge
 	 * @type {?string}
-	 * default primary
+	 * @default primary
 	 */
 	style: Config.oneOf([
 		'danger',

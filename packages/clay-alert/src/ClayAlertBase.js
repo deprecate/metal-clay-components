@@ -156,6 +156,24 @@ ClayAlertBase.STATE = {
 	destroyOnHide: Config.bool().value(false),
 
 	/**
+	 * CSS classes to be applied to the element.
+	 * @instance
+	 * @memberof ClayAlert
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	elementClasses: Config.string(),
+
+	/**
+	 * Id to be applied to the element.
+	 * @instance
+	 * @memberof ClayAlert
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	id: Config.string(),
+
+	/**
 	 * The message of alert
 	 * @instance
 	 * @memberof ClayAlertBase
@@ -166,7 +184,7 @@ ClayAlertBase.STATE = {
 	/**
 	 * The path to the SVG spritemap file containing the icons.
 	 * @instance
-	 * @memberof ClayIcon
+	 * @memberof ClayAlertBase
 	 * @type {!string}
 	 * @default undefined
 	 */

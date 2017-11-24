@@ -48,7 +48,7 @@ ClayButton.STATE = {
 	 * CSS classes to be applied to the element.
 	 * @instance
 	 * @memberof ClayButton
-	 * @type {?string}
+	 * @type {?string|undefined}
 	 * @default undefined
 	 */
 	elementClasses: Config.string(),
@@ -71,7 +71,7 @@ ClayButton.STATE = {
 	 * @instance
 	 * @memberof ClayButton
 	 * @type {?string|undefined}
-	 * default undefined
+	 * @default undefined
 	 */
 	id: Config.string(),
 
