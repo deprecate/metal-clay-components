@@ -12,6 +12,7 @@
 	{@param? id: string}
 	{@param? indeterminate: bool}
 	{@param? inline: bool}
+	{@param? labelVariant: string}
 	{@param? name: string}
 	{@param? value: string}
 
@@ -37,6 +38,7 @@
 			{param disabled: $disabled /}
 			{param hideLabel: $hideLabel /}
 			{param label: $label /}
+			{param labelVariant: $labelVariant /}
 			{param name: $name /}
 			{param value: $value /}
 		{/call}
@@ -51,6 +53,7 @@
 	{@param? checked: bool}
 	{@param? disabled: bool}
 	{@param? hideLabel: bool}
+	{@param? labelVariant: string}
 	{@param? name: string}
 	{@param? value: string}
 
@@ -82,6 +85,14 @@
 
 		<span class="custom-control-indicator"></span>
 
+		{delcall ClayCheckbox.Label variant="$labelVariant" data="all" /}
+	</label>
+{/template}
+
+{template .label}
+		{@param label: html|string}
+		{@param? hideLabel: bool}
+
 		{let $spanLabelClasses kind="text"}
 			custom-control-description
 			{if $hideLabel}
@@ -90,5 +101,8 @@
 		{/let}
 
 		<span class="{$spanLabelClasses}">{$label}</span>
-	</label>
 {/template}
+
+{deltemplate ClayCheckbox.Label}
+	{call .label data="all" /}
+{/deltemplate}

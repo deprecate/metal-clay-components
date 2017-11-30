@@ -96,6 +96,15 @@ ClayCheckbox.STATE = {
 	label: Config.any().required(),
 
 	/**
+	 * Name of the label template variant.
+	 * @instance
+	 * @memberof ClayCheckbox
+	 * @type {?string}
+	 * @default undefined
+	 */
+	labelVariant: Config.string(),
+
+	/**
 	 * Name to be applied to the element.
 	 * @instance
 	 * @memberof ClayCheckbox
