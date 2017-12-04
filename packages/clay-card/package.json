@@ -31,6 +31,7 @@
     "clay-dropdown": "^1.0.0-alpha.3",
     "clay-label": "^1.0.0-alpha.3",
     "clay-link": "^1.0.0-alpha.3",
+    "clay-radio": "^1.0.0-alpha.3",
     "clay-sticker": "^1.0.0-alpha.3",
     "metal": "^2.14.0",
     "metal-component": "^2.14.0",

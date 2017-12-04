@@ -2,6 +2,7 @@ import 'clay-checkbox';
 import 'clay-dropdown';
 import 'clay-label';
 import 'clay-link';
+import 'clay-radio';
 import 'clay-sticker';
 import Component from 'metal-component';
 import Soy from 'metal-soy';
@@ -118,6 +119,20 @@ ClayCardBase.STATE = {
 		'success',
 		'warning',
 	]).value('secondary'),
+
+	/**
+	 * Transform card with radio.
+	 * @instance
+	 * @memberof ClayCardBase
+	 * @type {?array|undefined}
+	 * @default undefined
+	 */
+	radio: Config.shapeOf({
+		checked: Config.bool().value(false),
+		disabled: Config.bool().value(false),
+		name: Config.string(),
+		value: Config.string(),
+	}),
 
 	/**
 	 * The path to the SVG spritemap file containing the icons.

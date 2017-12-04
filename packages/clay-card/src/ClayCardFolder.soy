@@ -1,5 +1,8 @@
 {namespace ClayCardFolder}
 
+/**
+ * Renders a folder card component.
+ */
 {template .render}
     {@param spritemap: string}
     {@param? actionsItems: list<[
@@ -8,14 +11,20 @@
         url: string
     ]>}
     {@param? checkbox: [
-		checked: bool,
-		disabled: bool,
-		indeterminate: bool,
-		name: string,
-		value: string
-	]}
+    	checked: bool,
+    	disabled: bool,
+    	indeterminate: bool,
+    	name: string,
+    	value: string
+    ]}
     {@param? elementClasses: string}
     {@param? id: string}
+    {@param? radio: [
+    	checked: bool,
+    	disabled: bool,
+    	name: string,
+    	value: string
+    ]}
     {@param? title: string}
     {@param? url: string}
 
@@ -24,6 +33,7 @@
         {param checkbox: $checkbox /}
         {param elementClasses: $elementClasses /}
         {param id: $id /}
+        {param radio: $radio /}
         {param ref: 'cardFolder' /}
         {param spritemap: $spritemap /}
         {param title: $title /}

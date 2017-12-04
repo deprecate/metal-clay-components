@@ -24,6 +24,12 @@
 	{@param? imageSrc: string}
 	{@param? label: string}
 	{@param? labelStyle: string}
+	{@param? radio: [
+		checked: bool,
+		disabled: bool,
+		name: string,
+		value: string
+	]}
 	{@param? subtitle: string}
 	{@param? title: string}
 	{@param? type: string}
@@ -33,7 +39,7 @@
 
 	{let $attributes kind="attributes"}
 		class="
-			{if $checkbox}
+			{if $checkbox or $radio}
 				form-check form-check-card
 
 				{if $variant == 'folder'}
@@ -48,7 +54,7 @@
 			{if $variant == 'folder'}
 				{sp}card-type-directory
 
-				{if not $checkbox}
+				{if not $checkbox and not $radio}
 					{sp}card-horizontal
 				{/if}
 			{else}
@@ -89,6 +95,15 @@
 		{/call}
 	{/let}
 
+	{let $classesCard kind="text"}
+		card
+		{if $variant == 'folder'}
+			{sp}card-horizontal
+		{else}
+			{sp}card-type-asset
+		{/if}
+	{/let}
+
 	<div {$attributes}>
 		{if $checkbox}
 			{call ClayCheckbox.render}
@@ -96,15 +111,6 @@
 				{param disabled: $checkbox.disabled /}
 				{param indeterminate: $checkbox.indeterminate /}
 				{param labelContent kind="html"}
-					{let $classesCard kind="text"}
-						card
-						{if $variant == 'folder'}
-							{sp}card-horizontal
-						{else}
-							{sp}card-type-asset
-						{/if}
-					{/let}
-
 					<div class="{$classesCard}">
 						{$content}
 					</div>
@@ -112,6 +118,19 @@
 
 				{param name: $checkbox.name /}
 				{param value: $checkbox.value /}
+			{/call}
+		{elseif $radio}
+			{call ClayRadio.render}
+				{param checked: $radio.checked /}
+				{param disabled: $radio.disabled /}
+				{param labelContent kind="html"}
+					<div class="{$classesCard}">
+						{$content}
+					</div>
+				{/param}
+
+				{param name: $radio.name /}
+				{param value: $radio.value /}
 			{/call}
 		{else}
 			{$content}

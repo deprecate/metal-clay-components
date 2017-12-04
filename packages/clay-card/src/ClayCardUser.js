@@ -117,6 +117,20 @@ ClayCardUser.STATE = {
 	]).value('secondary'),
 
 	/**
+	 * Transform card with radio.
+	 * @instance
+	 * @memberof ClayCardUser
+	 * @type {?array|undefined}
+	 * @default undefined
+	 */
+	radio: Config.shapeOf({
+		checked: Config.bool().value(false),
+		disabled: Config.bool().value(false),
+		name: Config.string(),
+		value: Config.string(),
+	}),
+
+	/**
 	 * The path to the SVG spritemap file containing the icons.
 	 * @instance
 	 * @memberof ClayCardUser

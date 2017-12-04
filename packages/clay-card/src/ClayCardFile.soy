@@ -1,5 +1,8 @@
 {namespace ClayCardFile}
 
+/**
+ * Renders a file card component.
+ */
 {template .render}
     {@param spritemap: string}
     {@param? actionsItems: list<[
@@ -8,21 +11,27 @@
         url: string
     ]>}
     {@param? checkbox: [
-		checked: bool,
-		disabled: bool,
-		indeterminate: bool,
-		name: string,
-		value: string
-	]}
+    	checked: bool,
+    	disabled: bool,
+    	indeterminate: bool,
+    	name: string,
+    	value: string
+    ]}
     {@param? elementClasses: string}
     {@param? icon: string}
     {@param? id: string}
     {@param? label: string}
-	{@param? labelStyle: string}
+    {@param? labelStyle: string}
+    {@param? radio: [
+    	checked: bool,
+    	disabled: bool,
+    	name: string,
+    	value: string
+    ]}
     {@param? subtitle: string}
     {@param? title: string}
     {@param? type: string}
-	{@param? typeStyle: string}
+    {@param? typeStyle: string}
     {@param? url: string}
 
     {call ClayCardBase.render}
@@ -33,6 +42,7 @@
         {param id: $id /}
         {param label: $label /}
         {param labelStyle: $labelStyle /}
+        {param radio: $radio /}
         {param ref: 'cardFile' /}
         {param spritemap: $spritemap /}
         {param subtitle: $subtitle /}
