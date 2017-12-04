@@ -65,7 +65,7 @@
 		{/if}
 	{/let}
 
-	{let $header kind="html"}
+	{let $content kind="html"}
 		{if $variant != 'folder'}
 			{call .header}
 				{param icon: $icon /}
@@ -77,9 +77,6 @@
 				{param variant: $variant /}
 			{/call}
 		{/if}
-	{/let}
-
-	{let $body kind="html"}
 		{call .body}
 			{param actionsItems: $actionsItems /}
 			{param label: $label /}
@@ -109,8 +106,7 @@
 					{/let}
 
 					<div class="{$classesCard}">
-						{$header}
-						{$body}
+						{$content}
 					</div>
 				{/param}
 
@@ -118,8 +114,7 @@
 				{param value: $checkbox.value /}
 			{/call}
 		{else}
-			{$header}
-			{$body}
+			{$content}
 		{/if}
 	</div>
 {/template}
