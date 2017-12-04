@@ -113,6 +113,53 @@ describe('ClayCardFile', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render a ClayCardFile with radio checked', () => {
+		component = new ClayCardFile({
+			radio: {
+				checked: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFile with radio disabled', () => {
+		component = new ClayCardFile({
+			radio: {
+				checked: true,
+				disabled: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFile with radio `name`', () => {
+		component = new ClayCardFile({
+			radio: {
+				checked: true,
+				name: 'name',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFile with radio `value`', () => {
+		component = new ClayCardFile({
+			radio: {
+				checked: true,
+				value: 'value',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render a ClayCardFile with icon', () => {
 		component = new ClayCardFile({
 			icon: 'documents',

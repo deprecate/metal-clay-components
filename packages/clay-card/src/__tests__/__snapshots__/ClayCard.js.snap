@@ -280,6 +280,82 @@ exports[`ClayCard should render a ClayCard with labelStyle \`warning color\` 1`]
 </div>
 `;
 
+exports[`ClayCard should render a ClayCard with radio \`name\` 1`] = `
+<div class="form-check form-check-card form-check-top-left card-type-asset">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" name="name" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-type-asset">
+        <div class="aspect-ratio card-item-first bg-checkered"></div>
+        <div class="card-body">
+          <div class="card-row">
+            <div class="flex-col flex-col-expand"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCard should render a ClayCard with radio \`value\` 1`] = `
+<div class="form-check form-check-card form-check-top-left card-type-asset">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" value="value" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-type-asset">
+        <div class="aspect-ratio card-item-first bg-checkered"></div>
+        <div class="card-body">
+          <div class="card-row">
+            <div class="flex-col flex-col-expand"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCard should render a ClayCard with radio checked 1`] = `
+<div class="form-check form-check-card form-check-top-left card-type-asset">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-type-asset">
+        <div class="aspect-ratio card-item-first bg-checkered"></div>
+        <div class="card-body">
+          <div class="card-row">
+            <div class="flex-col flex-col-expand"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCard should render a ClayCard with radio disabled 1`] = `
+<div class="form-check form-check-card form-check-top-left card-type-asset">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" disabled="disabled" class="custom-control-input" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-type-asset">
+        <div class="aspect-ratio card-item-first bg-checkered"></div>
+        <div class="card-body">
+          <div class="card-row">
+            <div class="flex-col flex-col-expand"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`ClayCard should render a ClayCard with subtitle 1`] = `
 <div class="card card-type-asset">
   <div class="aspect-ratio card-item-first bg-checkered"></div>

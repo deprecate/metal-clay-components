@@ -113,6 +113,53 @@ describe('ClayCardUser', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render a ClayCardUser with radio checked', () => {
+		component = new ClayCardUser({
+			radio: {
+				checked: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardUser with radio disabled', () => {
+		component = new ClayCardUser({
+			radio: {
+				checked: true,
+				disabled: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardUser with radio `name`', () => {
+		component = new ClayCardUser({
+			radio: {
+				checked: true,
+				name: 'name',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardUser with radio `value`', () => {
+		component = new ClayCardUser({
+			radio: {
+				checked: true,
+				value: 'value',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render a ClayCardUser with icon', () => {
 		component = new ClayCardUser({
 			icon: 'documents',

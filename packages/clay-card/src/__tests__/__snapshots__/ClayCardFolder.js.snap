@@ -179,6 +179,98 @@ exports[`ClayCardFolder should render a ClayCardFolder with id 1`] = `
 </div>
 `;
 
+exports[`ClayCardFolder should render a ClayCardFolder with radio \`name\` 1`] = `
+<div class="form-check form-check-card form-check-middle-left card-type-directory">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" name="name" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-horizontal">
+        <div class="card-body">
+          <div class="card-row">
+            <span class="sticker sticker-unstyled">
+              <svg aria-hidden="true" class="lexicon-icon lexicon-icon-folder">
+                <use xlink:href="icons.svg#folder"></use>
+              </svg>
+            </span>
+            <div class="flex-col flex-col-expand flex-col-gutters"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCardFolder should render a ClayCardFolder with radio \`value\` 1`] = `
+<div class="form-check form-check-card form-check-middle-left card-type-directory">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" value="value" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-horizontal">
+        <div class="card-body">
+          <div class="card-row">
+            <span class="sticker sticker-unstyled">
+              <svg aria-hidden="true" class="lexicon-icon lexicon-icon-folder">
+                <use xlink:href="icons.svg#folder"></use>
+              </svg>
+            </span>
+            <div class="flex-col flex-col-expand flex-col-gutters"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCardFolder should render a ClayCardFolder with radio checked 1`] = `
+<div class="form-check form-check-card form-check-middle-left card-type-directory">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" class="custom-control-input" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-horizontal">
+        <div class="card-body">
+          <div class="card-row">
+            <span class="sticker sticker-unstyled">
+              <svg aria-hidden="true" class="lexicon-icon lexicon-icon-folder">
+                <use xlink:href="icons.svg#folder"></use>
+              </svg>
+            </span>
+            <div class="flex-col flex-col-expand flex-col-gutters"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ClayCardFolder should render a ClayCardFolder with radio disabled 1`] = `
+<div class="form-check form-check-card form-check-middle-left card-type-directory">
+  <div class="custom-control custom-radio">
+    <label>
+      <input checked="" disabled="disabled" class="custom-control-input" ref="input" type="radio" role="radio">
+      <span class="custom-control-indicator"></span>
+      <div class="card card-horizontal">
+        <div class="card-body">
+          <div class="card-row">
+            <span class="sticker sticker-unstyled">
+              <svg aria-hidden="true" class="lexicon-icon lexicon-icon-folder">
+                <use xlink:href="icons.svg#folder"></use>
+              </svg>
+            </span>
+            <div class="flex-col flex-col-expand flex-col-gutters"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`ClayCardFolder should render a ClayCardFolder with title 1`] = `
 <div class="card card-type-directory card-horizontal">
   <div class="card-body">

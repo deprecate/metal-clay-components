@@ -113,6 +113,53 @@ describe('ClayCardFolder', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render a ClayCardFolder with radio checked', () => {
+		component = new ClayCardFolder({
+			radio: {
+				checked: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFolder with radio disabled', () => {
+		component = new ClayCardFolder({
+			radio: {
+				checked: true,
+				disabled: true,
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFolder with radio `name`', () => {
+		component = new ClayCardFolder({
+			radio: {
+				checked: true,
+				name: 'name',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayCardFolder with radio `value`', () => {
+		component = new ClayCardFolder({
+			radio: {
+				checked: true,
+				value: 'value',
+			},
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render a ClayCardFolder with title', () => {
 		component = new ClayCardFolder({
 			title: 'empty-background.png',
