@@ -69,6 +69,7 @@
 			<div class="row">
 				<div class="col-md-4" id="directory-block"></div>
 				<div class="col-md-4" id="directory-checkbox-block"></div>
+				<div class="col-md-4" id="directory-radio-block"></div>
 			</div>
 		</div>
 	</div>
@@ -95,6 +96,9 @@
 			actionsItems: items,
 			imageAlt: 'thumbnail',
 			imageSrc: image,
+			radio: {
+				checked: true
+			},
 			spritemap: spritemap,
 			subtitle: 'Author Action',
 			title: 'thumbnail_coffee.jpg',
@@ -186,6 +190,14 @@
 			title: 'ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual',
 		}, '#directory-checkbox-block');
 
+		new metal.ClayCardFolder({
+			actionsItems: items,
+			radio: {
+				checked: true
+			},
+			spritemap: spritemap,
+			title: 'ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual',
+		}, '#directory-radio-block');
 	</script>
 </body>
 </html>
