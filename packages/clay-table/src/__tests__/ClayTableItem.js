@@ -64,13 +64,13 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					stickerLabel: 'AA',
-					stickerStyle: 'primary',
 					text: 'Name',
 					useEllipse: true,
 				},
 			],
 			spritemap: spritemap,
+			stickerLabel: 'AA',
+			stickerStyle: 'primary',
 		});
 
 		expect(component).toMatchSnapshot();

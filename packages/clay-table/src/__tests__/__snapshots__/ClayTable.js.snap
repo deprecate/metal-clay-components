@@ -16,10 +16,12 @@ exports[`ClayTable should render a ClayTable with multiples columns in header 1`
 <div class="table-responsive">
   <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
     <thead>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Size</th>
-      <th>Status</th>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Size</th>
+        <th>Status</th>
+      </tr>
     </thead>
   </table>
 </div>

@@ -230,9 +230,11 @@ exports[`ClayTableItem should render the ClayTableItem with label in the column 
 
 exports[`ClayTableItem should render the ClayTableItem with user sticker in the column 1`] = `
 <tr class="">
+  <td>
+    <span class="sticker sticker-primary rounded-circle">AA</span>
+  </td>
   <td class="table-cell-content">
-    <span class="text-truncate" title="Name">
-      <span class="sticker sticker-primary rounded-circle">AA</span>Name</span>
+    <span class="text-truncate" title="Name">Name</span>
   </td>
 </tr>
 `;
