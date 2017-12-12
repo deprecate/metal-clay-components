@@ -28,6 +28,7 @@
         url: string,
         useEllipse: bool
     ]>}
+    {@param? contentRenderer: string}
     {@param? disabled: bool}
     {@param? group: string}
     {@param? inputName: string}
@@ -54,6 +55,7 @@
             {call .content}
                 {param actionItems: $actionItems /}
                 {param columns: $columns /}
+                {param contentRenderer: $contentRenderer /}
                 {param disabled: $disabled /}
                 {param inputName: $inputName /}
                 {param inputValue: $inputValue /}
@@ -93,6 +95,7 @@
         url: string,
         useEllipse: bool
     ]>}
+    {@param? contentRenderer: string}
     {@param? disabled: bool}
     {@param? inputName: string}
     {@param? inputValue: string}
@@ -115,7 +118,7 @@
         {foreach $column in $columns}
             {let $isColumnFirst: index($column) == '0' and not $selectable or index($column) == '1' and $selectable /}
 
-            {call .column}
+            {delcall ClayTableItem.Column variant="$contentRenderer"}
                 {param isColumnFirst: $isColumnFirst /}
                 {param label: $column.label /}
                 {param labelStyle: $column.labelStyle /}
@@ -125,7 +128,7 @@
                 {param text: $column.text /}
                 {param url: $column.url /}
                 {param useEllipse: $column.useEllipse /}
-            {/call}
+            {/delcall}
         {/foreach}
     {/if}
 
@@ -147,9 +150,9 @@
 /**
  * This renders a multiples columns of the row.
  */
-{template .column}
+{deltemplate ClayTableItem.Column}
     {@param? isColumnFirst: bool}
-	{@param? label: string}
+    {@param? label: string}
     {@param? labelStyle: string}
     {@param? progressBar: [
         maxValue: int,
@@ -164,14 +167,13 @@
     {@param? useEllipse: bool}
 
     {let $textContent kind="html"}
-        {if $stickerLabel and $isColumnFirst}
-            {call ClaySticker.render}
-                {param label: $stickerLabel /}
-                {param shape: 'circle' /}
-                {param style: $stickerStyle /}
-            {/call}
-        {/if}
-        {$text}
+        {call .text}
+            {param isColumnFirst: $isColumnFirst /}
+            {param stickerLabel: $stickerLabel /}
+            {param stickerStyle: $stickerStyle /}
+            {param text: $text /}
+            {param url: $url /}
+        {/call}
     {/let}
 
 	{let $content kind="html"}
@@ -187,15 +189,12 @@
                 {param status: $progressBar.status /}
                 {param value: $progressBar.value /}
             {/call}
-        {elseif $useEllipse}
-			<span class="text-truncate" title="{$text}">{$textContent}</span>
-		{elseif $text and not $url}
-			{$textContent}
-		{elseif $text and $url}
-			{call ClayLink.render}
-				{param href: $url /}
-				{param label: $text /}
-			{/call}
+		{elseif $text}
+            {if $useEllipse}
+                <span class="text-truncate" title="{$text}">{$textContent}</span>
+            {else}
+                {$textContent}
+            {/if}
 		{/if}
 	{/let}
 
@@ -208,6 +207,37 @@
 	<td {$attributes}>
 		{$content}
 	</td>
+{/deltemplate}
+
+/**
+ * This renders a text of the column.
+ */
+{template .text}
+    {@param? isColumnFirst: bool}
+    {@param? stickerLabel: string}
+    {@param? stickerStyle: string}
+    {@param? text: string}
+    {@param? url: string}
+
+    {let $textContent kind="html"}
+        {if $stickerLabel and $isColumnFirst}
+            {call ClaySticker.render}
+                {param label: $stickerLabel /}
+                {param shape: 'circle' /}
+                {param style: $stickerStyle /}
+            {/call}
+        {/if}
+        {$text}
+    {/let}
+
+    {if $text and not $url}
+        {$textContent}
+    {elseif $text and $url}
+        {call ClayLink.render}
+            {param href: $url /}
+            {param label: $text /}
+        {/call}
+    {/if}
 {/template}
 
 /**

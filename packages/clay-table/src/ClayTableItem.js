@@ -44,6 +44,15 @@ ClayTableItem.STATE = {
 	columns: columnsValidator,
 
 	/**
+	 * Name of the content renderer to use template variants.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	contentRenderer: Config.string(),
+
+	/**
 	 * Flag to indicate if the item is disabled or not.
 	 * @instance
 	 * @memberof ClayTableItem
