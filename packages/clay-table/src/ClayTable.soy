@@ -1,0 +1,89 @@
+{namespace ClayTable}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+	{@param spritemap: string}
+	{@param? elementClasses: string}
+	{@param? header: list<[
+		label: string
+	]>}
+	{@param? id: string}
+	{@param? items: list<[
+		actionItems: list<[
+			disabled: bool,
+			icon: string,
+			label: string,
+			quickAction: bool,
+			separator: bool,
+			url: string
+		]>,
+		columns: list<[
+			label: string,
+			labelStyle: string,
+			progressBar: [
+				maxValue: int,
+				minValue: int,
+				status: string,
+				value: int
+			],
+			stickerLabel: string,
+			stickerStyle: string,
+			text: string,
+			url: string,
+			useEllipse: bool
+		]>,
+		disabled: bool,
+		inputName: string,
+		inputValue: string,
+		selectable: bool,
+		selected: bool,
+		group: string
+	]>}
+
+	{let $attributes kind="attributes"}
+		class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover
+			{if $elementClasses}
+				{sp}{$elementClasses}
+			{/if}
+		"
+
+		{if $id}
+			id="{$id}"
+		{/if}
+	{/let}
+
+	<div class="table-responsive">
+		<table {$attributes}>
+			{if $header}
+				<thead>
+					{foreach $item in $header}
+						<th>
+							{if $item.label}
+								{$item.label}
+							{/if}
+						</th>
+					{/foreach}
+				</thead>
+			{/if}
+			{if $items}
+				<tbody>
+					{foreach $item in $items}
+						{call ClayTableItem.render}
+							{param actionItems: $item.actionItems /}
+							{param columns: $item.columns /}
+							{param disabled: $item.disabled /}
+							{param group: $item.group /}
+							{param inputName: $item.inputName /}
+							{param inputValue: $item.inputValue /}
+							{param selectable: $item.selectable /}
+							{param selected: $item.selected /}
+							{param spritemap: $spritemap /}
+						{/call}
+					{/foreach}
+				</tbody>
+			{/if}
+		</table>
+	</div>
+{/template}

@@ -1,0 +1,243 @@
+{namespace ClayTableItem}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+    {@param spritemap: string}
+    {@param? actionItems: list<[
+        disabled: bool,
+        icon: string,
+        label: string,
+        quickAction: bool,
+        separator: bool,
+        url: string
+    ]>}
+    {@param? columns: list<[
+        label: string,
+        labelStyle: string,
+        progressBar: [
+            maxValue: int,
+            minValue: int,
+            status: string,
+            value: int
+        ],
+        stickerLabel: string,
+        stickerStyle: string,
+        text: string,
+        url: string,
+        useEllipse: bool
+    ]>}
+    {@param? disabled: bool}
+    {@param? group: string}
+    {@param? inputName: string}
+    {@param? inputValue: string}
+    {@param? selectable: bool}
+    {@param? selected: bool}
+
+    {let $attributes kind="attributes"}
+        class="
+            {if $selectable and $selected}
+                table-active
+            {/if}
+
+            {if $group}
+                table-divider
+            {/if}
+        "
+    {/let}
+
+    <tr {$attributes}>
+        {if $group}
+            <td colspan="9">{$group}</td>
+        {else}
+            {call .content}
+                {param actionItems: $actionItems /}
+                {param columns: $columns /}
+                {param disabled: $disabled /}
+                {param inputName: $inputName /}
+                {param inputValue: $inputValue /}
+                {param selectable: $selectable /}
+                {param selected: $selected /}
+                {param spritemap: $spritemap /}
+            {/call}
+        {/if}
+    </tr>
+{/template}
+
+/**
+ * This renders the content of the row.
+ */
+{template .content}
+    {@param spritemap: string}
+    {@param? actionItems: list<[
+        disabled: bool,
+        icon: string,
+        label: string,
+        quickAction: bool,
+        separator: bool,
+        url: string
+    ]>}
+    {@param? columns: list<[
+        label: string,
+        labelStyle: string,
+        progressBar: [
+            maxValue: int,
+            minValue: int,
+            status: string,
+            value: int
+        ],
+        stickerLabel: string,
+        stickerStyle: string,
+        text: string,
+        url: string,
+        useEllipse: bool
+    ]>}
+    {@param? disabled: bool}
+    {@param? inputName: string}
+    {@param? inputValue: string}
+    {@param? selectable: bool}
+    {@param? selected: bool}
+
+    {if $selectable}
+        <td>
+            {call ClayCheckbox.render}
+                {param checked: $selected /}
+                {param disabled: $disabled /}
+                {param hideLabel: true /}
+                {param name: $inputName /}
+                {param value: $inputValue /}
+            {/call}
+        </td>
+    {/if}
+
+    {if $columns}
+        {foreach $column in $columns}
+            {let $isColumnFirst: index($column) == '0' and not $selectable or index($column) == '1' and $selectable /}
+
+            {call .column}
+                {param isColumnFirst: $isColumnFirst /}
+                {param label: $column.label /}
+                {param labelStyle: $column.labelStyle /}
+                {param progressBar: $column.progressBar /}
+                {param stickerLabel: $column.stickerLabel /}
+                {param stickerStyle: $column.stickerStyle /}
+                {param text: $column.text /}
+                {param url: $column.url /}
+                {param useEllipse: $column.useEllipse /}
+            {/call}
+        {/foreach}
+    {/if}
+
+    {if $actionItems}
+        <td>
+            {call .quickMenu}
+                {param actionItems: $actionItems /}
+                {param spritemap: $spritemap /}
+            {/call}
+
+            {call ClayActionsDropdown.render}
+                {param items: $actionItems /}
+                {param spritemap: $spritemap /}
+            {/call}
+        </td>
+    {/if}
+{/template}
+
+/**
+ * This renders a multiples columns of the row.
+ */
+{template .column}
+    {@param? isColumnFirst: bool}
+	{@param? label: string}
+    {@param? labelStyle: string}
+    {@param? progressBar: [
+        maxValue: int,
+        minValue: int,
+        status: string,
+        value: int
+    ]}
+    {@param? stickerLabel: string}
+    {@param? stickerStyle: string}
+	{@param? text: string}
+	{@param? url: string}
+    {@param? useEllipse: bool}
+
+    {let $textContent kind="html"}
+        {if $stickerLabel and $isColumnFirst}
+            {call ClaySticker.render}
+                {param label: $stickerLabel /}
+                {param shape: 'circle' /}
+                {param style: $stickerStyle /}
+            {/call}
+        {/if}
+        {$text}
+    {/let}
+
+	{let $content kind="html"}
+		{if $label}
+			{call ClayLabel.render}
+				{param label: $label /}
+				{param style: $labelStyle /}
+			{/call}
+        {elseif $progressBar}
+            {call ClayProgressBar.render}
+                {param minValue: $progressBar.minValue /}
+                {param maxValue: $progressBar.maxValue /}
+                {param status: $progressBar.status /}
+                {param value: $progressBar.value /}
+            {/call}
+        {elseif $useEllipse}
+			<span class="text-truncate" title="{$text}">{$textContent}</span>
+		{elseif $text and not $url}
+			{$textContent}
+		{elseif $text and $url}
+			{call ClayLink.render}
+				{param href: $url /}
+				{param label: $text /}
+			{/call}
+		{/if}
+	{/let}
+
+	{let $attributes kind="attributes"}
+		{if $useEllipse}
+			class="table-cell-content"
+		{/if}
+	{/let}
+
+	<td {$attributes}>
+		{$content}
+	</td>
+{/template}
+
+/**
+ * This renders the quick actions menu.
+ */
+{template .quickMenu}
+	{@param actionItems: list<[
+		disabled: bool,
+		icon: string,
+		label: string,
+		quickAction: bool,
+		separator: bool,
+		url: string
+	]>}
+	{@param spritemap: string}
+
+	<div class="quick-action-menu">
+		{foreach $item in $actionItems}
+			{if $item.quickAction and $item.icon}
+				{call ClayLink.render}
+					{param elementClasses: 'quick-action-item' /}
+                    {param href: $item.url /}
+					{param label kind="html"}
+						{call ClayIcon.render}
+							{param spritemap: $spritemap /}
+							{param symbol: $item.icon /}
+						{/call}
+					{/param}
+				{/call}
+			{/if}
+		{/foreach}
+	</div>
+{/template}

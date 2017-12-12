@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: ClayTable</title>
+
+	<link rel="stylesheet" href="../../../node_modules/clay/build/css/atlas.css">
+
+	<style>
+		body {
+			background-color: #FFF;
+		}
+
+		.row {
+			margin-bottom: 20px;
+		}
+	</style>
+
+	<script src="../build/globals/clay-table.js"></script>
+</head>
+<body class="container">
+	<h1 class="page-title">
+		ClayTable
+	</h1>
+
+	<div id="container"></div>
+	<div id="container2"></div>
+
+	<script type="text/javascript">
+		let spritemap = '../../../node_modules/clay/build/images/icons/icons.svg';
+
+		let actionItems = [
+			{
+				label: 'Option 1',
+				url: '#1',
+			},
+			{
+				label: 'Option 2',
+				separator: true,
+				url: '#2',
+			},
+			{
+				label: 'Option 3',
+				url: '#3',
+			},
+		];
+
+		let actionItemsWithQuickItems = [
+			{
+				icon: 'trash',
+				label: 'Option 1',
+				quickAction: true,
+				url: '#1',
+			},
+			{
+				icon: 'download',
+				label: 'Option 2',
+				quickAction: true,
+				separator: true,
+				url: '#2',
+			},
+			{
+				icon: 'info-circle-open',
+				label: 'Option 3',
+				quickAction: true,
+				url: '#3',
+			},
+		];
+
+		new metal.ClayTable({
+			header: [
+				{
+					label: ''
+				},
+				{
+					label: 'Title'
+				},
+				{
+					label: 'Author'
+				},
+				{
+					label: 'Size'
+				},
+				{
+					label: 'Status'
+				},
+				{
+					label: 'Creation Date'
+				},
+				{
+					label: 'Modified Date'
+				},
+				{
+					label: ''
+				}
+			],
+			items: [
+				{
+					group: 'Group 1'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					selectable: true,
+					selected: true,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					selectable: true,
+					selected: false,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					selectable: true,
+					selected: false,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					group: 'Group 2'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					selectable: true,
+					selected: false,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#container');
+
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Title'
+				},
+				{
+					label: 'Author'
+				},
+				{
+					label: 'Size'
+				},
+				{
+					label: 'Status'
+				},
+				{
+					label: 'Creation Date'
+				},
+				{
+					label: 'Modified Date'
+				},
+				{
+
+				}
+			],
+			items: [
+				{
+					group: 'Group 1'
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							stickerLabel: 'AA',
+							stickerStyle: 'primary',
+							text: 'Name',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							progressBar: {
+								value: 40
+							}
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'Rejected',
+							labelStyle: 'danger'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				},
+				{
+					group: 'Group 2'
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
+							useEllipse: true
+						},
+						{
+							text: 'Juan Anton'
+						},
+						{
+							text: '264KB'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							text: '15 Minutes Ago'
+						},
+						{
+							text: '15 Minutes Ago'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#container');
+	</script>
+</body>
+</html>

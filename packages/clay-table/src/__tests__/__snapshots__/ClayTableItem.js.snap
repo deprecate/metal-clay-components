@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClayTableItem should render the ClayTableItem disabled 1`] = `
+<tr class="">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input disabled="disabled" class="custom-control-input" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem selectable 1`] = `
+<tr class="">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input class="custom-control-input" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem selected 1`] = `
+<tr class="table-active">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input checked="" class="custom-control-input" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with actionItems 1`] = `
+<tr class="">
+  <td>
+    <div class="quick-action-menu"></div>
+    <div class="dropdown dropdown-action">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn btn-unstyled">
+        <svg aria-hidden="true" class="lexicon-icon lexicon-icon-ellipsis-v">
+          <use xlink:href="icons.svg#ellipsis-v"></use>
+        </svg>
+      </button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class=" dropdown-item" href="#1">Option 1</a>
+          </li>
+          <li>
+            <a class=" dropdown-item" href="#2">Option 2</a>
+          </li>
+          <li aria-hidden="true" class="dropdown-divider" role="presentation"></li>
+          <li>
+            <a class=" dropdown-item" href="#3">Option 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with actionItems and quick menu 1`] = `
+<tr class="">
+  <td>
+    <div class="quick-action-menu">
+      <a class=" quick-action-item" href="#1">
+        <svg aria-hidden="true" class="lexicon-icon lexicon-icon-trash">
+          <use xlink:href="icons.svg#trash"></use>
+        </svg>
+      </a>
+      <a class=" quick-action-item" href="#2">
+        <svg aria-hidden="true" class="lexicon-icon lexicon-icon-download">
+          <use xlink:href="icons.svg#download"></use>
+        </svg>
+      </a>
+      <a class=" quick-action-item" href="#3">
+        <svg aria-hidden="true" class="lexicon-icon lexicon-icon-info-circle-open">
+          <use xlink:href="icons.svg#info-circle-open"></use>
+        </svg>
+      </a>
+    </div>
+    <div class="dropdown dropdown-action">
+      <button aria-expanded="false" aria-haspopup="true" aria-label="toggle" class="dropdown-toggle btn btn-unstyled">
+        <svg aria-hidden="true" class="lexicon-icon lexicon-icon-ellipsis-v">
+          <use xlink:href="icons.svg#ellipsis-v"></use>
+        </svg>
+      </button>
+      <div class="dropdown-menu">
+        <ul class="list-unstyled">
+          <li>
+            <a class=" dropdown-item" href="#1">Option 1</a>
+          </li>
+          <li>
+            <a class=" dropdown-item" href="#2">Option 2</a>
+          </li>
+          <li aria-hidden="true" class="dropdown-divider" role="presentation"></li>
+          <li>
+            <a class=" dropdown-item" href="#3">Option 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with columns 1`] = `
+<tr class="">
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with custom element class 1`] = `<tr class="my-custom-class"></tr>`;
+
+exports[`ClayTableItem should render the ClayTableItem with group 1`] = `
+<tr class="table-divider">
+  <td colspan="9">Group 1</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with id 1`] = `<tr class=""></tr>`;
+
+exports[`ClayTableItem should render the ClayTableItem with input name 1`] = `
+<tr class="">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input class="custom-control-input" name="name" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with input value 1`] = `
+<tr class="">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input class="custom-control-input" value="value" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class="table-cell-content">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td>
+    <a href="#1">Bar</a>
+  </td>
+  <td>Foo</td>
+  <td>Bar</td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with multiples badges in the column 1`] = `
+<tr class="">
+  <td>
+    <span class="badge badge-danger">01</span>
+    <span class="badge badge-dark">01</span>
+    <span class="badge badge-info">01</span>
+    <span class="badge badge-light">01</span>
+    <span class="badge badge-primary">01</span>
+    <span class="badge badge-secondary">01</span>
+    <span class="badge badge-success">01</span>
+    <span class="badge badge-warning">01</span>
+  </td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with multiples labels in the column 1`] = `
+<tr class="">
+  <td>
+    <span class="label label-success">Approved</span>
+    <span class="label label-danger">Rejected</span>
+    <span class="label label-info">Status</span>
+    <span class="label label-secondary">Label text</span>
+    <span class="label label-warning">Pending</span>
+  </td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the ClayTableItem with multiples stickers in the column 1`] = `
+<tr class="">
+  <td>
+    <span class="sticker sticker-danger">AA</span>
+    <span class="sticker sticker-dark">BB</span>
+    <span class="sticker sticker-info">CC</span>
+    <span class="sticker sticker-light">CC</span>
+    <span class="sticker sticker-primary">CC</span>
+    <span class="sticker sticker-secondary">CC</span>
+    <span class="sticker sticker-success">CC</span>
+    <span class="sticker sticker-warning">CC</span>
+  </td>
+</tr>
+`;
+
+exports[`ClayTableItem should render the default markup 1`] = `<tr class=""></tr>`;
