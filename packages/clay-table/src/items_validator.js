@@ -24,17 +24,6 @@ let columns = {
 		status: Config.oneOf(['complete', 'warning']),
 		value: Config.number(),
 	}),
-	stickerLabel: Config.any(),
-	stickerStyle: Config.oneOf([
-		'danger',
-		'dark',
-		'info',
-		'light',
-		'primary',
-		'secondary',
-		'success',
-		'warning',
-	]).value('primary'),
 	text: Config.string(),
 	url: Config.string(),
 	useEllipse: Config.bool().value(false),
@@ -49,6 +38,18 @@ let items = {
 	inputValue: Config.string(),
 	selectable: Config.bool().value(false),
 	selected: Config.bool().value(false),
+	stickerLabel: Config.string(),
+	stickerStyle: Config.oneOf([
+		'danger',
+		'dark',
+		'info',
+		'light',
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+	]).value('primary'),
+	stickerShape: Config.string().value('circle'),
 };
 
 const actionsItemsValidator = Config.arrayOf(Config.shapeOf(actionItems));

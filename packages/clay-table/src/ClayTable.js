@@ -36,7 +36,9 @@ ClayTable.STATE = {
 	 */
 	header: Config.arrayOf(
 		Config.shapeOf({
+			colSpan: Config.number(),
 			label: Config.string(),
+			sort: Config.bool().value(false),
 		})
 	),
 

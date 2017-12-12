@@ -113,6 +113,42 @@ ClayTableItem.STATE = {
 	 * @default undefined
 	 */
 	spritemap: Config.string().required(),
+
+	/**
+	 * The path to the SVG spritemap file containing the icons.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	stickerLabel: Config.string(),
+
+	/**
+	 * The path to the SVG spritemap file containing the icons.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string}
+	 * @default primary
+	 */
+	stickerStyle: Config.oneOf([
+		'danger',
+		'dark',
+		'info',
+		'light',
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+	]).value('primary'),
+
+	/**
+	 * The path to the SVG spritemap file containing the icons.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string}
+	 * @default circle
+	 */
+	stickerShape: Config.string().value('circle'),
 };
 
 defineWebComponent('clay-table-item', ClayTableItem);

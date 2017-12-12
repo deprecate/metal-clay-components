@@ -7,7 +7,9 @@
 	{@param spritemap: string}
 	{@param? elementClasses: string}
 	{@param? header: list<[
-		label: string
+		colSpan: int,
+		label: string,
+		sort: bool
 	]>}
 	{@param? id: string}
 	{@param? items: list<[
@@ -28,18 +30,19 @@
 				status: string,
 				value: int
 			],
-			stickerLabel: string,
-			stickerStyle: string,
 			text: string,
 			url: string,
 			useEllipse: bool
 		]>,
 		disabled: bool,
+		group: string,
 		inputName: string,
 		inputValue: string,
 		selectable: bool,
 		selected: bool,
-		group: string
+		stickerLabel: string,
+		stickerStyle: string,
+		stickerShape: string
 	]>}
 
 	{let $attributes kind="attributes"}
@@ -58,13 +61,27 @@
 		<table {$attributes}>
 			{if $header}
 				<thead>
-					{foreach $item in $header}
-						<th>
-							{if $item.label}
-								{$item.label}
-							{/if}
-						</th>
-					{/foreach}
+					<tr>
+						{foreach $item in $header}
+							{let $thAttributes kind="attributes"}
+								{if $item.colSpan}
+									colspan="{$item.colSpan}"
+								{/if}
+							{/let}
+
+							<th {$thAttributes}>
+								{if $item.label}
+									{$item.label}
+								{/if}
+								{if $item.sort}
+									{call ClayIcon.render}
+										{param spritemap: $spritemap /}
+										{param symbol: 'order-arrow-down' /}
+									{/call}
+								{/if}
+							</th>
+						{/foreach}
+					</tr>
 				</thead>
 			{/if}
 			{if $items}
@@ -80,6 +97,9 @@
 							{param selectable: $item.selectable /}
 							{param selected: $item.selected /}
 							{param spritemap: $spritemap /}
+							{param stickerLabel: $item.stickerLabel /}
+							{param stickerStyle: $item.stickerStyle /}
+							{param stickerShape: $item.stickerShape /}
 						{/call}
 					{/foreach}
 				</tbody>
