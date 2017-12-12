@@ -4,7 +4,6 @@ import 'clay-icon';
 import 'clay-label';
 import 'clay-link';
 import 'clay-progress-bar';
-import 'clay-radio';
 import 'clay-sticker';
 import {actionsItemsValidator, columnsValidator} from './items_validator';
 import {Config} from 'metal-state';
