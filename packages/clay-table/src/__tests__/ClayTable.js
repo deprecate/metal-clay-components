@@ -7,7 +7,7 @@ let items = [
 		columns: [
 			{
 				text: 'suffing-photo.png',
-				cellContent: true,
+				useEllipse: true,
 			},
 			{
 				text: 'Juan Anton',
@@ -16,12 +16,8 @@ let items = [
 				text: '264KB',
 			},
 			{
-				labels: [
-					{
-						label: 'Approved',
-						style: 'success',
-					},
-				],
+				label: 'Approved',
+				labelStyle: 'success',
 			},
 			{
 				text: '15 Minutes Ago',
@@ -35,7 +31,7 @@ let items = [
 		columns: [
 			{
 				text: 'suffing-photo.png',
-				cellContent: true,
+				useEllipse: true,
 			},
 			{
 				text: 'Juan Anton',
@@ -44,12 +40,8 @@ let items = [
 				text: '264KB',
 			},
 			{
-				labels: [
-					{
-						label: 'Approved',
-						style: 'success',
-					},
-				],
+				label: 'Approved',
+				labelStyle: 'success',
 			},
 			{
 				text: '15 Minutes Ago',

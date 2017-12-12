@@ -41,7 +41,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
@@ -60,44 +60,14 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with multiples stickers in the column', () => {
+	it('should render the ClayTableItem with user sticker in the column', () => {
 		component = new ClayTableItem({
 			columns: [
 				{
-					stickers: [
-						{
-							label: 'AA',
-							style: 'danger',
-						},
-						{
-							label: 'BB',
-							style: 'dark',
-						},
-						{
-							label: 'CC',
-							style: 'info',
-						},
-						{
-							label: 'CC',
-							style: 'light',
-						},
-						{
-							label: 'CC',
-							style: 'primary',
-						},
-						{
-							label: 'CC',
-							style: 'secondary',
-						},
-						{
-							label: 'CC',
-							style: 'success',
-						},
-						{
-							label: 'CC',
-							style: 'warning',
-						},
-					],
+					stickerLabel: 'AA',
+					stickerStyle: 'primary',
+					text: 'Name',
+					useEllipse: true,
 				},
 			],
 			spritemap: spritemap,
@@ -106,44 +76,13 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with multiples badges in the column', () => {
+	it('should render the ClayTableItem with ClayProgressBar in the column', () => {
 		component = new ClayTableItem({
 			columns: [
 				{
-					badges: [
-						{
-							label: '01',
-							style: 'danger',
-						},
-						{
-							label: '01',
-							style: 'dark',
-						},
-						{
-							label: '01',
-							style: 'info',
-						},
-						{
-							label: '01',
-							style: 'light',
-						},
-						{
-							label: '01',
-							style: 'primary',
-						},
-						{
-							label: '01',
-							style: 'secondary',
-						},
-						{
-							label: '01',
-							style: 'success',
-						},
-						{
-							label: '01',
-							style: 'warning',
-						},
-					],
+					progressBar: {
+						value: 40,
+					},
 				},
 			],
 			spritemap: spritemap,
@@ -152,32 +91,12 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with multiples labels in the column', () => {
+	it('should render the ClayTableItem with label in the column', () => {
 		component = new ClayTableItem({
 			columns: [
 				{
-					labels: [
-						{
-							label: 'Approved',
-							style: 'success',
-						},
-						{
-							label: 'Rejected',
-							style: 'danger',
-						},
-						{
-							label: 'Status',
-							style: 'info',
-						},
-						{
-							label: 'Label text',
-							style: 'secondary',
-						},
-						{
-							label: 'Pending',
-							style: 'warning',
-						},
-					],
+					label: 'Approved',
+					labelStyle: 'success',
 				},
 			],
 			spritemap: spritemap,
@@ -243,7 +162,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
@@ -268,7 +187,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
@@ -294,7 +213,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
@@ -320,7 +239,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
@@ -346,7 +265,7 @@ describe('ClayTableItem', function() {
 			columns: [
 				{
 					text: 'Foo',
-					cellContent: true,
+					useEllipse: true,
 				},
 				{
 					text: 'Bar',
