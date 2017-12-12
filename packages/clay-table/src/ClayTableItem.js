@@ -115,7 +115,7 @@ ClayTableItem.STATE = {
 	spritemap: Config.string().required(),
 
 	/**
-	 * The path to the SVG spritemap file containing the icons.
+	 * Sets the text to be rendered inside sticker.
 	 * @instance
 	 * @memberof ClayTableItem
 	 * @type {?string|undefined}
@@ -124,7 +124,17 @@ ClayTableItem.STATE = {
 	stickerLabel: Config.string(),
 
 	/**
-	 * The path to the SVG spritemap file containing the icons.
+	 * Shape of sticker.  Available shapes are `circle`, `rounded`.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string}
+	 * @default circle
+	 */
+	stickerShape: Config.string().value('circle'),
+
+	/**
+	 * Sticker style. Available sizes are: `danger`, `dark`, `info`, `light`,
+	 * `primary`, `secondary`, `success`, `warning`.
 	 * @instance
 	 * @memberof ClayTableItem
 	 * @type {?string}
@@ -140,15 +150,6 @@ ClayTableItem.STATE = {
 		'success',
 		'warning',
 	]).value('primary'),
-
-	/**
-	 * The path to the SVG spritemap file containing the icons.
-	 * @instance
-	 * @memberof ClayTableItem
-	 * @type {?string}
-	 * @default circle
-	 */
-	stickerShape: Config.string().value('circle'),
 };
 
 defineWebComponent('clay-table-item', ClayTableItem);
