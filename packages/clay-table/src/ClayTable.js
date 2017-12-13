@@ -15,7 +15,7 @@ class ClayTable extends Component {
 	/**
 	 * Handle button sort in header.
 	 */
-	handleSortColum_(event) {
+	handleButtonSortColumn_(event) {
 		this.emit('buttonSortClicked', event);
 	}
 }

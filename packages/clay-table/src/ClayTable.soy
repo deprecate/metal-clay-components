@@ -13,7 +13,7 @@
 		sort: bool,
 		sortDirection_: string
 	]>}
-	{@param? handleSortColum_: any}
+	{@param? handleButtonSortColumn_: any}
 	{@param? id: string}
 	{@param? items: list<[
 		actionItems: list<[
@@ -88,10 +88,11 @@
 									{let $icon: $item.sortDirection_ ?: 'down' /}
 
 									{call ClayLink.render}
-										{param events: ['click': $handleSortColum_] /}
+										{param events: ['click': $handleButtonSortColumn_] /}
 										{param href: '#sort' /}
-										{param icon: 'order-arrow-{$icon}' /}
+										{param icon: 'order-arrow-' + $icon /}
 										{param iconAlignment: 'right' /}
+										{param label: $item.label /}
 										{param spritemap: $spritemap /}
 									{/call}
 								{/if}
