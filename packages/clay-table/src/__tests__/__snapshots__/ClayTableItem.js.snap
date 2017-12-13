@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ClayTableItem should render ClayTableItem with sticker with image in column 1`] = `
+<tr class="">
+  <td>
+    <span class="sticker sticker-primary rounded-circle">
+      <img alt="Image" class="img-fluid" src="image.png">
+    </span>
+  </td>
+  <td class=" table-cell-content">
+    <span class="text-truncate" title="Name">Name</span>
+  </td>
+</tr>
+`;
+
 exports[`ClayTableItem should render the ClayTableItem disabled 1`] = `
 <tr class="">
   <td>

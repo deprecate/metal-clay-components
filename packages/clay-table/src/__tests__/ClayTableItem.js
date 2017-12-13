@@ -76,6 +76,22 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render ClayTableItem with sticker with image in column', () => {
+		component = new ClayTableItem({
+			columns: [
+				{
+					text: 'Name',
+					useEllipse: true,
+				},
+			],
+			spritemap: spritemap,
+			stickerImageSrc: 'image.png',
+			stickerImageAlt: 'Image',
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render the ClayTableItem with ClayProgressBar in the column', () => {
 		component = new ClayTableItem({
 			columns: [
