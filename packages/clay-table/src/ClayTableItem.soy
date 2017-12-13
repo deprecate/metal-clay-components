@@ -34,6 +34,8 @@
     {@param? inputValue: string}
     {@param? selectable: bool}
     {@param? selected: bool}
+    {@param? stickerImageAlt: string}
+    {@param? stickerImageSrc: string}
     {@param? stickerLabel: string}
     {@param? stickerShape: string}
     {@param? stickerStyle: string}
@@ -64,6 +66,8 @@
                 {param selectable: $selectable /}
                 {param selected: $selected /}
                 {param spritemap: $spritemap /}
+                {param stickerImageAlt: $stickerImageAlt /}
+                {param stickerImageSrc: $stickerImageSrc /}
                 {param stickerLabel: $stickerLabel /}
                 {param stickerShape: $stickerShape /}
                 {param stickerStyle: $stickerStyle /}
@@ -105,6 +109,8 @@
     {@param? inputValue: string}
     {@param? selectable: bool}
     {@param? selected: bool}
+    {@param? stickerImageAlt: string}
+    {@param? stickerImageSrc: string}
     {@param? stickerLabel: string}
     {@param? stickerShape: string}
     {@param? stickerStyle: string}
@@ -121,13 +127,21 @@
         </td>
     {/if}
 
-    {if $stickerLabel}
+    {if $stickerLabel or $stickerImageSrc}
         <td>
-            {call ClaySticker.render}
-                {param label: $stickerLabel /}
-                {param shape: $stickerShape ?: 'circle' /}
-                {param style: $stickerStyle /}
-            {/call}
+            {if $stickerImageSrc}
+                {call ClaySticker.render}
+                    {param imageAlt: $stickerImageAlt /}
+                    {param imageSrc: $stickerImageSrc /}
+                    {param shape: $stickerShape ?: 'circle' /}
+                {/call}
+            {else}
+                {call ClaySticker.render}
+                    {param label: $stickerLabel /}
+                    {param shape: $stickerShape ?: 'circle' /}
+                    {param style: $stickerStyle /}
+                {/call}
+            {/if}
         </td>
     {/if}
 

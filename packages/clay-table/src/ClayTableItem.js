@@ -115,6 +115,24 @@ ClayTableItem.STATE = {
 	spritemap: Config.string().required(),
 
 	/**
+	 * Alternate text of the image sticker.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	stickerImageAlt: Config.string(),
+
+	/**
+	 * Source of the image to be rendered inside the sticker.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	stickerImageSrc: Config.string(),
+
+	/**
 	 * Sets the text to be rendered inside sticker.
 	 * @instance
 	 * @memberof ClayTableItem

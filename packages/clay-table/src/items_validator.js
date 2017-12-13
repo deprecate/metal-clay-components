@@ -39,7 +39,10 @@ let items = {
 	inputValue: Config.string(),
 	selectable: Config.bool().value(false),
 	selected: Config.bool().value(false),
+	stickerImageAlt: Config.string(),
+	stickerImageSrc: Config.string(),
 	stickerLabel: Config.string(),
+	stickerShape: Config.string().value('circle'),
 	stickerStyle: Config.oneOf([
 		'danger',
 		'dark',
@@ -50,7 +53,6 @@ let items = {
 		'success',
 		'warning',
 	]).value('primary'),
-	stickerShape: Config.string().value('circle'),
 };
 
 const actionsItemsValidator = Config.arrayOf(Config.shapeOf(actionItems));
