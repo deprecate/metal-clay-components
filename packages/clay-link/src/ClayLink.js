@@ -43,7 +43,7 @@ ClayLink.STATE = {
 	 * @type {?string|undefined}
 	 * @default undefined
 	 */
-	buttonStyle: Config.oneOf(['borderless', 'link', 'primary', 'secondary']),
+	buttonStyle: Config.oneOf(['link', 'primary', 'secondary']),
 
 	/**
 	 * Data to add to the element.
@@ -107,6 +107,24 @@ ClayLink.STATE = {
 	 * @default undefined
 	 */
 	id: Config.string(),
+
+	/**
+	 * Alternative text of the image to be rendered inside the link.
+	 * @instance
+	 * @memberof ClayLink
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	imageAlt: Config.string(),
+
+	/**
+	 * Source of the image to be rendered inside the link.
+	 * @instance
+	 * @memberof ClayLink
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	imageSrc: Config.string(),
 
 	/**
 	 * Sets the text or HTML to be rendered inside the anchor tag.
