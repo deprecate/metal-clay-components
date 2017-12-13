@@ -18,14 +18,15 @@
 	{@param? items: list<[
 		actionItems: list<[
 			disabled: bool,
+			href: string,
 			icon: string,
 			label: string,
 			quickAction: bool,
-			separator: bool,
-			url: string
+			separator: bool
 		]>,
 		columns: list<[
 			elementClasses: string,
+			href: string,
 			label: string,
 			labelStyle: string,
 			progressBar: [
@@ -35,7 +36,6 @@
 				value: int
 			],
 			text: string,
-			url: string,
 			useEllipse: bool
 		]>,
 		disabled: bool,

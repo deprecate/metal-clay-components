@@ -6,11 +6,12 @@ let actionItems = {
 	label: Config.string(),
 	quickAction: Config.bool().value(false),
 	separator: Config.bool().value(false),
-	url: Config.string().required(),
+	href: Config.string().required(),
 };
 
 let columns = {
 	elementClasses: Config.string(),
+	href: Config.string(),
 	label: Config.string(),
 	labelStyle: Config.oneOf([
 		'danger',
@@ -26,7 +27,6 @@ let columns = {
 		value: Config.number(),
 	}),
 	text: Config.string(),
-	url: Config.string(),
 	useEllipse: Config.bool().value(false),
 };
 

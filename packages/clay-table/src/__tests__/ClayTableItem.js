@@ -110,16 +110,16 @@ describe('ClayTableItem', function() {
 			actionItems: [
 				{
 					label: 'Option 1',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					label: 'Option 2',
 					separator: true,
-					url: '#2',
+					href: '#2',
 				},
 				{
 					label: 'Option 3',
-					url: '#3',
+					href: '#3',
 				},
 			],
 			spritemap: spritemap,
@@ -135,20 +135,20 @@ describe('ClayTableItem', function() {
 					icon: 'trash',
 					label: 'Option 1',
 					quickAction: true,
-					url: '#1',
+					href: '#1',
 				},
 				{
 					icon: 'download',
 					label: 'Option 2',
 					quickAction: true,
 					separator: true,
-					url: '#2',
+					href: '#2',
 				},
 				{
 					icon: 'info-circle-open',
 					label: 'Option 3',
 					quickAction: true,
-					url: '#3',
+					href: '#3',
 				},
 			],
 			spritemap: spritemap,
@@ -166,7 +166,7 @@ describe('ClayTableItem', function() {
 				},
 				{
 					text: 'Bar',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					text: 'Foo',
@@ -191,7 +191,7 @@ describe('ClayTableItem', function() {
 				},
 				{
 					text: 'Bar',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					text: 'Foo',
@@ -217,7 +217,7 @@ describe('ClayTableItem', function() {
 				},
 				{
 					text: 'Bar',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					text: 'Foo',
@@ -243,7 +243,7 @@ describe('ClayTableItem', function() {
 				},
 				{
 					text: 'Bar',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					text: 'Foo',
@@ -269,7 +269,7 @@ describe('ClayTableItem', function() {
 				},
 				{
 					text: 'Bar',
-					url: '#1',
+					href: '#1',
 				},
 				{
 					text: 'Foo',
