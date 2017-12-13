@@ -10,6 +10,7 @@ let actionItems = {
 };
 
 let columns = {
+	elementClasses: Config.string(),
 	label: Config.string(),
 	labelStyle: Config.oneOf([
 		'danger',

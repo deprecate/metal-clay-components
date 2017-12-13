@@ -14,6 +14,7 @@
         url: string
     ]>}
     {@param? columns: list<[
+        elementClasses: string,
         label: string,
         labelStyle: string,
         progressBar: [
@@ -34,8 +35,8 @@
     {@param? selectable: bool}
     {@param? selected: bool}
     {@param? stickerLabel: string}
-    {@param? stickerStyle: string}
     {@param? stickerShape: string}
+    {@param? stickerStyle: string}
 
     {let $attributes kind="attributes"}
         class="
@@ -64,8 +65,8 @@
                 {param selected: $selected /}
                 {param spritemap: $spritemap /}
                 {param stickerLabel: $stickerLabel /}
-                {param stickerStyle: $stickerStyle /}
                 {param stickerShape: $stickerShape /}
+                {param stickerStyle: $stickerStyle /}
             {/call}
         {/if}
     </tr>
@@ -85,6 +86,7 @@
         url: string
     ]>}
     {@param? columns: list<[
+        elementClasses: string,
         label: string,
         labelStyle: string,
         progressBar: [
@@ -104,8 +106,8 @@
     {@param? selectable: bool}
     {@param? selected: bool}
     {@param? stickerLabel: string}
-    {@param? stickerStyle: string}
     {@param? stickerShape: string}
+    {@param? stickerStyle: string}
 
     {if $selectable}
         <td>
@@ -134,6 +136,7 @@
             {let $isColumnFirst: index($column) == '0' and not $selectable or index($column) == '1' and $selectable /}
 
             {delcall ClayTableItem.Column variant="$contentRenderer"}
+                {param elementClasses: $column.elementClasses /}
                 {param isColumnFirst: $isColumnFirst /}
                 {param label: $column.label /}
                 {param labelStyle: $column.labelStyle /}
@@ -164,6 +167,7 @@
  * This renders a multiples columns of the row.
  */
 {deltemplate ClayTableItem.Column}
+    {@param? elementClasses: string}
     {@param? isColumnFirst: bool}
     {@param? label: string}
     {@param? labelStyle: string}
@@ -207,9 +211,15 @@
 	{/let}
 
 	{let $attributes kind="attributes"}
-		{if $useEllipse}
-			class="table-cell-content"
-		{/if}
+        class="
+            {if $elementClasses}
+                {$elementClasses}
+            {/if}
+
+            {if $useEllipse}
+                {sp}table-cell-content
+            {/if}
+        "
 	{/let}
 
 	<td {$attributes}>

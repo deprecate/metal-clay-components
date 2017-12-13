@@ -8,6 +8,7 @@
 	{@param? elementClasses: string}
 	{@param? header: list<[
 		colSpan: int,
+		elementClasses: string,
 		label: string,
 		sort: bool,
 		sortDirection_: string
@@ -24,6 +25,7 @@
 			url: string
 		]>,
 		columns: list<[
+			elementClasses: string,
 			label: string,
 			labelStyle: string,
 			progressBar: [
@@ -66,6 +68,12 @@
 					<tr>
 						{foreach $item in $header}
 							{let $thAttributes kind="attributes"}
+								class="
+									{if $item.elementClasses}
+										{$item.elementClasses}
+									{/if}
+								"
+
 								{if $item.colSpan}
 									colspan="{$item.colSpan}"
 								{/if}
