@@ -83,10 +83,12 @@
 								{if $item.label and not $item.sort}
 									{$item.label}
 								{elseif $item.sort and $item.label}
+									{let $icon: $item.sortDirection_ ?: 'down' /}
+
 									{call ClayLink.render}
 										{param events: ['click': $handleSortColum_] /}
 										{param href: '#sort' /}
-										{param icon: 'order-arrow-' + $item.sortDirection_ ?: 'down' /}
+										{param icon: 'order-arrow-{$icon}' /}
 										{param iconAlignment: 'right' /}
 										{param spritemap: $spritemap /}
 									{/call}

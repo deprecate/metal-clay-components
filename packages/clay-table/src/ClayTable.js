@@ -1,4 +1,5 @@
 import './ClayTableItem';
+import 'clay-link';
 import {Config} from 'metal-state';
 import Component from 'metal-component';
 import defineWebComponent from 'metal-web-component';
