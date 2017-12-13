@@ -34,6 +34,15 @@ ClayTableItem.STATE = {
 	actionItems: actionsItemsValidator,
 
 	/**
+	 * CSS classes to be applied to the td of the dropdown.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	actionColumnElementClasses: Config.string(),
+
+	/**
 	 * List of the columns in the row.
 	 * @instance
 	 * @memberof ClayTableItem
@@ -97,6 +106,15 @@ ClayTableItem.STATE = {
 	selectable: Config.bool().value(false),
 
 	/**
+	 * CSS classes to be applied to the td of the selectable.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	selectableElementClasses: Config.string(),
+
+	/**
 	 * Flag to indicate if the item is selected or not.
 	 * @instance
 	 * @memberof ClayTableItem
@@ -113,6 +131,15 @@ ClayTableItem.STATE = {
 	 * @default undefined
 	 */
 	spritemap: Config.string().required(),
+
+	/**
+	 * CSS classes to be applied to the td of the sticker.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	stickerElementClasses: Config.string(),
 
 	/**
 	 * Alternate text of the image sticker.

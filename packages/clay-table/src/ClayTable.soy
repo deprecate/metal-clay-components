@@ -24,6 +24,7 @@
 			quickAction: bool,
 			separator: bool
 		]>,
+		actionColumnElementClasses: string,
 		columns: list<[
 			elementClasses: string,
 			href: string,
@@ -43,7 +44,9 @@
 		inputName: string,
 		inputValue: string,
 		selectable: bool,
+		selectableElementClasses: string,
 		selected: bool,
+		stickerElementClasses: string,
 		stickerImageAlt: string,
 		stickerImageSrc: string,
 		stickerLabel: string,
@@ -106,14 +109,17 @@
 					{foreach $item in $items}
 						{call ClayTableItem.render}
 							{param actionItems: $item.actionItems /}
+							{param actionColumnElementClasses: $item.actionColumnElementClasses /}
 							{param columns: $item.columns /}
 							{param disabled: $item.disabled /}
 							{param group: $item.group /}
 							{param inputName: $item.inputName /}
 							{param inputValue: $item.inputValue /}
 							{param selectable: $item.selectable /}
+							{param selectableElementClasses: $item.selectableElementClasses /}
 							{param selected: $item.selected /}
 							{param spritemap: $spritemap /}
+							{param stickerElementClasses: $item.stickerElementClasses /}
 							{param stickerImageAlt: $item.stickerImageAlt /}
 							{param stickerImageSrc: $item.stickerImageSrc /}
 							{param stickerLabel: $item.stickerLabel /}

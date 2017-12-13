@@ -13,6 +13,7 @@
         quickAction: bool,
         separator: bool
     ]>}
+    {@param? actionColumnElementClasses: string}
     {@param? columns: list<[
         elementClasses: string,
         href: string,
@@ -33,7 +34,9 @@
     {@param? inputName: string}
     {@param? inputValue: string}
     {@param? selectable: bool}
+    {@param? selectableElementClasses: string}
     {@param? selected: bool}
+    {@param? stickerElementClasses: string}
     {@param? stickerImageAlt: string}
     {@param? stickerImageSrc: string}
     {@param? stickerLabel: string}
@@ -58,14 +61,17 @@
         {else}
             {call .content}
                 {param actionItems: $actionItems /}
+                {param actionColumnElementClasses: $actionColumnElementClasses /}
                 {param columns: $columns /}
                 {param contentRenderer: $contentRenderer /}
                 {param disabled: $disabled /}
                 {param inputName: $inputName /}
                 {param inputValue: $inputValue /}
                 {param selectable: $selectable /}
+                {param selectableElementClasses: $selectableElementClasses /}
                 {param selected: $selected /}
                 {param spritemap: $spritemap /}
+                {param stickerElementClasses: $stickerElementClasses /}
                 {param stickerImageAlt: $stickerImageAlt /}
                 {param stickerImageSrc: $stickerImageSrc /}
                 {param stickerLabel: $stickerLabel /}
@@ -89,6 +95,7 @@
         quickAction: bool,
         separator: bool
     ]>}
+    {@param? actionColumnElementClasses: string}
     {@param? columns: list<[
         elementClasses: string,
         href: string,
@@ -108,7 +115,9 @@
     {@param? inputName: string}
     {@param? inputValue: string}
     {@param? selectable: bool}
+    {@param? selectableElementClasses: string}
     {@param? selected: bool}
+    {@param? stickerElementClasses: string}
     {@param? stickerImageAlt: string}
     {@param? stickerImageSrc: string}
     {@param? stickerLabel: string}
@@ -116,7 +125,7 @@
     {@param? stickerStyle: string}
 
     {if $selectable}
-        <td>
+        <td class="{$selectableElementClasses}">
             {call ClayCheckbox.render}
                 {param checked: $selected /}
                 {param disabled: $disabled /}
@@ -128,7 +137,7 @@
     {/if}
 
     {if $stickerLabel or $stickerImageSrc}
-        <td>
+        <td class="{$stickerElementClasses}">
             {if $stickerImageSrc}
                 {call ClaySticker.render}
                     {param imageAlt: $stickerImageAlt /}
@@ -163,7 +172,7 @@
     {/if}
 
     {if $actionItems}
-        <td>
+        <td class="{$actionColumnElementClasses}">
             {call .quickMenu}
                 {param actionItems: $actionItems /}
                 {param spritemap: $spritemap /}
@@ -249,7 +258,6 @@
     {if $text and not $href}
         {$text}
     {elseif $text and $href}
-        {log}{$href}{/log}
         {call ClayLink.render}
             {param href: $href /}
             {param label: $text /}

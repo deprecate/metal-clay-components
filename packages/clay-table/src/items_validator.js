@@ -32,13 +32,16 @@ let columns = {
 
 let items = {
 	actionItems: Config.arrayOf(Config.shapeOf(actionItems)),
+	actionColumnElementClasses: Config.string(),
 	columns: Config.arrayOf(Config.shapeOf(columns)),
 	disabled: Config.bool().value(false),
 	group: Config.string(),
 	inputName: Config.string(),
 	inputValue: Config.string(),
 	selectable: Config.bool().value(false),
+	selectableElementClasses: Config.string(),
 	selected: Config.bool().value(false),
+	stickerElementClasses: Config.string(),
 	stickerImageAlt: Config.string(),
 	stickerImageSrc: Config.string(),
 	stickerLabel: Config.string(),
