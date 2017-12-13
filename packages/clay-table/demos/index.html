@@ -70,11 +70,10 @@
 
 		new metal.ClayTable({
 			header: [
+				{},
 				{
-					label: ''
-				},
-				{
-					label: 'Title'
+					label: 'Title',
+					sort: true
 				},
 				{
 					label: 'Author'
@@ -91,9 +90,7 @@
 				{
 					label: 'Modified Date'
 				},
-				{
-					label: ''
-				}
+				{}
 			],
 			items: [
 				{
@@ -216,134 +213,147 @@
 
 		new metal.ClayTable({
 			header: [
+				{},
 				{
-					label: 'Title'
-				},
-				{
-					label: 'Author'
-				},
-				{
-					label: 'Size'
+					label: 'Title',
+					colSpan: 2
 				},
 				{
 					label: 'Status'
 				},
 				{
-					label: 'Creation Date'
+					label: 'Items'
 				},
 				{
-					label: 'Modified Date'
+					label: 'Start Date'
 				},
 				{
-
-				}
+					label: 'Duration'
+				},
+				{},
+				{}
 			],
 			items: [
 				{
-					group: 'Group 1'
+					group: 'In progress'
 				},
 				{
 					actionItems: actionItems,
 					columns: [
 						{
-							stickerLabel: 'AA',
-							stickerStyle: 'primary',
-							text: 'Name',
+							text: 'Publication Ttitle',
 							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
-						}
-					]
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							progressBar: {
-								value: 40
-							}
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
-						}
-					]
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							label: 'Rejected',
-							labelStyle: 'danger'
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
-						}
-					]
-				},
-				{
-					group: 'Group 2'
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
 						},
 						{
 							label: 'In progress',
 							labelStyle: 'warning'
 						},
 						{
-							text: '15 Minutes Ago'
+							text: '100.000'
 						},
 						{
-							text: '15 Minutes Ago'
+							text: '2017.11.24 - 17:15'
+						},
+						{
+							text: '4 Minutes'
+						},
+						{
+							progressBar: {
+								value: 30
+							}
 						}
-					]
+					],
+					selectable: true,
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'Publication Ttitle',
+							useEllipse: true
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							text: '10'
+						},
+						{
+							text: '2017.11.24 - 17:15'
+						},
+						{
+							text: '45 hours'
+						},
+						{
+							progressBar: {
+								value: 30
+							}
+						}
+					],
+					selectable: true,
+					stickerLabel: 'BB',
+					stickerStyle: 'danger',
+				},
+				{
+					group: 'Sdheduled'
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'Publication Ttitle',
+							useEllipse: true
+						},
+						{
+							label: 'Sdheduled',
+							labelStyle: 'info'
+						},
+						{
+							text: '20'
+						},
+						{
+							text: '2017.11.24 - 17:15'
+						},
+						{
+							text: '1 hour'
+						},
+						{}
+					],
+					selectable: true,
+					stickerLabel: 'CC',
+					stickerStyle: 'danger',
+				},
+				{
+					group: 'Completed'
+				},
+				{
+					actionItems: actionItems,
+					columns: [
+						{
+							text: 'Publication Ttitle',
+							useEllipse: true
+						},
+						{
+							label: 'Successful',
+							labelStyle: 'success'
+						},
+						{
+							text: '29.999'
+						},
+						{
+							text: '2017.11.24 - 17:15'
+						},
+						{
+							text: '4 Minutes'
+						},
+						{}
+					],
+					selectable: true,
+					stickerLabel: 'AA',
+					stickerStyle: 'danger',
 				}
 			],
 			spritemap: spritemap
