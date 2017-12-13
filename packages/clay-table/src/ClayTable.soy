@@ -9,8 +9,10 @@
 	{@param? header: list<[
 		colSpan: int,
 		label: string,
-		sort: bool
+		sort: bool,
+		sortDirection_: string
 	]>}
+	{@param? handleSortColum_: any}
 	{@param? id: string}
 	{@param? items: list<[
 		actionItems: list<[
@@ -70,13 +72,15 @@
 							{/let}
 
 							<th {$thAttributes}>
-								{if $item.label}
+								{if $item.label and not $item.sort}
 									{$item.label}
-								{/if}
-								{if $item.sort}
-									{call ClayIcon.render}
+								{elseif $item.sort and $item.label}
+									{call ClayLink.render}
+										{param events: ['click': $handleSortColum_] /}
+										{param href: '#sort' /}
+										{param icon: 'order-arrow-' + $item.sortDirection_ ?: 'down' /}
+										{param iconAlignment: 'right' /}
 										{param spritemap: $spritemap /}
-										{param symbol: 'order-arrow-down' /}
 									{/call}
 								{/if}
 							</th>
@@ -98,8 +102,8 @@
 							{param selected: $item.selected /}
 							{param spritemap: $spritemap /}
 							{param stickerLabel: $item.stickerLabel /}
-							{param stickerStyle: $item.stickerStyle /}
 							{param stickerShape: $item.stickerShape /}
+							{param stickerStyle: $item.stickerStyle /}
 						{/call}
 					{/foreach}
 				</tbody>

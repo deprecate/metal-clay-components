@@ -10,7 +10,14 @@ import templates from './ClayTable.soy.js';
 /**
  * Metal ClayTable component.
  */
-class ClayTable extends Component {}
+class ClayTable extends Component {
+	/**
+	 * Handle button sort in header.
+	 */
+	handleSortColum_(event) {
+		this.emit('buttonSortClicked', event);
+	}
+}
 
 /**
  * State definition.
@@ -37,8 +44,10 @@ ClayTable.STATE = {
 	header: Config.arrayOf(
 		Config.shapeOf({
 			colSpan: Config.number(),
+			elementClasses: Config.string(),
 			label: Config.string(),
 			sort: Config.bool().value(false),
+			sortDirection_: Config.oneOf(['down', 'up']).value('down'),
 		})
 	),
 
