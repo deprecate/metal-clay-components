@@ -76,6 +76,23 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render the ClayTableItem with custom classes in column of sticker', () => {
+		component = new ClayTableItem({
+			columns: [
+				{
+					text: 'Name',
+					useEllipse: true,
+				},
+			],
+			spritemap: spritemap,
+			stickerElementClasses: 'custom-column',
+			stickerLabel: 'AA',
+			stickerStyle: 'primary',
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render ClayTableItem with sticker with image in column', () => {
 		component = new ClayTableItem({
 			columns: [
@@ -92,7 +109,24 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with ClayProgressBar in the column', () => {
+	it('should render ClayTableItem with sticker shape `rounded`', () => {
+		component = new ClayTableItem({
+			columns: [
+				{
+					text: 'Name',
+					useEllipse: true,
+				},
+			],
+			spritemap: spritemap,
+			stickerImageSrc: 'image.png',
+			stickerImageAlt: 'Image',
+			stickerShape: 'rounded',
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render the ClayTableItem with progress bar in the column', () => {
 		component = new ClayTableItem({
 			columns: [
 				{
@@ -121,7 +155,7 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with actionItems', () => {
+	it('should render the ClayTableItem with action menu', () => {
 		component = new ClayTableItem({
 			actionItems: [
 				{
@@ -144,7 +178,31 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with actionItems and quick menu', () => {
+	it('should render the ClayTableItem with custom classes in column of `action menu`', () => {
+		component = new ClayTableItem({
+			actionItems: [
+				{
+					label: 'Option 1',
+					href: '#1',
+				},
+				{
+					label: 'Option 2',
+					separator: true,
+					href: '#2',
+				},
+				{
+					label: 'Option 3',
+					href: '#3',
+				},
+			],
+			actionColumnElementClasses: 'custom-column',
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render the ClayTableItem with quick action menu', () => {
 		component = new ClayTableItem({
 			actionItems: [
 				{
@@ -192,6 +250,32 @@ describe('ClayTableItem', function() {
 				},
 			],
 			selectable: true,
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render the ClayTableItem with custom classes in columns of selectable', () => {
+		component = new ClayTableItem({
+			columns: [
+				{
+					text: 'Foo',
+					useEllipse: true,
+				},
+				{
+					text: 'Bar',
+					href: '#1',
+				},
+				{
+					text: 'Foo',
+				},
+				{
+					text: 'Bar',
+				},
+			],
+			selectable: true,
+			selectableElementClasses: 'custom-column',
 			spritemap: spritemap,
 		});
 

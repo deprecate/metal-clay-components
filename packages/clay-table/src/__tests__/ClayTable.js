@@ -6,6 +6,7 @@ let items = [
 	{
 		columns: [
 			{
+				href: '#1',
 				text: 'suffing-photo.png',
 				useEllipse: true,
 			},
@@ -30,6 +31,7 @@ let items = [
 	{
 		columns: [
 			{
+				href: '#1',
 				text: 'suffing-photo.png',
 				useEllipse: true,
 			},
@@ -109,6 +111,55 @@ describe('ClayTable', function() {
 				},
 				{
 					label: 'Status',
+				},
+			],
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayTable with colspan in columns header', () => {
+		component = new ClayTable({
+			header: [
+				{
+					colSpan: 2,
+					label: 'Foo',
+				},
+				{
+					label: 'Bar',
+				},
+			],
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayTable with elementClasses in the columns', () => {
+		component = new ClayTable({
+			header: [
+				{
+					elementClasses: 'custom1-column',
+					label: 'Foo',
+				},
+				{
+					elementClasses: 'custom2-column',
+					label: 'Bar',
+				},
+			],
+			items: [
+				{
+					columns: [
+						{
+							elementClasses: 'custom1-column',
+							text: 'Foo',
+						},
+						{
+							elementClasses: 'custom2-column',
+							text: 'Bar',
+						},
+					],
 				},
 			],
 			spritemap: spritemap,

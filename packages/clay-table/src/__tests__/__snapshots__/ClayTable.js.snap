@@ -6,6 +6,38 @@ exports[`ClayTable should render a ClayTable with classes 1`] = `
 </div>
 `;
 
+exports[`ClayTable should render a ClayTable with colspan in columns header 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+    <thead>
+      <tr>
+        <th class="" colspan="2">Foo</th>
+        <th class="">Bar</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with elementClasses in the columns 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+    <thead>
+      <tr>
+        <th class="custom1-column">Foo</th>
+        <th class="custom2-column">Bar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="">
+        <td class="custom1-column">Foo</td>
+        <td class="custom2-column">Bar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`ClayTable should render a ClayTable with id 1`] = `
 <div class="table-responsive">
   <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover" id="myId"></table>
@@ -33,7 +65,9 @@ exports[`ClayTable should render a ClayTable with multiples items 1`] = `
     <tbody>
       <tr class="">
         <td class=" table-cell-content">
-          <span class="text-truncate" title="suffing-photo.png">suffing-photo.png</span>
+          <span class="text-truncate" title="suffing-photo.png">
+            <a href="#1">suffing-photo.png</a>
+          </span>
         </td>
         <td class="">Juan Anton</td>
         <td class="">264KB</td>
@@ -45,7 +79,9 @@ exports[`ClayTable should render a ClayTable with multiples items 1`] = `
       </tr>
       <tr class="">
         <td class=" table-cell-content">
-          <span class="text-truncate" title="suffing-photo.png">suffing-photo.png</span>
+          <span class="text-truncate" title="suffing-photo.png">
+            <a href="#1">suffing-photo.png</a>
+          </span>
         </td>
         <td class="">Juan Anton</td>
         <td class="">264KB</td>
