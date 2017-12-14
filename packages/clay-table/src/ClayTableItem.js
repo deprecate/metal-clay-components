@@ -25,6 +25,15 @@ class ClayTableItem extends Component {}
  */
 ClayTableItem.STATE = {
 	/**
+	 * CSS classes to be applied to the td of the actions menu.
+	 * @instance
+	 * @memberof ClayTableItem
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	actionColumnElementClasses: Config.string(),
+
+	/**
 	 * List of items to display in the actions menu.
 	 * @instance
 	 * @memberof ClayTableItem
@@ -32,15 +41,6 @@ ClayTableItem.STATE = {
 	 * @default undefined
 	 */
 	actionItems: actionsItemsValidator,
-
-	/**
-	 * CSS classes to be applied to the td of the dropdown.
-	 * @instance
-	 * @memberof ClayTableItem
-	 * @type {?string|undefined}
-	 * @default undefined
-	 */
-	actionColumnElementClasses: Config.string(),
 
 	/**
 	 * List of the columns in the row.

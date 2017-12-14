@@ -1,6 +1,6 @@
 {
   "name": "clay-table",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.8",
   "description": "Metal ClayTable component",
   "license": "BSD",
   "repository": "https://github.com/metal/metal-clay-components/tree/master/packages/clay-table",
@@ -28,10 +28,10 @@
   ],
   "dependencies": {
     "clay-checkbox": "^1.0.0-alpha.5",
-    "clay-dropdown": "^1.0.0-alpha.5",
+    "clay-dropdown": "^1.0.0-alpha.8",
     "clay-icon": "^1.0.0-alpha.5",
-    "clay-label": "^1.0.0-alpha.5",
-    "clay-link": "^1.0.0-alpha.5",
+    "clay-label": "^1.0.0-alpha.8",
+    "clay-link": "^1.0.0-alpha.8",
     "clay-progress-bar": "^1.0.0-alpha.5",
     "clay-sticker": "^1.0.0-alpha.5",
     "metal": "^2.14.0",

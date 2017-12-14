@@ -31,8 +31,8 @@ let columns = {
 };
 
 let items = {
-	actionItems: Config.arrayOf(Config.shapeOf(actionItems)),
 	actionColumnElementClasses: Config.string(),
+	actionItems: Config.arrayOf(Config.shapeOf(actionItems)),
 	columns: Config.arrayOf(Config.shapeOf(columns)),
 	disabled: Config.bool().value(false),
 	group: Config.string(),

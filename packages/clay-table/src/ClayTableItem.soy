@@ -5,6 +5,7 @@
  */
 {template .render}
     {@param spritemap: string}
+    {@param? actionColumnElementClasses: string}
     {@param? actionItems: list<[
         disabled: bool,
         href: string,
@@ -13,7 +14,6 @@
         quickAction: bool,
         separator: bool
     ]>}
-    {@param? actionColumnElementClasses: string}
     {@param? columns: list<[
         elementClasses: string,
         href: string,
@@ -60,8 +60,8 @@
             <td colspan="9">{$group}</td>
         {else}
             {call .content}
-                {param actionItems: $actionItems /}
                 {param actionColumnElementClasses: $actionColumnElementClasses /}
+                {param actionItems: $actionItems /}
                 {param columns: $columns /}
                 {param contentRenderer: $contentRenderer /}
                 {param disabled: $disabled /}
@@ -87,6 +87,7 @@
  */
 {template .content}
     {@param spritemap: string}
+    {@param? actionColumnElementClasses: string}
     {@param? actionItems: list<[
         disabled: bool,
         href: string,
@@ -95,7 +96,6 @@
         quickAction: bool,
         separator: bool
     ]>}
-    {@param? actionColumnElementClasses: string}
     {@param? columns: list<[
         elementClasses: string,
         href: string,
@@ -219,8 +219,8 @@
 			{/call}
         {elseif $progressBar}
             {call ClayProgressBar.render}
-                {param minValue: $progressBar.minValue /}
                 {param maxValue: $progressBar.maxValue /}
+                {param minValue: $progressBar.minValue /}
                 {param status: $progressBar.status /}
                 {param value: $progressBar.value /}
             {/call}

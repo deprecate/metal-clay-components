@@ -6,6 +6,7 @@
 {template .render}
 	{@param spritemap: string}
 	{@param? elementClasses: string}
+	{@param? handleButtonSortColumn_: any}
 	{@param? header: list<[
 		colSpan: int,
 		elementClasses: string,
@@ -13,9 +14,9 @@
 		sort: bool,
 		sortDirection_: string
 	]>}
-	{@param? handleButtonSortColumn_: any}
 	{@param? id: string}
 	{@param? items: list<[
+		actionColumnElementClasses: string,
 		actionItems: list<[
 			disabled: bool,
 			href: string,
@@ -24,7 +25,6 @@
 			quickAction: bool,
 			separator: bool
 		]>,
-		actionColumnElementClasses: string,
 		columns: list<[
 			elementClasses: string,
 			href: string,
@@ -108,8 +108,8 @@
 				<tbody>
 					{foreach $item in $items}
 						{call ClayTableItem.render}
-							{param actionItems: $item.actionItems /}
 							{param actionColumnElementClasses: $item.actionColumnElementClasses /}
+							{param actionItems: $item.actionItems /}
 							{param columns: $item.columns /}
 							{param disabled: $item.disabled /}
 							{param group: $item.group /}
