@@ -79,6 +79,42 @@ describe('ClayTable', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render a ClayTable with size `lg`', () => {
+		component = new ClayTable({
+			size: 'lg',
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayTable with size `md`', () => {
+		component = new ClayTable({
+			size: 'md',
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayTable with size `sm`', () => {
+		component = new ClayTable({
+			size: 'sm',
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should render a ClayTable with size `xl`', () => {
+		component = new ClayTable({
+			size: 'xl',
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should render a ClayTable with id', () => {
 		component = new ClayTable({
 			id: 'myId',

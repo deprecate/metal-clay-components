@@ -53,9 +53,10 @@
 		stickerStyle: string,
 		stickerShape: string
 	]>}
+	{@param? size: string}
 
 	{let $attributes kind="attributes"}
-		class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover
+		class="table table-autofit table-hover table-list show-quick-actions-on-hover
 			{if $elementClasses}
 				{sp}{$elementClasses}
 			{/if}
@@ -66,7 +67,14 @@
 		{/if}
 	{/let}
 
-	<div class="table-responsive">
+	{let $classes kind="text"}
+		table-responsive
+		{if $size}
+			-{$size}
+		{/if}
+	{/let}
+
+	<div class="{$classes}">
 		<table {$attributes}>
 			{if $header}
 				<thead>

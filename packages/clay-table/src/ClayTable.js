@@ -71,6 +71,15 @@ ClayTable.STATE = {
 	items: itemsValidator,
 
 	/**
+	 * Table responsive sizes. Available `lg`, `md`, `sm` and `xl`.
+	 * @instance
+	 * @memberof ClayTable
+	 * @type {?string|undefined}
+	 * @default undefined
+	 */
+	size: Config.oneOf(['lg', 'md', 'sm', 'xl']),
+
+	/**
 	 * The path to the SVG spritemap file containing the icons.
 	 * @instance
 	 * @memberof ClayTable

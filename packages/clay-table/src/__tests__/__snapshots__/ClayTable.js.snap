@@ -2,13 +2,13 @@
 
 exports[`ClayTable should render a ClayTable with classes 1`] = `
 <div class="table-responsive my-custom-class">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover my-custom-class"></table>
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover my-custom-class"></table>
 </div>
 `;
 
 exports[`ClayTable should render a ClayTable with colspan in columns header 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
     <thead>
       <tr>
         <th class="" colspan="2">Foo</th>
@@ -21,7 +21,7 @@ exports[`ClayTable should render a ClayTable with colspan in columns header 1`] 
 
 exports[`ClayTable should render a ClayTable with elementClasses in the columns 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
     <thead>
       <tr>
         <th class="custom1-column">Foo</th>
@@ -40,13 +40,13 @@ exports[`ClayTable should render a ClayTable with elementClasses in the columns 
 
 exports[`ClayTable should render a ClayTable with id 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover" id="myId"></table>
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover" id="myId"></table>
 </div>
 `;
 
 exports[`ClayTable should render a ClayTable with multiples columns in header 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
     <thead>
       <tr>
         <th class="">Title</th>
@@ -61,7 +61,7 @@ exports[`ClayTable should render a ClayTable with multiples columns in header 1`
 
 exports[`ClayTable should render a ClayTable with multiples items 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
     <tbody>
       <tr class="">
         <td class=" table-cell-content">
@@ -96,8 +96,32 @@ exports[`ClayTable should render a ClayTable with multiples items 1`] = `
 </div>
 `;
 
+exports[`ClayTable should render a ClayTable with size \`lg\` 1`] = `
+<div class="table-responsive-lg">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`md\` 1`] = `
+<div class="table-responsive-md">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`sm\` 1`] = `
+<div class="table-responsive-sm">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`xl\` 1`] = `
+<div class="table-responsive-xl">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
 exports[`ClayTable should render the default markup 1`] = `
 <div class="table-responsive">
-  <table class="table table-autofit table-heading-nowrap table-hover table-list show-quick-actions-on-hover"></table>
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
 </div>
 `;
