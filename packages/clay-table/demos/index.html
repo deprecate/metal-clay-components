@@ -15,6 +15,10 @@
 		.row {
 			margin-bottom: 20px;
 		}
+
+		.custom-column {
+			width: 0.001% !important;
+		}
 	</style>
 
 	<script src="../build/globals/clay-table.js"></script>
@@ -24,8 +28,75 @@
 		ClayTable
 	</h1>
 
-	<div id="container"></div>
-	<div id="container2"></div>
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table</h4>
+			<div id="simple-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with links</h4>
+			<div id="simple-with-links-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with Label</h4>
+			<div id="simple-with-label-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with Progress Bar</h4>
+			<div id="simple-with-progressbar-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table</h4>
+			<div id="selectable-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Sticker</h4>
+			<div id="sticker-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Action Menu</h4>
+			<div id="action-menu-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Quick Action Menu</h4>
+			<div id="quick-action-menu-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with group separator</h4>
+			<div id="group-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Selected Items</h4>
+			<div id="selected-block"></div>
+		</div>
+	</div>
 
 	<script type="text/javascript">
 		let spritemap = '../../../node_modules/clay/build/images/icons/icons.svg';
@@ -68,297 +139,599 @@
 			},
 		];
 
+		/**
+		 * Simple Table
+		 */
 		new metal.ClayTable({
 			header: [
-				{},
 				{
-					label: 'Title',
-					sort: true
+					label: 'Foo'
 				},
 				{
-					label: 'Author'
-				},
-				{
-					label: 'Size'
-				},
-				{
-					label: 'Status'
-				},
-				{
-					label: 'Creation Date'
-				},
-				{
-					label: 'Modified Date'
-				},
-				{}
+					label: 'Bar'
+				}
 			],
 			items: [
 				{
-					group: 'Group 1'
-				},
-				{
-					actionItems: actionItemsWithQuickItems,
-					selectable: true,
-					selected: true,
 					columns: [
 						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
+							text: 'Foo'
 						},
 						{
-							text: 'Juan Anton',
-							href: '#1'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							label: 'Approved',
-							labelStyle: 'success'
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
+							text: 'Bar'
 						}
 					]
 				},
 				{
-					actionItems: actionItemsWithQuickItems,
-					selectable: true,
-					selected: false,
 					columns: [
 						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
+							text: 'Foo'
 						},
 						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							label: 'Approved',
-							labelStyle: 'success'
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
-						}
-					]
-				},
-				{
-					actionItems: actionItemsWithQuickItems,
-					selectable: true,
-					selected: false,
-					columns: [
-						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							label: 'Approved',
-							labelStyle: 'success'
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
-						}
-					]
-				},
-				{
-					group: 'Group 2'
-				},
-				{
-					actionItems: actionItemsWithQuickItems,
-					selectable: true,
-					selected: false,
-					columns: [
-						{
-							text: 'suffing-photo-ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.jpg',
-							useEllipse: true
-						},
-						{
-							text: 'Juan Anton'
-						},
-						{
-							text: '264KB'
-						},
-						{
-							label: 'Approved',
-							labelStyle: 'success'
-						},
-						{
-							text: '15 Minutes Ago'
-						},
-						{
-							text: '15 Minutes Ago'
+							text: 'Bar'
 						}
 					]
 				}
 			],
 			spritemap: spritemap
-		}, '#container');
+		}, '#simple-block');
 
+		/**
+		 * Simple Table with links
+		 */
 		new metal.ClayTable({
 			header: [
-				{},
 				{
-					label: 'Title',
+					label: 'Foo'
+				},
+				{
+					label: 'Bar'
+				}
+			],
+			items: [
+				{
+					columns: [
+						{
+							text: 'Foo',
+							href: '#foo'
+						},
+						{
+							text: 'Bar'
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							text: 'Foo',
+							href: '#foo'
+						},
+						{
+							text: 'Bar'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-links-block');
+
+		/**
+		 * Simple Table with label
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				}
+			],
+			items: [
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-label-block');
+
+		/**
+		 * Simple Table with progress bar
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				},
+				{}
+			],
+			items: [
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-progressbar-block');
+
+		/**
+		 * Selectable Table
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				},
+				{}
+			],
+			items: [
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column'
+				},
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#selectable-block');
+
+		/**
+		 * Selectable Table with sticker
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
 					colSpan: 2
 				},
 				{
 					label: 'Status'
 				},
-				{
-					label: 'Items'
-				},
-				{
-					label: 'Start Date'
-				},
-				{
-					label: 'Duration'
-				},
-				{},
 				{}
 			],
 			items: [
 				{
-					group: 'In progress'
-				},
-				{
-					actionItems: actionItems,
 					columns: [
 						{
-							text: 'Publication Ttitle',
-							useEllipse: true
+							text: 'Foo'
 						},
 						{
-							label: 'In progress',
-							labelStyle: 'warning'
-						},
-						{
-							text: '100.000'
-						},
-						{
-							text: '2017.11.24 - 17:15'
-						},
-						{
-							text: '4 Minutes'
-						},
-						{
-							progressBar: {
-								value: 30
-							}
-						}
-					],
-					selectable: true,
-					stickerLabel: 'MT',
-					stickerStyle: 'danger',
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'Publication Ttitle',
-							useEllipse: true
-						},
-						{
-							label: 'In progress',
-							labelStyle: 'warning'
-						},
-						{
-							text: '10'
-						},
-						{
-							text: '2017.11.24 - 17:15'
-						},
-						{
-							text: '45 hours'
-						},
-						{
-							progressBar: {
-								value: 30
-							}
-						}
-					],
-					selectable: true,
-					stickerLabel: 'BB',
-					stickerStyle: 'danger',
-				},
-				{
-					group: 'Sdheduled'
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'Publication Ttitle',
-							useEllipse: true
-						},
-						{
-							label: 'Sdheduled',
-							labelStyle: 'info'
-						},
-						{
-							text: '20'
-						},
-						{
-							text: '2017.11.24 - 17:15'
-						},
-						{
-							text: '1 hour'
-						},
-						{}
-					],
-					selectable: true,
-					stickerLabel: 'CC',
-					stickerStyle: 'danger',
-				},
-				{
-					group: 'Completed'
-				},
-				{
-					actionItems: actionItems,
-					columns: [
-						{
-							text: 'Publication Ttitle',
-							useEllipse: true
-						},
-						{
-							label: 'Successful',
+							label: 'Approved',
 							labelStyle: 'success'
 						},
 						{
-							text: '29.999'
-						},
-						{
-							text: '2017.11.24 - 17:15'
-						},
-						{
-							text: '4 Minutes'
-						},
-						{}
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
 					],
 					selectable: true,
-					stickerLabel: 'AA',
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
 					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
 				}
 			],
 			spritemap: spritemap
-		}, '#container');
+		}, '#sticker-block');
+
+		/**
+		 * Selectable Table with Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					actionItems: actionItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#action-menu-block');
+
+		/**
+		 * Selectable Table with Quick Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#quick-action-menu-block');
+
+		/**
+		 * Selectable Table with Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					group: 'Group 1'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#group-block');
+
+		/**
+		 * Selectable Table with Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					selected: true,
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					group: 'Group 1'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							text: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					selected: true,
+					stickerElementClasses: 'custom-column'
+					stickerImageSrc: './image.jpg',
+				}
+			],
+			spritemap: spritemap
+		}, '#selected-block');
 	</script>
 </body>
 </html>
