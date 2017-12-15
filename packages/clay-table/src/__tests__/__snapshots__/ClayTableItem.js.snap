@@ -7,7 +7,7 @@ exports[`ClayTableItem should render ClayTableItem with sticker shape \`rounded\
       <img alt="Image" class="img-fluid" src="image.png">
     </span>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Name">Name</span>
   </td>
 </tr>
@@ -20,7 +20,7 @@ exports[`ClayTableItem should render ClayTableItem with sticker with image in co
       <img alt="Image" class="img-fluid" src="image.png">
     </span>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Name">Name</span>
   </td>
 </tr>
@@ -37,7 +37,7 @@ exports[`ClayTableItem should render the ClayTableItem disabled 1`] = `
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -59,7 +59,7 @@ exports[`ClayTableItem should render the ClayTableItem selectable 1`] = `
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -81,7 +81,7 @@ exports[`ClayTableItem should render the ClayTableItem selected 1`] = `
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -124,7 +124,7 @@ exports[`ClayTableItem should render the ClayTableItem with action menu 1`] = `
 
 exports[`ClayTableItem should render the ClayTableItem with columns 1`] = `
 <tr class="">
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">Bar</td>
@@ -168,7 +168,7 @@ exports[`ClayTableItem should render the ClayTableItem with custom classes in co
   <td class="custom-column">
     <span class="sticker sticker-primary rounded-circle">AA</span>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Name">Name</span>
   </td>
 </tr>
@@ -185,7 +185,7 @@ exports[`ClayTableItem should render the ClayTableItem with custom classes in co
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -211,7 +211,7 @@ exports[`ClayTableItem should render the ClayTableItem with input name 1`] = `
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -233,7 +233,7 @@ exports[`ClayTableItem should render the ClayTableItem with input value 1`] = `
       </label>
     </div>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Foo">Foo</span>
   </td>
   <td class="">
@@ -319,7 +319,7 @@ exports[`ClayTableItem should render the ClayTableItem with user sticker in the 
   <td>
     <span class="sticker sticker-primary rounded-circle">AA</span>
   </td>
-  <td class=" table-cell-content">
+  <td class=" table-cell-expand">
     <span class="text-truncate" title="Name">Name</span>
   </td>
 </tr>
