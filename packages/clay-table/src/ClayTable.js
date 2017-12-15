@@ -45,6 +45,15 @@ class ClayTable extends Component {
 	}
 
 	/**
+	 * Propagate the change of the checkbox event.
+	 * @param {!Event} event
+	 * @private
+	 */
+	handleClickCheckbox_(event) {
+		this.emit('itemToggled', event);
+	}
+
+	/**
 	 * Handle click in document for remove the class `table-focus` of tr.
 	 * @private
 	 */
@@ -54,6 +63,7 @@ class ClayTable extends Component {
 
 	/**
 	 * Handle focus the tr for add class `table-focus`.
+	 * @param {!Event} event
 	 * @private
 	 */
 	handleFocus_(event) {
@@ -69,7 +79,7 @@ class ClayTable extends Component {
 	 * @private
 	 */
 	handleSortColumn_(event) {
-		this.emit('sortClick', event);
+		this.emit('sortColumn', event);
 	}
 }
 

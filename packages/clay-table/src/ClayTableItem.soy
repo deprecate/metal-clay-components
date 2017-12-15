@@ -30,7 +30,7 @@
     ]>}
     {@param? contentRenderer: string}
     {@param? disabled: bool}
-    {@param? group: string}
+    {@param? handleItemToggled_: any}
     {@param? inputName: string}
     {@param? inputValue: string}
     {@param? selectable: bool}
@@ -48,37 +48,30 @@
             {if $selectable and $selected}
                 table-active
             {/if}
-
-            {if $group}
-                table-divider
-            {/if}
         "
     {/let}
 
     <tr {$attributes}>
-        {if $group}
-            <td colspan="9">{$group}</td>
-        {else}
-            {call .content}
-                {param actionColumnElementClasses: $actionColumnElementClasses /}
-                {param actionItems: $actionItems /}
-                {param columns: $columns /}
-                {param contentRenderer: $contentRenderer /}
-                {param disabled: $disabled /}
-                {param inputName: $inputName /}
-                {param inputValue: $inputValue /}
-                {param selectable: $selectable /}
-                {param selectableElementClasses: $selectableElementClasses /}
-                {param selected: $selected /}
-                {param spritemap: $spritemap /}
-                {param stickerElementClasses: $stickerElementClasses /}
-                {param stickerImageAlt: $stickerImageAlt /}
-                {param stickerImageSrc: $stickerImageSrc /}
-                {param stickerLabel: $stickerLabel /}
-                {param stickerShape: $stickerShape /}
-                {param stickerStyle: $stickerStyle /}
-            {/call}
-        {/if}
+        {call .content}
+            {param actionColumnElementClasses: $actionColumnElementClasses /}
+            {param actionItems: $actionItems /}
+            {param columns: $columns /}
+            {param contentRenderer: $contentRenderer /}
+            {param disabled: $disabled /}
+            {param handleItemToggled_: $handleItemToggled_ /}
+            {param inputName: $inputName /}
+            {param inputValue: $inputValue /}
+            {param selectable: $selectable /}
+            {param selectableElementClasses: $selectableElementClasses /}
+            {param selected: $selected /}
+            {param spritemap: $spritemap /}
+            {param stickerElementClasses: $stickerElementClasses /}
+            {param stickerImageAlt: $stickerImageAlt /}
+            {param stickerImageSrc: $stickerImageSrc /}
+            {param stickerLabel: $stickerLabel /}
+            {param stickerShape: $stickerShape /}
+            {param stickerStyle: $stickerStyle /}
+        {/call}
     </tr>
 {/template}
 
@@ -88,30 +81,11 @@
 {template .content}
     {@param spritemap: string}
     {@param? actionColumnElementClasses: string}
-    {@param? actionItems: list<[
-        disabled: bool,
-        href: string,
-        icon: string,
-        label: string,
-        quickAction: bool,
-        separator: bool
-    ]>}
-    {@param? columns: list<[
-        elementClasses: string,
-        href: string,
-        label: string,
-        labelStyle: string,
-        progressBar: [
-            maxValue: int,
-            minValue: int,
-            status: string,
-            value: int
-        ],
-        text: string,
-        useEllipse: bool
-    ]>}
+    {@param? actionItems: list<?>}
+    {@param? columns: list<?>}
     {@param? contentRenderer: string}
     {@param? disabled: bool}
+    {@param? handleItemToggled_: any}
     {@param? inputName: string}
     {@param? inputValue: string}
     {@param? selectable: bool}
@@ -129,6 +103,7 @@
             {call ClayCheckbox.render}
                 {param checked: $selected /}
                 {param disabled: $disabled /}
+                {param events: ['change': $handleItemToggled_] /}
                 {param hideLabel: true /}
                 {param name: $inputName /}
                 {param value: $inputValue /}
@@ -156,12 +131,9 @@
 
     {if $columns}
         {foreach $column in $columns}
-            {let $isColumnFirst: index($column) == '0' and not $selectable or index($column) == '1' and $selectable /}
-
             {delcall ClayTableItem.Column variant="$contentRenderer"}
                 {param elementClasses: $column.elementClasses /}
                 {param href: $column.href /}
-                {param isColumnFirst: $isColumnFirst /}
                 {param label: $column.label /}
                 {param labelStyle: $column.labelStyle /}
                 {param progressBar: $column.progressBar /}
@@ -192,7 +164,6 @@
 {deltemplate ClayTableItem.Column}
     {@param? elementClasses: string}
     {@param? href: string}
-    {@param? isColumnFirst: bool}
     {@param? label: string}
     {@param? labelStyle: string}
     {@param? progressBar: [
@@ -269,14 +240,7 @@
  * This renders the quick actions menu.
  */
 {template .quickMenu}
-	{@param actionItems: list<[
-		disabled: bool,
-		icon: string,
-		label: string,
-		quickAction: bool,
-		separator: bool,
-		href: string
-	]>}
+	{@param actionItems: list<?>}
 	{@param spritemap: string}
 
 	<div class="quick-action-menu">

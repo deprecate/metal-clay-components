@@ -9,6 +9,7 @@ import {actionsItemsValidator, columnsValidator} from './items_validator';
 import {Config} from 'metal-state';
 import Component from 'metal-component';
 import defineWebComponent from 'metal-web-component';
+import dom from 'metal-dom';
 import Soy from 'metal-soy';
 
 import templates from './ClayTableItem.soy.js';
@@ -16,7 +17,18 @@ import templates from './ClayTableItem.soy.js';
 /**
  * Metal ClayTableItem component.
  */
-class ClayTableItem extends Component {}
+class ClayTableItem extends Component {
+	/**
+	 * Handle input of type `checkbox` for add class `table-active` in tr.
+	 * @param {!Event} event
+	 * @private
+	 */
+	handleItemToggled_(event) {
+		dom.toggleClasses(this.element, 'table-active');
+
+		this.emit('itemToggled', event);
+	}
+}
 
 /**
  * State definition.
@@ -68,15 +80,6 @@ ClayTableItem.STATE = {
 	 * @default false
 	 */
 	disabled: Config.bool().value(false),
-
-	/**
-	 * Table group separator.
-	 * @instance
-	 * @memberof ClayTableItem
-	 * @type {?string|undefined}
-	 * @default undefined
-	 */
-	group: Config.string(),
 
 	/**
 	 * Name to be applied to the input element.
