@@ -76,6 +76,7 @@ class ClayTable extends Component {
 
 	/**
 	 * Handle button sort in header.
+	 * @param {!Event} event
 	 * @private
 	 */
 	handleSortColumn_(event) {
