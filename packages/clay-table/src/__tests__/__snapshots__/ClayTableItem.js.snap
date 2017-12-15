@@ -122,6 +122,30 @@ exports[`ClayTableItem should render the ClayTableItem with action menu 1`] = `
 </tr>
 `;
 
+exports[`ClayTableItem should render the ClayTableItem with button 1`] = `
+<tr class="">
+  <td>
+    <div class="custom-control custom-checkbox">
+      <label>
+        <input class="custom-control-input" value="value" ref="input" type="checkbox">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description sr-only"></span>
+      </label>
+    </div>
+  </td>
+  <td class=" table-cell-expand">
+    <span class="text-truncate" title="Foo">Foo</span>
+  </td>
+  <td class="">
+    <a href="#1">Bar</a>
+  </td>
+  <td class="">Foo</td>
+  <td class="">
+    <button class="btn btn-sm btn-primary" type="button">Bar</button>
+  </td>
+</tr>
+`;
+
 exports[`ClayTableItem should render the ClayTableItem with columns 1`] = `
 <tr class="">
   <td class=" table-cell-expand">

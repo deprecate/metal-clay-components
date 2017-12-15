@@ -7,24 +7,25 @@ let items = [
 		columns: [
 			{
 				href: '#1',
-				text: 'suffing-photo.png',
+				label: 'suffing-photo.png',
 				useEllipse: true,
 			},
 			{
-				text: 'Juan Anton',
+				label: 'Juan Anton',
 			},
 			{
-				text: '264KB',
+				label: '264KB',
 			},
 			{
 				label: 'Approved',
 				labelStyle: 'success',
+				type: 'label',
 			},
 			{
-				text: '15 Minutes Ago',
+				label: '15 Minutes Ago',
 			},
 			{
-				text: '15 Minutes Ago',
+				label: '15 Minutes Ago',
 			},
 		],
 	},
@@ -32,24 +33,25 @@ let items = [
 		columns: [
 			{
 				href: '#1',
-				text: 'suffing-photo.png',
+				label: 'suffing-photo.png',
 				useEllipse: true,
 			},
 			{
-				text: 'Juan Anton',
+				label: 'Juan Anton',
 			},
 			{
-				text: '264KB',
+				label: '264KB',
 			},
 			{
 				label: 'Approved',
 				labelStyle: 'success',
+				type: 'label',
 			},
 			{
-				text: '15 Minutes Ago',
+				label: '15 Minutes Ago',
 			},
 			{
-				text: '15 Minutes Ago',
+				label: '15 Minutes Ago',
 			},
 		],
 	},
@@ -189,11 +191,11 @@ describe('ClayTable', function() {
 					columns: [
 						{
 							elementClasses: 'custom1-column',
-							text: 'Foo',
+							label: 'Foo',
 						},
 						{
 							elementClasses: 'custom2-column',
-							text: 'Bar',
+							label: 'Bar',
 						},
 					],
 				},
@@ -212,7 +214,7 @@ describe('ClayTable', function() {
 						{
 							columns: [
 								{
-									text: 'Foo',
+									label: 'Foo',
 								},
 							],
 						},
@@ -224,7 +226,7 @@ describe('ClayTable', function() {
 						{
 							columns: [
 								{
-									text: 'Foo',
+									label: 'Foo',
 								},
 							],
 						},

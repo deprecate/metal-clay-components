@@ -104,16 +104,16 @@
 		let actionItems = [
 			{
 				label: 'Option 1',
-				url: '#1',
+				href: '#1',
 			},
 			{
 				label: 'Option 2',
 				separator: true,
-				url: '#2',
+				href: '#2',
 			},
 			{
 				label: 'Option 3',
-				url: '#3',
+				href: '#3',
 			},
 		];
 
@@ -155,20 +155,20 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
-							text: 'Bar'
+							label: 'Bar'
 						}
 					]
 				},
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
-							text: 'Bar'
+							label: 'Bar'
 						}
 					]
 				}
@@ -192,22 +192,22 @@
 				{
 					columns: [
 						{
-							text: 'Foo',
+							label: 'Foo',
 							href: '#foo'
 						},
 						{
-							text: 'Bar'
+							label: 'Bar'
 						}
 					]
 				},
 				{
 					columns: [
 						{
-							text: 'Foo',
+							label: 'Foo',
 							href: '#foo'
 						},
 						{
-							text: 'Bar'
+							label: 'Bar'
 						}
 					]
 				}
@@ -231,22 +231,24 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						}
 					]
 				},
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						}
 					]
 				}
@@ -271,11 +273,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -289,11 +292,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -327,11 +331,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -347,11 +352,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -388,11 +394,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -411,11 +418,12 @@
 				{
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -459,11 +467,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -484,11 +493,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -532,11 +542,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -557,11 +568,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -607,11 +619,12 @@
 							actionColumnElementClasses: 'custom-column',
 							columns: [
 								{
-									text: 'Foo'
+									label: 'Foo'
 								},
 								{
 									label: 'Approved',
-									labelStyle: 'success'
+									labelStyle: 'success',
+									type: 'label'
 								},
 								{
 									progressBar: {
@@ -632,11 +645,12 @@
 							actionColumnElementClasses: 'custom-column',
 							columns: [
 								{
-									text: 'Bar'
+									label: 'Bar'
 								},
 								{
 									label: 'Approved',
-									labelStyle: 'success'
+									labelStyle: 'success',
+									type: 'label'
 								},
 								{
 									progressBar: {
@@ -662,11 +676,12 @@
 							actionColumnElementClasses: 'custom-column',
 							columns: [
 								{
-									text: 'Foo'
+									label: 'Foo'
 								},
 								{
 									label: 'In progress',
-									labelStyle: 'warning'
+									labelStyle: 'warning',
+									type: 'label'
 								},
 								{
 									progressBar: {
@@ -685,11 +700,12 @@
 							actionColumnElementClasses: 'custom-column',
 							columns: [
 								{
-									text: 'Bar'
+									label: 'Bar'
 								},
 								{
 									label: 'Approved',
-									labelStyle: 'success'
+									labelStyle: 'success',
+									type: 'label'
 								},
 								{
 									progressBar: {
@@ -738,11 +754,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'Approved',
-							labelStyle: 'success'
+							labelStyle: 'success',
+							type: 'label'
 						},
 						{
 							progressBar: {
@@ -767,11 +784,12 @@
 					actionColumnElementClasses: 'custom-column',
 					columns: [
 						{
-							text: 'Foo'
+							label: 'Foo'
 						},
 						{
 							label: 'In progress',
-							labelStyle: 'warning'
+							labelStyle: 'warning',
+							type: 'label'
 						},
 						{
 							progressBar: {

@@ -15,6 +15,7 @@
         separator: bool
     ]>}
     {@param? columns: list<[
+        buttonStyle: string,
         elementClasses: string,
         href: string,
         label: string,
@@ -25,7 +26,7 @@
             status: string,
             value: int
         ],
-        text: string,
+        type: string,
         useEllipse: bool
     ]>}
     {@param? contentRenderer: string}
@@ -132,12 +133,13 @@
     {if $columns}
         {foreach $column in $columns}
             {delcall ClayTableItem.Column variant="$contentRenderer"}
+                {param buttonStyle: $column.buttonStyle /}
                 {param elementClasses: $column.elementClasses /}
                 {param href: $column.href /}
                 {param label: $column.label /}
                 {param labelStyle: $column.labelStyle /}
                 {param progressBar: $column.progressBar /}
-                {param text: $column.text /}
+                {param type: $column.type ?: 'text' /}
                 {param useEllipse: $column.useEllipse /}
             {/delcall}
         {/foreach}
@@ -162,6 +164,7 @@
  * This renders a multiples columns of the row.
  */
 {deltemplate ClayTableItem.Column}
+    {@param? buttonStyle: string}
     {@param? elementClasses: string}
     {@param? href: string}
     {@param? label: string}
@@ -172,18 +175,18 @@
         status: string,
         value: int
     ]}
-	{@param? text: string}
+	{@param? type: string}
     {@param? useEllipse: bool}
 
-    {let $textContent kind="html"}
-        {call .text}
+    {let $labelContent kind="html"}
+        {call .label}
             {param href: $href /}
-            {param text: $text /}
+            {param label: $label /}
         {/call}
     {/let}
 
 	{let $content kind="html"}
-		{if $label}
+		{if $type == 'label'}
 			{call ClayLabel.render}
 				{param label: $label /}
 				{param style: $labelStyle /}
@@ -195,11 +198,17 @@
                 {param status: $progressBar.status /}
                 {param value: $progressBar.value /}
             {/call}
-		{elseif $text}
+        {elseif $type == 'button'}
+            {call ClayButton.render}
+                {param label: $label /}
+                {param size: 'sm' /}
+                {param style: $labelStyle /}
+            {/call}
+		{elseif $type == 'text'}
             {if $useEllipse}
-                <span class="text-truncate" title="{$text}">{$textContent}</span>
+                <span class="text-truncate" title="{$label}">{$labelContent}</span>
             {else}
-                {$textContent}
+                {$labelContent}
             {/if}
 		{/if}
 	{/let}
@@ -222,17 +231,17 @@
 /**
  * This renders a text of the column.
  */
-{template .text}
+{template .label}
     {@param? href: string}
-    {@param? text: string}
+    {@param? label: string}
 
-    {if $text and not $href}
-        {$text}
-    {elseif $text and $href}
+    {if $label and $href}
         {call ClayLink.render}
             {param href: $href /}
-            {param label: $text /}
+            {param label: $label /}
         {/call}
+    {else}
+        {$label}
     {/if}
 {/template}
 

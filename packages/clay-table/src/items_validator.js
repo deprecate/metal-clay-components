@@ -10,6 +10,9 @@ let actionItems = {
 };
 
 let columns = {
+	buttonStyle: Config.oneOf(['link', 'primary', 'secondary']).value(
+		'primary'
+	),
 	elementClasses: Config.string(),
 	href: Config.string(),
 	label: Config.string(),
@@ -26,7 +29,7 @@ let columns = {
 		status: Config.oneOf(['complete', 'warning']),
 		value: Config.number(),
 	}),
-	text: Config.string(),
+	type: Config.oneOf(['text', 'button', 'label']).value('text'),
 	useEllipse: Config.bool().value(false),
 };
 

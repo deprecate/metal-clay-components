@@ -40,18 +40,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					url: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			spritemap: spritemap,
@@ -64,7 +64,7 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Name',
+					label: 'Name',
 					useEllipse: true,
 				},
 			],
@@ -80,7 +80,7 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Name',
+					label: 'Name',
 					useEllipse: true,
 				},
 			],
@@ -97,7 +97,7 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Name',
+					label: 'Name',
 					useEllipse: true,
 				},
 			],
@@ -113,7 +113,7 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Name',
+					label: 'Name',
 					useEllipse: true,
 				},
 			],
@@ -147,6 +147,7 @@ describe('ClayTableItem', function() {
 				{
 					label: 'Approved',
 					labelStyle: 'success',
+					type: 'label',
 				},
 			],
 			spritemap: spritemap,
@@ -235,18 +236,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			selectable: true,
@@ -260,18 +261,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			selectable: true,
@@ -286,18 +287,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			selectable: true,
@@ -312,18 +313,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			selectable: true,
@@ -338,18 +339,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			inputName: 'name',
@@ -364,18 +365,18 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 					useEllipse: true,
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			inputValue: 'value',
@@ -390,17 +391,17 @@ describe('ClayTableItem', function() {
 		component = new ClayTableItem({
 			columns: [
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 					href: '#1',
 				},
 				{
-					text: 'Foo',
+					label: 'Foo',
 				},
 				{
-					text: 'Bar',
+					label: 'Bar',
 				},
 			],
 			selectable: true,
@@ -413,6 +414,34 @@ describe('ClayTableItem', function() {
 
 		expect(spy).toHaveBeenCalled();
 		expect(spy).toHaveBeenCalledWith('itemToggled', expect.any(Object));
+	});
+
+	it('should render the ClayTableItem with button', () => {
+		component = new ClayTableItem({
+			columns: [
+				{
+					label: 'Foo',
+					useEllipse: true,
+				},
+				{
+					label: 'Bar',
+					href: '#1',
+				},
+				{
+					label: 'Foo',
+				},
+				{
+					label: 'Bar',
+					buttonStyle: 'primary',
+					type: 'button',
+				},
+			],
+			inputValue: 'value',
+			selectable: true,
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
 	});
 
 	it('should fail when no spritemap is passed', () => {
