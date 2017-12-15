@@ -120,6 +120,27 @@ exports[`ClayTable should render a ClayTable with size \`xl\` 1`] = `
 </div>
 `;
 
+exports[`ClayTable should render the ClayTable with group 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <tbody>
+      <tr class="table-divider">
+        <td colspan="9">Group 1</td>
+      </tr>
+      <tr class="">
+        <td class="">Foo</td>
+      </tr>
+      <tr class="table-divider">
+        <td colspan="9">Group 2</td>
+      </tr>
+      <tr class="">
+        <td class="">Foo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`ClayTable should render the default markup 1`] = `
 <div class="table-responsive">
   <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>

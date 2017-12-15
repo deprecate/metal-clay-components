@@ -198,12 +198,6 @@ exports[`ClayTableItem should render the ClayTableItem with custom classes in co
 
 exports[`ClayTableItem should render the ClayTableItem with custom element class 1`] = `<tr class="my-custom-class"></tr>`;
 
-exports[`ClayTableItem should render the ClayTableItem with group 1`] = `
-<tr class="table-divider">
-  <td colspan="9">Group 1</td>
-</tr>
-`;
-
 exports[`ClayTableItem should render the ClayTableItem with id 1`] = `<tr class=""></tr>`;
 
 exports[`ClayTableItem should render the ClayTableItem with input name 1`] = `

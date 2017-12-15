@@ -204,6 +204,40 @@ describe('ClayTable', function() {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should render the ClayTable with group', () => {
+		component = new ClayTable({
+			items: [
+				{
+					items: [
+						{
+							columns: [
+								{
+									text: 'Foo',
+								},
+							],
+						},
+					],
+					group: 'Group 1',
+				},
+				{
+					items: [
+						{
+							columns: [
+								{
+									text: 'Foo',
+								},
+							],
+						},
+					],
+					group: 'Group 2',
+				},
+			],
+			spritemap: spritemap,
+		});
+
+		expect(component).toMatchSnapshot();
+	});
+
 	it('should fail when no spritemap is passed', () => {
 		expect(() => {
 			component = new ClayTable();

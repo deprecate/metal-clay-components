@@ -386,13 +386,33 @@ describe('ClayTableItem', function() {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should render the ClayTableItem with group', () => {
+	it('should render a selectable ClayTableItem and emit an event on itemToggle', () => {
 		component = new ClayTableItem({
-			group: 'Group 1',
+			columns: [
+				{
+					text: 'Foo',
+				},
+				{
+					text: 'Bar',
+					href: '#1',
+				},
+				{
+					text: 'Foo',
+				},
+				{
+					text: 'Bar',
+				},
+			],
+			selectable: true,
 			spritemap: spritemap,
 		});
 
-		expect(component).toMatchSnapshot();
+		const spy = jest.spyOn(component, 'emit');
+
+		component.element.querySelector('input[type="checkbox"]').click();
+
+		expect(spy).toHaveBeenCalled();
+		expect(spy).toHaveBeenCalledWith('itemToggled', expect.any(Object));
 	});
 
 	it('should fail when no spritemap is passed', () => {
