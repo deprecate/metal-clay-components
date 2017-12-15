@@ -34,11 +34,13 @@
     "clay-link": "^1.0.0-alpha.8",
     "clay-progress-bar": "^1.0.0-alpha.5",
     "clay-sticker": "^1.0.0-alpha.5",
-    "metal": "^2.14.0",
     "metal-component": "^2.14.0",
+    "metal-dom": "^2.14.0",
+    "metal-events": "^2.14.0",
     "metal-soy": "^2.14.0",
     "metal-state": "^2.14.0",
-    "metal-web-component": "^2.14.0"
+    "metal-web-component": "^2.14.0",
+    "metal": "^2.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

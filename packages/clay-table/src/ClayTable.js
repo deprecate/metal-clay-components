@@ -1,8 +1,10 @@
 import './ClayTableItem';
 import 'clay-link';
 import {Config} from 'metal-state';
+import {EventHandler} from 'metal-events';
 import Component from 'metal-component';
 import defineWebComponent from 'metal-web-component';
+import dom from 'metal-dom';
 import itemsValidator from './items_validator';
 import Soy from 'metal-soy';
 
@@ -13,10 +15,61 @@ import templates from './ClayTable.soy.js';
  */
 class ClayTable extends Component {
 	/**
-	 * Handle button sort in header.
+	 * @inheritDoc
 	 */
-	handleButtonSortColumn_(event) {
-		this.emit('buttonSortClicked', event);
+	attached() {
+		this.eventHandler_.add(
+			dom.delegate(
+				document,
+				'click',
+				'body',
+				this.handleClickDocument_.bind(this)
+			),
+			dom.delegate(this.element, 'focus', 'tr', this.handleFocus_)
+		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	created() {
+		this.eventHandler_ = new EventHandler();
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	detached() {
+		super.detached();
+		this.eventHandler_.removeAllListeners();
+	}
+
+	/**
+	 * Handle click in document for remove the class `table-focus` of tr.
+	 * @private
+	 */
+	handleClickDocument_() {
+		dom.removeClasses(this.element.querySelectorAll('tr'), 'table-focus');
+	}
+
+	/**
+	 * Handle focus the tr for add class `table-focus`.
+	 * @private
+	 */
+	handleFocus_(event) {
+		const getFirstTable = dom.closest(event.target, 'table');
+		const getFirstTr = dom.closest(event.target, 'tr');
+
+		dom.removeClasses(getFirstTable.querySelectorAll('tr'), 'table-focus');
+		dom.addClasses(getFirstTr, 'table-focus');
+	}
+
+	/**
+	 * Handle button sort in header.
+	 * @private
+	 */
+	handleSortColumn_(event) {
+		this.emit('sortClick', event);
 	}
 }
 
