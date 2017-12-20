@@ -1,0 +1,205 @@
+{namespace ClayTable}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+	{@param spritemap: string}
+	{@param? elementClasses: string}
+	{@param? handleClickCheckbox_: any}
+	{@param? handleSortColumn_: any}
+	{@param? header: list<[
+		colSpan: int,
+		elementClasses: string,
+		label: string,
+		sort: bool,
+		sortDirection_: string
+	]>}
+	{@param? id: string}
+	{@param? items: list<[
+		actionColumnElementClasses: string,
+		actionItems: list<[
+			disabled: bool,
+			href: string,
+			icon: string,
+			label: string,
+			quickAction: bool,
+			separator: bool
+		]>,
+		columns: list<[
+			buttonStyle: string,
+			elementClasses: string,
+			href: string,
+			label: string,
+			labelStyle: string,
+			progressBar: [
+				maxValue: int,
+				minValue: int,
+				status: string,
+				value: int
+			],
+			type: string,
+			useEllipse: bool
+		]>,
+		disabled: bool,
+		group: string,
+		inputName: string,
+		inputValue: string,
+		items: list<?>,
+		selectable: bool,
+		selectableElementClasses: string,
+		selected: bool,
+		stickerElementClasses: string,
+		stickerImageAlt: string,
+		stickerImageSrc: string,
+		stickerLabel: string,
+		stickerStyle: string,
+		stickerShape: string
+	]>}
+	{@param? size: string}
+
+	{let $attributes kind="attributes"}
+		class="table table-autofit table-hover table-list show-quick-actions-on-hover
+			{if $elementClasses}
+				{sp}{$elementClasses}
+			{/if}
+		"
+
+		{if $id}
+			id="{$id}"
+		{/if}
+	{/let}
+
+	{let $classes kind="text"}
+		table-responsive
+		{if $size}
+			-{$size}
+		{/if}
+	{/let}
+
+	<div class="{$classes}">
+		<table {$attributes}>
+			{if $header}
+				<thead>
+					<tr>
+						{call .header}
+							{param handleSortColumn_: $handleSortColumn_ /}
+							{param header: $header /}
+							{param spritemap: $spritemap /}
+						{/call}
+					</tr>
+				</thead>
+			{/if}
+			{if $items}
+				<tbody>
+					{call .body}
+						{param handleClickCheckbox_: $handleClickCheckbox_ /}
+						{param items: $items /}
+						{param spritemap: $spritemap /}
+					{/call}
+				</tbody>
+			{/if}
+		</table>
+	</div>
+{/template}
+
+/**
+ * This renders a rows of the table.
+ */
+{template .body}
+	{@param items: list<?>}
+	{@param spritemap: string}
+	{@param? handleClickCheckbox_: any}
+
+	{foreach $item in $items}
+		{if $item.group}
+			<tr class="table-divider">
+				<td colspan="9">{$item.group}</td>
+			</tr>
+			{if $item.items}
+				{foreach $itemToGroup in $item.items}
+					{call ClayTableItem.render}
+						{param actionColumnElementClasses: $itemToGroup.actionColumnElementClasses /}
+						{param actionItems: $itemToGroup.actionItems /}
+						{param columns: $itemToGroup.columns /}
+						{param disabled: $itemToGroup.disabled /}
+						{param events: ['itemToggled': $handleClickCheckbox_] /}
+						{param inputName: $itemToGroup.inputName /}
+						{param inputValue: $itemToGroup.inputValue /}
+						{param selectable: $itemToGroup.selectable /}
+						{param selectableElementClasses: $itemToGroup.selectableElementClasses /}
+						{param selected: $itemToGroup.selected /}
+						{param spritemap: $spritemap /}
+						{param stickerElementClasses: $itemToGroup.stickerElementClasses /}
+						{param stickerImageAlt: $itemToGroup.stickerImageAlt /}
+						{param stickerImageSrc: $itemToGroup.stickerImageSrc /}
+						{param stickerLabel: $itemToGroup.stickerLabel /}
+						{param stickerShape: $itemToGroup.stickerShape /}
+						{param stickerStyle: $itemToGroup.stickerStyle /}
+					{/call}
+				{/foreach}
+			{/if}
+		{else}
+			{call ClayTableItem.render}
+				{param actionColumnElementClasses: $item.actionColumnElementClasses /}
+				{param actionItems: $item.actionItems /}
+				{param columns: $item.columns /}
+				{param disabled: $item.disabled /}
+				{param events: ['itemToggled': $handleClickCheckbox_] /}
+				{param inputName: $item.inputName /}
+				{param inputValue: $item.inputValue /}
+				{param selectable: $item.selectable /}
+				{param selectableElementClasses: $item.selectableElementClasses /}
+				{param selected: $item.selected /}
+				{param spritemap: $spritemap /}
+				{param stickerElementClasses: $item.stickerElementClasses /}
+				{param stickerImageAlt: $item.stickerImageAlt /}
+				{param stickerImageSrc: $item.stickerImageSrc /}
+				{param stickerLabel: $item.stickerLabel /}
+				{param stickerShape: $item.stickerShape /}
+				{param stickerStyle: $item.stickerStyle /}
+			{/call}
+		{/if}
+	{/foreach}
+{/template}
+
+/**
+ * This renders columns to the header of the table.
+ */
+{template .header}
+	{@param header: list<?>}
+	{@param spritemap: string}
+	{@param? handleSortColumn_: any}
+
+	{foreach $item in $header}
+		{let $thAttributes kind="attributes"}
+			class="
+				{if $item.elementClasses}
+					{$item.elementClasses}
+				{/if}
+			"
+
+			{if $item.colSpan}
+				colspan="{$item.colSpan}"
+			{/if}
+		{/let}
+
+		<th {$thAttributes}>
+			{if $item.label and not $item.sort}
+				{$item.label}
+			{elseif $item.sort and $item.label}
+				{let $icon: $item.sortDirection_ ?: 'down' /}
+
+				{call ClayLink.render}
+					{param events: ['click': $handleSortColumn_] /}
+					{param href: '#sort' /}
+					{param icon: 'order-arrow-' + $icon /}
+					{param iconAlignment: 'right' /}
+					{param id: '' + index($item) /}
+					{param label: $item.label /}
+					{param spritemap: $spritemap /}
+				{/call}
+			{/if}
+		</th>
+	{/foreach}
+{/template}

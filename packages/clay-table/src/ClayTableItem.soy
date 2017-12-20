@@ -1,0 +1,271 @@
+{namespace ClayTableItem}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+    {@param spritemap: string}
+    {@param? actionColumnElementClasses: string}
+    {@param? actionItems: list<[
+        disabled: bool,
+        href: string,
+        icon: string,
+        label: string,
+        quickAction: bool,
+        separator: bool
+    ]>}
+    {@param? columns: list<[
+        buttonStyle: string,
+        elementClasses: string,
+        href: string,
+        label: string,
+        labelStyle: string,
+        progressBar: [
+            maxValue: int,
+            minValue: int,
+            status: string,
+            value: int
+        ],
+        type: string,
+        useEllipse: bool
+    ]>}
+    {@param? contentRenderer: string}
+    {@param? disabled: bool}
+    {@param? handleItemToggled_: any}
+    {@param? inputName: string}
+    {@param? inputValue: string}
+    {@param? selectable: bool}
+    {@param? selectableElementClasses: string}
+    {@param? selected: bool}
+    {@param? stickerElementClasses: string}
+    {@param? stickerImageAlt: string}
+    {@param? stickerImageSrc: string}
+    {@param? stickerLabel: string}
+    {@param? stickerShape: string}
+    {@param? stickerStyle: string}
+
+    {let $attributes kind="attributes"}
+        class="
+            {if $selectable and $selected}
+                table-active
+            {/if}
+        "
+    {/let}
+
+    <tr {$attributes}>
+        {call .content}
+            {param actionColumnElementClasses: $actionColumnElementClasses /}
+            {param actionItems: $actionItems /}
+            {param columns: $columns /}
+            {param contentRenderer: $contentRenderer /}
+            {param disabled: $disabled /}
+            {param handleItemToggled_: $handleItemToggled_ /}
+            {param inputName: $inputName /}
+            {param inputValue: $inputValue /}
+            {param selectable: $selectable /}
+            {param selectableElementClasses: $selectableElementClasses /}
+            {param selected: $selected /}
+            {param spritemap: $spritemap /}
+            {param stickerElementClasses: $stickerElementClasses /}
+            {param stickerImageAlt: $stickerImageAlt /}
+            {param stickerImageSrc: $stickerImageSrc /}
+            {param stickerLabel: $stickerLabel /}
+            {param stickerShape: $stickerShape /}
+            {param stickerStyle: $stickerStyle /}
+        {/call}
+    </tr>
+{/template}
+
+/**
+ * This renders the content of the row.
+ */
+{template .content}
+    {@param spritemap: string}
+    {@param? actionColumnElementClasses: string}
+    {@param? actionItems: list<?>}
+    {@param? columns: list<?>}
+    {@param? contentRenderer: string}
+    {@param? disabled: bool}
+    {@param? handleItemToggled_: any}
+    {@param? inputName: string}
+    {@param? inputValue: string}
+    {@param? selectable: bool}
+    {@param? selectableElementClasses: string}
+    {@param? selected: bool}
+    {@param? stickerElementClasses: string}
+    {@param? stickerImageAlt: string}
+    {@param? stickerImageSrc: string}
+    {@param? stickerLabel: string}
+    {@param? stickerShape: string}
+    {@param? stickerStyle: string}
+
+    {if $selectable}
+        <td class="{$selectableElementClasses}">
+            {call ClayCheckbox.render}
+                {param checked: $selected /}
+                {param disabled: $disabled /}
+                {param events: ['change': $handleItemToggled_] /}
+                {param hideLabel: true /}
+                {param name: $inputName /}
+                {param value: $inputValue /}
+            {/call}
+        </td>
+    {/if}
+
+    {if $stickerLabel or $stickerImageSrc}
+        <td class="{$stickerElementClasses}">
+            {if $stickerImageSrc}
+                {call ClaySticker.render}
+                    {param imageAlt: $stickerImageAlt /}
+                    {param imageSrc: $stickerImageSrc /}
+                    {param shape: $stickerShape ?: 'circle' /}
+                {/call}
+            {else}
+                {call ClaySticker.render}
+                    {param label: $stickerLabel /}
+                    {param shape: $stickerShape ?: 'circle' /}
+                    {param style: $stickerStyle /}
+                {/call}
+            {/if}
+        </td>
+    {/if}
+
+    {if $columns}
+        {foreach $column in $columns}
+            {delcall ClayTableItem.Column variant="$contentRenderer"}
+                {param buttonStyle: $column.buttonStyle /}
+                {param elementClasses: $column.elementClasses /}
+                {param href: $column.href /}
+                {param label: $column.label /}
+                {param labelStyle: $column.labelStyle /}
+                {param progressBar: $column.progressBar /}
+                {param type: $column.type ?: 'text' /}
+                {param useEllipse: $column.useEllipse /}
+            {/delcall}
+        {/foreach}
+    {/if}
+
+    {if $actionItems}
+        <td class="{$actionColumnElementClasses}">
+            {call .quickMenu}
+                {param actionItems: $actionItems /}
+                {param spritemap: $spritemap /}
+            {/call}
+
+            {call ClayActionsDropdown.render}
+                {param items: $actionItems /}
+                {param spritemap: $spritemap /}
+            {/call}
+        </td>
+    {/if}
+{/template}
+
+/**
+ * This renders a multiples columns of the row.
+ */
+{deltemplate ClayTableItem.Column}
+    {@param? buttonStyle: string}
+    {@param? elementClasses: string}
+    {@param? href: string}
+    {@param? label: string}
+    {@param? labelStyle: string}
+    {@param? progressBar: [
+        maxValue: int,
+        minValue: int,
+        status: string,
+        value: int
+    ]}
+	{@param? type: string}
+    {@param? useEllipse: bool}
+
+    {let $labelContent kind="html"}
+        {call .label}
+            {param href: $href /}
+            {param label: $label /}
+        {/call}
+    {/let}
+
+	{let $content kind="html"}
+		{if $type == 'label'}
+			{call ClayLabel.render}
+				{param label: $label /}
+				{param style: $labelStyle /}
+			{/call}
+        {elseif $progressBar}
+            {call ClayProgressBar.render}
+                {param maxValue: $progressBar.maxValue /}
+                {param minValue: $progressBar.minValue /}
+                {param status: $progressBar.status /}
+                {param value: $progressBar.value /}
+            {/call}
+        {elseif $type == 'button'}
+            {call ClayButton.render}
+                {param label: $label /}
+                {param size: 'sm' /}
+                {param style: $labelStyle /}
+            {/call}
+		{elseif $type == 'text'}
+            {if $useEllipse}
+                <span class="text-truncate" title="{$label}">{$labelContent}</span>
+            {else}
+                {$labelContent}
+            {/if}
+		{/if}
+	{/let}
+
+	{let $classes kind="text"}
+        {if $elementClasses}
+            {$elementClasses}
+        {/if}
+
+        {if $useEllipse}
+            {sp}table-cell-expand
+        {/if}
+	{/let}
+
+	<td class="{$classes}">
+		{$content}
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a text of the column.
+ */
+{template .label}
+    {@param? href: string}
+    {@param? label: string}
+
+    {if $label and $href}
+        {call ClayLink.render}
+            {param href: $href /}
+            {param label: $label /}
+        {/call}
+    {else}
+        {$label}
+    {/if}
+{/template}
+
+/**
+ * This renders the quick actions menu.
+ */
+{template .quickMenu}
+	{@param actionItems: list<?>}
+	{@param spritemap: string}
+
+	<div class="quick-action-menu">
+		{foreach $item in $actionItems}
+			{if $item.quickAction and $item.icon}
+				{call ClayLink.render}
+					{param elementClasses: 'quick-action-item' /}
+                    {param href: $item.href /}
+					{param label kind="html"}
+						{call ClayIcon.render}
+							{param spritemap: $spritemap /}
+							{param symbol: $item.icon /}
+						{/call}
+					{/param}
+				{/call}
+			{/if}
+		{/foreach}
+	</div>
+{/template}

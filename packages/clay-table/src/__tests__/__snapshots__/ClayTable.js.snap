@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClayTable should render a ClayTable with classes 1`] = `
+<div class="table-responsive my-custom-class">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover my-custom-class"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with colspan in columns header 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <thead>
+      <tr>
+        <th class="" colspan="2">Foo</th>
+        <th class="">Bar</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with elementClasses in the columns 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <thead>
+      <tr>
+        <th class="custom1-column">Foo</th>
+        <th class="custom2-column">Bar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="">
+        <td class="custom1-column">Foo</td>
+        <td class="custom2-column">Bar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with id 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover" id="myId"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with multiples columns in header 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <thead>
+      <tr>
+        <th class="">Title</th>
+        <th class="">Author</th>
+        <th class="">Size</th>
+        <th class="">Status</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with multiples items 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <tbody>
+      <tr class="">
+        <td class=" table-cell-expand">
+          <span class="text-truncate" title="suffing-photo.png">
+            <a href="#1">suffing-photo.png</a>
+          </span>
+        </td>
+        <td class="">Juan Anton</td>
+        <td class="">264KB</td>
+        <td class="">
+          <span class="label label-success">Approved</span>
+        </td>
+        <td class="">15 Minutes Ago</td>
+        <td class="">15 Minutes Ago</td>
+      </tr>
+      <tr class="">
+        <td class=" table-cell-expand">
+          <span class="text-truncate" title="suffing-photo.png">
+            <a href="#1">suffing-photo.png</a>
+          </span>
+        </td>
+        <td class="">Juan Anton</td>
+        <td class="">264KB</td>
+        <td class="">
+          <span class="label label-success">Approved</span>
+        </td>
+        <td class="">15 Minutes Ago</td>
+        <td class="">15 Minutes Ago</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`lg\` 1`] = `
+<div class="table-responsive-lg">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`md\` 1`] = `
+<div class="table-responsive-md">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`sm\` 1`] = `
+<div class="table-responsive-sm">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render a ClayTable with size \`xl\` 1`] = `
+<div class="table-responsive-xl">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;
+
+exports[`ClayTable should render the ClayTable with group 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+    <tbody>
+      <tr class="table-divider">
+        <td colspan="9">Group 1</td>
+      </tr>
+      <tr class="">
+        <td class="">Foo</td>
+      </tr>
+      <tr class="table-divider">
+        <td colspan="9">Group 2</td>
+      </tr>
+      <tr class="">
+        <td class="">Foo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`ClayTable should render the default markup 1`] = `
+<div class="table-responsive">
+  <table class="table table-autofit table-hover table-list show-quick-actions-on-hover"></table>
+</div>
+`;

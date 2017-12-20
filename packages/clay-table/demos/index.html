@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo: ClayTable</title>
+
+	<link rel="stylesheet" href="../../../node_modules/clay/build/css/atlas.css">
+
+	<style>
+		body {
+			background-color: #FFF;
+		}
+
+		.row {
+			margin-bottom: 20px;
+		}
+
+		.custom-column {
+			width: 0.001% !important;
+		}
+	</style>
+
+	<script src="../build/globals/clay-table.js"></script>
+</head>
+<body class="container">
+	<h1 class="page-title">
+		ClayTable
+	</h1>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table</h4>
+			<div id="simple-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with links</h4>
+			<div id="simple-with-links-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with Label</h4>
+			<div id="simple-with-label-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Simple Table with Progress Bar</h4>
+			<div id="simple-with-progressbar-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table</h4>
+			<div id="selectable-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Sticker</h4>
+			<div id="sticker-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Action Menu</h4>
+			<div id="action-menu-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Quick Action Menu</h4>
+			<div id="quick-action-menu-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with group separator</h4>
+			<div id="group-block"></div>
+		</div>
+	</div>
+
+	<div class="row row-spacing">
+		<div class="col">
+			<h4>Selectable Table with Selected Items</h4>
+			<div id="selected-block"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let spritemap = '../../../node_modules/clay/build/images/icons/icons.svg';
+
+		let actionItems = [
+			{
+				label: 'Option 1',
+				href: '#1',
+			},
+			{
+				label: 'Option 2',
+				separator: true,
+				href: '#2',
+			},
+			{
+				label: 'Option 3',
+				href: '#3',
+			},
+		];
+
+		let actionItemsWithQuickItems = [
+			{
+				icon: 'trash',
+				label: 'Option 1',
+				quickAction: true,
+				href: '#1',
+			},
+			{
+				icon: 'download',
+				label: 'Option 2',
+				quickAction: true,
+				separator: true,
+				href: '#2',
+			},
+			{
+				icon: 'info-circle-open',
+				label: 'Option 3',
+				quickAction: true,
+				href: '#3',
+			},
+		];
+
+		/**
+		 * Simple Table
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Bar'
+				}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Bar'
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Bar'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-block');
+
+		/**
+		 * Simple Table with links
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Bar'
+				}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo',
+							href: '#foo'
+						},
+						{
+							label: 'Bar'
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							label: 'Foo',
+							href: '#foo'
+						},
+						{
+							label: 'Bar'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-links-block');
+
+		/**
+		 * Simple Table with label
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-label-block');
+
+		/**
+		 * Simple Table with progress bar
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				},
+				{}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					]
+				}
+			],
+			spritemap: spritemap
+		}, '#simple-with-progressbar-block');
+
+		/**
+		 * Selectable Table
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo'
+				},
+				{
+					label: 'Status'
+				},
+				{}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column'
+				},
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#selectable-block');
+
+		/**
+		 * Selectable Table with sticker
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{}
+			],
+			items: [
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#sticker-block');
+
+		/**
+		 * Selectable Table with Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					actionItems: actionItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#action-menu-block');
+
+		/**
+		 * Selectable Table with Quick Action Menu
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+					stickerElementClasses: 'custom-column'
+				}
+			],
+			spritemap: spritemap
+		}, '#quick-action-menu-block');
+
+		/**
+		 * Selectable Table with group separator
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					items: [
+						{
+							actionItems: actionItemsWithQuickItems,
+							actionColumnElementClasses: 'custom-column',
+							columns: [
+								{
+									label: 'Foo'
+								},
+								{
+									label: 'Approved',
+									labelStyle: 'success',
+									type: 'label'
+								},
+								{
+									progressBar: {
+										maxValue: 100,
+										minValue: 0,
+										value: 80
+									}
+								}
+							],
+							selectable: true,
+							selectableElementClasses: 'custom-column',
+							stickerLabel: 'MT',
+							stickerStyle: 'danger',
+							stickerElementClasses: 'custom-column'
+						},
+						{
+							actionItems: actionItemsWithQuickItems,
+							actionColumnElementClasses: 'custom-column',
+							columns: [
+								{
+									label: 'Bar'
+								},
+								{
+									label: 'Approved',
+									labelStyle: 'success',
+									type: 'label'
+								},
+								{
+									progressBar: {
+										maxValue: 100,
+										minValue: 0,
+										value: 80
+									}
+								}
+							],
+							selectable: true,
+							selectableElementClasses: 'custom-column',
+							stickerLabel: 'MT',
+							stickerStyle: 'danger',
+							stickerElementClasses: 'custom-column'
+						}
+					],
+					group: 'Group 1'
+				},
+				{
+					items: [
+						{
+							actionItems: actionItemsWithQuickItems,
+							actionColumnElementClasses: 'custom-column',
+							columns: [
+								{
+									label: 'Foo'
+								},
+								{
+									label: 'In progress',
+									labelStyle: 'warning',
+									type: 'label'
+								},
+								{
+									progressBar: {
+										status: 'warning',
+										value: 20
+									}
+								}
+							],
+							selectable: true,
+							selectableElementClasses: 'custom-column',
+							stickerImageSrc: './image.jpg',
+							stickerElementClasses: 'custom-column'
+						},
+						{
+							actionItems: actionItemsWithQuickItems,
+							actionColumnElementClasses: 'custom-column',
+							columns: [
+								{
+									label: 'Bar'
+								},
+								{
+									label: 'Approved',
+									labelStyle: 'success',
+									type: 'label'
+								},
+								{
+									progressBar: {
+										maxValue: 100,
+										minValue: 0,
+										value: 80
+									}
+								}
+							],
+							selectable: true,
+							selectableElementClasses: 'custom-column',
+							stickerLabel: 'MT',
+							stickerStyle: 'danger',
+							stickerElementClasses: 'custom-column'
+						}
+					],
+					group: 'Group 2'
+				}
+			],
+			spritemap: spritemap
+		}, '#group-block');
+
+		/**
+		 * Selectable Table with Selected Items
+		 */
+		new metal.ClayTable({
+			header: [
+				{
+					elementClasses: 'custom-column'
+				},
+				{
+					label: 'Foo',
+					colSpan: 2
+				},
+				{
+					label: 'Status'
+				},
+				{},
+				{
+					elementClasses: 'custom-column'
+				}
+			],
+			items: [
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'Approved',
+							labelStyle: 'success',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								maxValue: 100,
+								minValue: 0,
+								value: 80
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					selected: true,
+					stickerLabel: 'MT',
+					stickerStyle: 'danger',
+					stickerElementClasses: 'custom-column'
+				},
+				{
+					group: 'Group 1'
+				},
+				{
+					actionItems: actionItemsWithQuickItems,
+					actionColumnElementClasses: 'custom-column',
+					columns: [
+						{
+							label: 'Foo'
+						},
+						{
+							label: 'In progress',
+							labelStyle: 'warning',
+							type: 'label'
+						},
+						{
+							progressBar: {
+								status: 'warning',
+								value: 20
+							}
+						}
+					],
+					selectable: true,
+					selectableElementClasses: 'custom-column',
+					selected: true,
+					stickerElementClasses: 'custom-column',
+					stickerImageSrc: './image.jpg',
+				}
+			],
+			spritemap: spritemap
+		}, '#selected-block');
+	</script>
+</body>
+</html>
