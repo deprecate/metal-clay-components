@@ -1,0 +1,398 @@
+{namespace ClayTable}
+
+/**
+ * This renders the component's whole content.
+ */
+{template .render}
+	{@param schema: list<[
+		contentRenderer: string,
+		fieldName: string,
+		label: string,
+		sortingOrder: string
+	]>}
+	{@param? elementClasses: string}
+	{@param? handleCellContentClick_: any}
+	{@param? handleItemToggled_: any}
+	{@param? handleSortingClick_: any}
+	{@param? id: string}
+	{@param? items: list<?>}
+	{@param? selectable: bool}
+	{@param? showActionsMenu: bool}
+	{@param? size: string}
+	{@param? spritemap: string}
+
+
+	{let $attributes kind="attributes"}
+		class="table-responsive
+			{if $size}
+				-{$size}
+			{/if}
+
+			{if $elementClasses}
+				{sp}{$elementClasses}
+			{/if}
+		"
+
+		{if $id}
+			id="{$id}"
+		{/if}
+	{/let}
+
+	<div {$attributes}>
+		<table class="table table-autofit table-hover table-list show-quick-actions-on-hover">
+			{call .header}
+				{param handleSortingClick_: $handleSortingClick_ /}
+				{param schema: $schema /}
+				{param selectable: $selectable /}
+				{param showActionsMenu: $showActionsMenu /}
+				{param spritemap: $spritemap /}
+			{/call}
+
+			{call .body}
+				{param handleCellContentClick_: $handleCellContentClick_ /}
+				{param handleItemToggled_: $handleItemToggled_ /}
+				{param items: $items /}
+				{param schema: $schema /}
+				{param selectable: $selectable /}
+				{param showActionsMenu: $showActionsMenu /}
+				{param spritemap: $spritemap /}
+			{/call}
+		</table>
+	</div>
+{/template}
+
+/**
+ * This renders the body of the table
+ */
+{template .body}
+	{@param schema: list<[
+		contentRenderer: string,
+		fieldName: string,
+		label: string,
+		sortingOrder: string
+	]>}
+	{@param? handleCellContentClick_: any}
+	{@param? handleItemToggled_: any}
+	{@param? items: list<?>}
+	{@param? selectable: bool}
+	{@param? showActionsMenu: bool}
+	{@param? spritemap: string}
+
+	<tbody>
+		{if $items}
+			{call .rows}
+				{param handleCellContentClick_: $handleCellContentClick_ /}
+				{param handleItemToggled_: $handleItemToggled_ /}
+				{param items: $items /}
+				{param schema: $schema /}
+				{param selectable: $selectable /}
+				{param showActionsMenu: $showActionsMenu /}
+				{param spritemap: $spritemap /}
+			{/call}
+		{/if}
+	</tbody>
+{/template}
+
+/**
+ * This renders the header of the table
+ */
+{template .header}
+	{@param schema: list<[
+		contentRenderer: string,
+		fieldName: string,
+		label: string,
+		sortingOrder: string
+	]>}
+	{@param? handleSortingClick_: any}
+	{@param? selectable: bool}
+	{@param? showActionsMenu: bool}
+	{@param? spritemap: string}
+
+	<thead>
+		<tr>
+			{if $selectable}
+				<th></th>
+			{/if}
+
+			{foreach $element in $schema}
+				{let $tableHeaderAttributes kind="attributes"}
+					{if index($element) == 0}
+						class="table-cell-expand"
+					{/if}
+				{/let}
+
+				<th {$tableHeaderAttributes}>
+					{if not $element.sortingOrder}
+						{$element.label ?: $element.fieldName}
+					{else}
+						{call ClayButton.render}
+							{param events: ['click': $handleSortingClick_] /}
+							{param icon: 'order-arrow-' + ($element.sortingOrder == 'asc' ? 'up' : 'down') /}
+							{param iconAlignment: 'right' /}
+							{param label: $element.label ?: $element.fieldName /}
+							{param spritemap: $spritemap /}
+							{param style: 'unstyled' /}
+						{/call}
+					{/if}
+				</th>
+			{/foreach}
+
+			{if $showActionsMenu}
+				<th></th>
+			{/if}
+		</tr>
+	</thead>
+{/template}
+
+/**
+ * This renders a row.
+ */
+{template .row}
+	{@param item: ?}
+	{@param schema: list<[
+		contentRenderer: string,
+		fieldName: string,
+		label: string,
+		sortingOrder: string
+	]>}
+	{@param? handleCellContentClick_: any}
+	{@param? handleItemToggled_: any}
+	{@param? selectable: bool}
+	{@param? showActionsMenu: bool}
+	{@param? spritemap: string}
+
+	<tr>
+		{if $selectable}
+			<td>
+				{call ClayCheckbox.render}
+					{param checked: $item.selected /}
+					{param disabled: $item.disabled /}
+					{param events: ['change': $handleItemToggled_] /}
+					{param name: $item.inputName /}
+					{param value: $item.inputValue /}
+				{/call}
+			</td>
+		{/if}
+
+		{foreach $element in $schema}
+			{let $variant: index($element) == 0 ? 'main' : $element.contentRenderer /}
+
+			{delcall ClayTable.Cell variant="$variant"}
+				{param fieldName: $element.fieldName /}
+				{param handleCellContentClick_: $handleCellContentClick_ /}
+				{param item: $item /}
+				{param spritemap: $spritemap /}
+				{param value: $item[$element.fieldName] /}
+			{/delcall}
+		{/foreach}
+
+		{if $showActionsMenu and $item.actionItems and $spritemap}
+			<td>
+				<div class="quick-action-menu">
+					{foreach $actionItem in $item.actionItems}
+						{if $actionItem.quickAction and $actionItem.icon}
+							{call ClayLink.render}
+								{param elementClasses: 'quick-action-item' /}
+								{param href: $actionItem.href /}
+								{param icon: $actionItem.icon /}
+								{param spritemap: $spritemap /}
+							{/call}
+						{/if}
+					{/foreach}
+				</div>
+
+				{call ClayActionsDropdown.render}
+					{param items: $item.actionItems /}
+					{param spritemap: $spritemap /}
+				{/call}
+			</td>
+		{/if}
+	</tr>
+{/template}
+
+/**
+ * This renders all the rows in the table, iteraing over the items and its
+ * possible nested items.
+ */
+{template .rows}
+	{@param items: list<?>}
+	{@param schema: list<[
+		contentRenderer: string,
+		fieldName: string,
+		label: string,
+		sortingOrder: string
+	]>}
+	{@param? handleCellContentClick_: any}
+	{@param? handleItemToggled_: any}
+	{@param? selectable: bool}
+	{@param? showActionsMenu: bool}
+	{@param? spritemap: string}
+
+	{foreach $item in $items}
+		{if $item.items}
+			<tr class="table-divider">
+				{let $cellAttributes kind="attributes"}
+					colspan="{length($schema) + $selectable + $showActionsMenu}"
+				{/let}			
+
+				<td {$cellAttributes}>{$item.label}</td>
+			</tr>
+
+			{call .rows}
+				{param handleCellContentClick_: $handleCellContentClick_ /}
+				{param handleItemToggled_: $handleItemToggled_ /}
+				{param items: $item.items /}
+				{param schema: $schema /}
+				{param selectable: $selectable /}
+				{param showActionsMenu: $showActionsMenu /}
+				{param spritemap: $spritemap /}
+			{/call}
+		{else}
+			{call .row}
+				{param handleCellContentClick_: $handleCellContentClick_ /}
+				{param handleItemToggled_: $handleItemToggled_ /}
+				{param item: $item /}
+				{param schema: $schema /}
+				{param selectable: $selectable /}
+				{param showActionsMenu: $showActionsMenu /}
+				{param spritemap: $spritemap /}
+			{/call}
+		{/if}
+	{/foreach}
+{/template}
+
+/**
+ * This renders the default variant of a cell
+ */
+{deltemplate ClayTable.Cell}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td>
+		<span class="text-truncate">{$value}</span>
+	</td>
+{/deltemplate}
+
+/**
+ * This renders the default variant of a cell
+ */
+{deltemplate ClayTable.Cell variant="'button'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td>
+		{call ClayButton.render}
+			{param events: ['click': $handleCellContentClick_ ]/}
+			{param label: $value /}
+			{param style: $item[$fieldName + 'Style'] /}
+			{param type: $item[$fieldName + 'Type'] /}
+		{/call}
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a variant of a cell of type label
+ */
+{deltemplate ClayTable.Cell variant="'label'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td class="table-cell-expand">
+		{call ClayLabel.render}
+			{param label: $value /}
+			{param style: $item[$fieldName + 'Style'] /}
+		{/call}
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a variant of a cell of type link
+ */
+{deltemplate ClayTable.Cell variant="'link'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td>
+		{call ClayLink.render}
+			{param elementClasses: 'text-truncate' /}
+			{param href: $item[$fieldName + 'href'] /}
+			{param label: $value /}
+		{/call}
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a variant of a cell of type main. This type renders an sticker
+ * if passed and a text or link in semibold. Is used for the first cell of each
+ * row.
+ */
+{deltemplate ClayTable.Cell variant="'main'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td class="table-cell-expand">
+		<h4 class="table-list-title">
+			<span class="text-truncate-inline">
+				{if $item.href}
+					{call ClayLink.render}
+						{param elementClasses: 'text-truncate' /}
+						{param href: $item.href /}
+						{param label: $value /}
+					{/call}
+				{else}
+					<span class="text-truncate">{$value}</span>	
+				{/if}
+			</span>
+		</h4>
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a variant of a cell of type link
+ */
+{deltemplate ClayTable.Cell variant="'number'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td class="text-right">
+		{$value}
+	</td>
+{/deltemplate}
+
+/**
+ * This renders a variant of a cell of type link
+ */
+{deltemplate ClayTable.Cell variant="'progressbar'"}
+	{@param fieldName: string}
+	{@param item: ?}
+	{@param value: ?}
+	{@param? handleCellContentClick_: any}
+	{@param? spritemap: string}
+
+	<td>
+		{call ClayProgressBar.render}
+			{param maxValue: $item[$fieldName + 'MaxValue'] /}
+			{param minValue: $item[$fieldName + 'MinValue'] /}
+			{param status: $item[$fieldName + 'Status'] /}
+			{param value: $value /}
+		{/call}
+	</td>
+{/deltemplate}
