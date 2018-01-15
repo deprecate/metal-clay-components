@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Clay - <%= title %></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="<%= rootPath %>/css/site/site-atlas-font-awesome.css" />
+	<link rel="stylesheet" href="<%= rootPath %>/css/site/site-main.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="<%= rootPath %>/js/bootstrap.js"></script>
+	<script src="<%= rootPath %>/js/collapsible-search.js"></script>
+	<script src="<%= rootPath %>/js/side-navigation.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header class="row" id="headerTopBar">
+			<div class="container-fluid">
+				<a class="btn btn-primary" href="#beginContent" id="skipTo">Skip to Content</a>
+
+				<button type="button" class="animated-toggle btn btn-primary d-md-none navbar-toggle navbar-toggler mt-2 hidden-sm-up">
+					<svg aria-hidden="true" class="lexicon-icon lexicon-icon-bars">
+						<use xlink:href="<%= rootPath %>/images/icons/icons.svg#bars" />
+					</svg>
+				</button>
+
+				<h4 class="title"><a href="<%= rootPath %>">Clay</a> <span class="label label-primary label-sm lexicon-version">v<%= version %></span></h4>
+
+				<% include site_config %>
+			</div>
+		</header>
+
+		<section class="container-fluid main-nav-container">
+			<% include navigation %>
